@@ -15,14 +15,17 @@ OUT = DOCS / "Hilbert_Smith_Audit.pdf"
 BUILD = ROOT / "build" / "audit_pdf"
 FIGS = BUILD / "figures"
 
-SOURCES = [
-    ("README", ROOT / "README.md"),
+# Main response body (read first). README + TOC go at the end as appendix material.
+BODY_SOURCES = [
     ("Proof overview (Q1, Q2, Q4, Q6)", DOCS / "01_proof_overview.md"),
     ("Audit ledger (Targets A--C)", DOCS / "02_audit_ledger.md"),
     ("Sponge stress test (Q5)", DOCS / "03_sponge_stress_test.md"),
     ("Public responses (Q3)", DOCS / "04_public_responses.md"),
     ("Lemma dependency ledger", DOCS / "lemma_dependency_ledger.md"),
     ("Sherlock session log", DOCS / "SHERLOCK_HILBERT_SMITH_2026-10-07.md"),
+]
+APPENDIX_SOURCES = [
+    ("Repository README", ROOT / "README.md"),
 ]
 
 UNICODE_MATH = {
@@ -54,8 +57,8 @@ UNICODE_MATH = {
 }
 
 HEADER = r"""---
-title: "Hilbert--Smith Conjecture"
-subtitle: "Sherlock Reverse-Verification Audit"
+title: "Response: OpenAI Hilbert--Smith preprint"
+subtitle: "Sherlock reverse-verification notes"
 author: "Cursor(Opus 5.5/Grok), driven by: Alan Coppola"
 date: "2026-10-07"
 geometry: margin=1in
@@ -78,9 +81,10 @@ header-includes:
 ---
 
 \begin{center}
-{\small\textit{Audit of OpenAI Math Release preprint
+{\small\textit{Independent read of the OpenAI Math Release preprint
 \texttt{The Hilbert--Smith conjecture in every finite dimension}}\\
-Upstream: \texttt{github.com/openai/math} \quad SHA: \texttt{adc7f12\ldots}}
+Upstream: \texttt{github.com/openai/math} \quad SHA: \texttt{adc7f12\ldots}\\
+Repo: \texttt{github.com/ajjcoppola/hilberts-5th-oai}}
 \end{center}
 \vspace{-0.4em}
 
@@ -126,8 +130,15 @@ Menger-type sponges, where faithful $\mathbb{Z}_p$ actions do exist, the
 proof correctly refuses to run because Newman and Euclidean-chart hypotheses
 fail.
 
-\tableofcontents
 \newpage
+
+"""
+
+FOOTER = r"""
+\newpage
+\appendix
+\section*{Appendix: contents}
+\tableofcontents
 
 """
 
@@ -288,15 +299,21 @@ def normalize_md(md: str, stem: str) -> str:
     return md
 
 
-def combine_markdown() -> str:
-    parts = [HEADER]
-    for title, path in SOURCES:
+def _append_sources(parts: list[str], sources: list[tuple[str, Path]]) -> None:
+    for title, path in sources:
         if not path.exists():
             continue
         stem = path.stem.replace(" ", "_")
         body = normalize_md(path.read_text(encoding="utf-8"), stem)
         body = re.sub(r"^# ", "## ", body, count=1, flags=re.MULTILINE)
         parts.append(f"\\newpage\n\n# {title}\n\n{body}\n")
+
+
+def combine_markdown() -> str:
+    parts = [HEADER]
+    _append_sources(parts, BODY_SOURCES)
+    parts.append(FOOTER)
+    _append_sources(parts, APPENDIX_SOURCES)
     return "\n".join(parts)
 
 
