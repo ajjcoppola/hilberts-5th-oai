@@ -1,38 +1,58 @@
-# Post drafts (2026-10-07)
+# Post drafts (updated 2026-10-08)
 
 Repo: https://github.com/ajjcoppola/hilberts-5th-oai  
-PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf
+OpenAI PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
+Dabrowski PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/dabrowski/docs/Dabrowski_HS_Audit.pdf
+
+Closed MO question to edit/reopen: https://mathoverflow.net/questions/515824
+
+**Do not** ask whether a proof is correct or to finish a verification. The body below is a research question about Euclidean structure; the two preprints are motivation.
 
 ---
 
-## MathOverflow
+## MathOverflow (paste-ready rewrite)
 
-**Title:** Independent reverse-read of OpenAI’s Hilbert–Smith preprint (all finite dimensions)
+**Title:** Which local Euclidean properties block continuous \(\mathbb{Z}_p\)-actions? (OpenAI vs Dabrowski signature arguments)
 
 **Tags:** `gt.geometric-topology` `at.algebraic-topology` `transformation-groups` `lie-groups`
 
 **Body:**
 
-OpenAI’s Math Release includes a preprint claiming the Hilbert–Smith conjecture in every finite dimension:
+The Hilbert–Smith conjecture is equivalent to \(p\)-adic exclusion: the additive group \(\mathbb{Z}_p\) admits no faithful jointly continuous action on a connected finite-dimensional topological manifold. (Manifolds Hausdorff, second countable; actions jointly continuous.) Classical partial results include Lipschitz and quasiconformal actions, and Pardon’s theorem in dimension 3. The remaining problem is often described as a rigidity property of Euclidean charts under small subgroups of \(\mathrm{Homeo}\).
 
-https://github.com/openai/math/tree/main/preprints/The-Hilbert-Smith-conjecture-in-every-finite-dimension-September-23-2026
+Two recent arguments appear to use the **same obstruction class** — integrality versus \(p\)-divisibility of a signature / Witt invariant — with different packaging:
 
-I posted an independent reverse-verification note (not a formal referee report):
+- OpenAI (2026-09-23): after Newman chart reduction to a faithful open subgroup \(G\cong\mathbb{Z}_p\) on \(O\subset\mathbb{R}^n\), odd-stabilize into \(S^d\), Haar-average a degree-one pinch through the orbit space, and split an integral Witt/signature class on \(E_d(S^d)\) into \(p^k\) equal pieces summing to \(4\overline{u}_d\). A comparison lattice \(L_d^{-1}\mathbb{Z}\,\overline{u}_d\) with \(L_d=2^{e_d}\) independent of \(k\) then yields a contradiction for \(p^k>4L_d\).  
+  https://github.com/openai/math/tree/main/preprints/The-Hilbert-Smith-conjecture-in-every-finite-dimension-September-23-2026
 
-- PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
-- Repo: https://github.com/ajjcoppola/hilberts-5th-oai  
+- Dabrowski (2026-10-08): Haar-average coordinates in a Euclidean chart to get a degree-one pinch on \(S^n\); a character detector supplies a compact free \(C_p\)-space \(T\); a duality-compatible homotopy idempotent on \(S^n\times\mathbb{CP}^2\) forgets to a scalar germ whose iterated Karoubi localization boundaries recover one copy of \(\mathbb{CP}^2\). The resulting class in \(L_4(A_G(T))\) has integer signature tail constantly \(1\). Independently, permutation-tensoring \(\tau=\mathbb{Q}[G_i/P_i]\) is locally \(p\) copies of the identity and is nilpotent after controlled Mayer–Vietoris, so every such class has eventually \(p\)-divisible ordinary signatures. Hence \(1\in p\mathbb{Z}\).  
+  https://github.com/adbrw/HS_proof
 
-**Mechanism (as I read it).** The argument is not Yang’s orbit-dimension raising. After Newman chart reduction to a faithful open subgroup \(G\cong\mathbb{Z}_p\) on \(O\subset\mathbb{R}^n\), one odd-stabilizes into \(S^d\), averages a degree-one pinch through the orbit space near the identity, and builds equal Witt/signature character classes. Faithfulness supplies arbitrarily fine \(p^k\)-sheet regions; the classes are forced equal and sum to \(4\overline{u}_d\), contradicting a fixed denominator lattice \(L_d^{-1}\mathbb{Z}\,\overline{u}_d\) once \(p^k>4L_d\).
+I am **not** asking whether either manuscript is correct, complete, or ready to referee. I want to isolate the **Euclidean input**.
 
-**Audit status.** Targeted check of load-bearing lemmas found no outright break. Items I marked weak for expert/Lean scrutiny include dense doubling, the Balmer–Walter localization bridge, character coproducts, and the equal-parts \(M_\beta\) isometry. On Menger/solenoid/Raymond–Williams spaces (where free \(\mathbb{Z}_p\) actions exist), the writeup correctly fails at Newman/chart hypotheses rather than “proving too much.”
+Both writeups seem to need four local properties of \(\mathbb{R}^n\) (or of topological manifolds):
 
-**Questions for specialists.**
+1. **Newman rigidity.** A compact Lie group acting continuously and displacing every point of a small ball by less than some \(\varepsilon>0\) acts trivially.
 
-1. Does Balmer–Walter 2002, Thm 2.1 apply verbatim to the generated continuous categories \(\mathcal{T}(X)\) used here?
-2. Is the germ/isometry step for the character multiplier \(\beta\) in the equal-parts proposition airtight?
-3. Has anyone begun a Lean formalization of the lattice comparison or the final contradiction?
+2. **Local Euclidean charts + orientation collapse.** An effective \(\mathbb{Z}_p\)-action produces a free point and an invariant chart that compactifies (or odd-stabilizes) into a sphere \(S^d\), or into a Poincaré pair such as \(S^n\times\mathbb{CP}^2\), carrying a degree-one (or signature-one) class.
 
-I am not claiming a refutation—only a structured first-pass map of the argument and its stress points.
+3. **Local duality / an integral signature lattice.** Either a sheaf Witt group with a uniform denominator bound, or ultimate quadratic \(L_4\) of an asymptotic category with integer ordinary signatures (a “tail”).
+
+4. **Arbitrarily small open subgroups of \(\mathrm{Homeo}\).** Haar averaging / transfer along a nested sequence of open tails \(p^j\mathbb{Z}_p\) produces a degree coprime to \(p\) (OpenAI: degree one through the orbit space; Dabrowski: signature tail \(1\)) while finite quotients become unbounded \(p\)-powers.
+
+**Question.** Which of (1)–(4) is essential to blocking continuous \(\mathbb{Z}_p\)-actions, and which can fail independently? In particular: is the obstruction the existence of an integral signature (Witt or \(L\)-theory tail) that cannot be infinitely \(p\)-divisible, or is it the combination of Newman charts with small subgroups of \(\mathrm{Homeo}\)?
+
+**Sponge probe.** Faithful continuous \(\mathbb{Z}_p\)-actions exist on Menger compacta \(\mu^n\) (Dranishnikov), on the \(p\)-adic solenoid, and on Raymond–Williams compacta. On those spaces the theorem is false, so a correct manifold proof must fail some hypothesis. Both of the arguments above appear to break at (1)–(2) (no Euclidean chart / no combinatorial dual cells), not at the arithmetic of (3). Is that the right diagnosis — i.e., is the obstruction Euclidean rather than purely dynamical? Where would (3) or (4) fail first on ENR homology manifolds, if a free \(\mathbb{Z}_p\)-action existed there?
+
+Background notes (not the question):  
+OpenAI reverse-read: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
+Dabrowski reverse-read: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/dabrowski/docs/Dabrowski_HS_Audit.pdf
+
+---
+
+## Reopen comment (after editing 515824)
+
+Edited to a research question about which local Euclidean properties (Newman, charts/orientation, integral signature lattice, small subgroups of Homeo) block continuous \(\mathbb{Z}_p\)-actions, using two recent signature-style arguments as motivation rather than asking for verification. Please consider reopening.
 
 ---
 
@@ -40,19 +60,27 @@ I am not claiming a refutation—only a structured first-pass map of the argumen
 
 **Short (recommended):**
 
-Independent reverse-read of OpenAI’s claimed Hilbert–Smith proof (all finite dims).
+Two 2026 Hilbert–Smith claims, same obstruction family: integrality vs \(p\)-divisibility of a signature.
 
-Not Yang dim-raising — it’s an integrality-vs-divisibility Witt/signature argument on \(S^d\) after averaging a deg-1 test near id.
+OpenAI (Sep 23): Witt lattice on \(S^d\), equal parts \(4/p^k\).  
+Dabrowski (Oct 8): \(L_4\) tail + \(\mathbb{CP}^2\), then \(1\in p\mathbb{Z}\).
 
-No outright FAIL in the load-bearing lemmas; several WEAK spots for experts. Menger sponges break the proof at Newman/chart (correctly scoped).
+Neither is Yang dim-raising. Sponges break both at charts/Newman.
 
-PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
-Repo: https://github.com/ajjcoppola/hilberts-5th-oai
+https://github.com/ajjcoppola/hilberts-5th-oai
 
 **Even shorter:**
 
-OpenAI claimed Hilbert–Smith in all finite dimensions. I reverse-audited it.
+OpenAI and Dabrowski both try Hilbert–Smith via signature integrality vs \(p\)-divisibility (Witt sheaves vs \(L_4\) tails). I reverse-read both. Question: which Euclidean properties actually block \(\mathbb{Z}_p\)?
 
-TL;DR: Witt/signature lattice vs \(p^k\) equal parts — not Yang. No hard FAIL yet; a few WEAK lemmas. Sponges don’t break the writeup.
+https://github.com/ajjcoppola/hilberts-5th-oai
 
-https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf
+---
+
+## Superseded (2026-10-07 work-checking draft — do not repost)
+
+Closed as off-topic. Kept only for history.
+
+**Old title:** Independent reverse-read of OpenAI’s Hilbert–Smith preprint (all finite dimensions)
+
+OpenAI’s Math Release includes a preprint claiming the Hilbert–Smith conjecture in every finite dimension. I posted an independent reverse-verification note. That framing (is it correct / finish my verification) is what MO rejected.
