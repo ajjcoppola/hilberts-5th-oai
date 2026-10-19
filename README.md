@@ -8,7 +8,8 @@ Sherlock-mode audits of two 2026 preprints claiming the Hilbert–Smith conjectu
 
 **Published host for MO / X / LinkedIn posts:** this repository  
 (`https://github.com/ajjcoppola/hilberts-5th-oai`).  
-**Git tag:** [`checkpoint/hm6-2026-10-18`](docs/CHECKPOINT_HM6_2026-10-18.md) · outreach: [`docs/OUTREACH_COLLABORATORS.md`](docs/OUTREACH_COLLABORATORS.md)
+**Git tag:** [`checkpoint/hm6-2026-10-18`](docs/CHECKPOINT_HM6_2026-10-18.md) · outreach: [`docs/OUTREACH_COLLABORATORS.md`](docs/OUTREACH_COLLABORATORS.md)  
+**Finish-line plan:** [`plans/HM6_FINISH_LINE.md`](plans/HM6_FINISH_LINE.md) · literature library: [`library/README.md`](library/README.md)
 
 **Alan J. Coppola**, *p-Adic Transfer, Signature Tails, and Homology Manifolds* (18 Oct 2026 draft):
 
