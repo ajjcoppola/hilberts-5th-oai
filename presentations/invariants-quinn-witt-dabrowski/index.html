@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quinn index · Witt characters · Dabrowski tails</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <style>
+    :root {
+      --r-main-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --r-heading-font: "Iowan Old Style", Palatino, Georgia, serif;
+      --r-main-color: #1a1a1a;
+      --accent: #8b3a2a;
+    }
+    .reveal { font-size: 28px; }
+    .reveal h1, .reveal h2, .reveal h3 { color: var(--accent); text-transform: none; }
+    .reveal .subtitle { color: #555; font-size: 0.72em; }
+    .reveal table { font-size: 0.65em; margin: 0.35em auto; }
+    .reveal th { text-align: left; }
+    .reveal .small { font-size: 0.72em; color: #444; }
+    .reveal .box {
+      text-align: left; background: #f6f4f1; border-left: 3px solid var(--accent);
+      padding: 0.5em 0.75em; margin: 0.45em 0; font-size: 0.82em;
+    }
+    .reveal .def {
+      text-align: left; background: #eef3f7; border-left: 3px solid #356;
+      padding: 0.5em 0.75em; margin: 0.45em 0; font-size: 0.82em;
+    }
+    .reveal .tag {
+      display: inline-block; padding: 0.08em 0.4em; border: 1px solid #888;
+      border-radius: 3px; font-size: 0.58em; margin-right: 0.25em;
+    }
+    .reveal .tag.oai { border-color: #356; color: #356; }
+    .reveal .tag.dab { border-color: #363; color: #363; }
+    .reveal .tag.quinn { border-color: var(--accent); color: var(--accent); }
+    .reveal .tag.pre { border-color: #666; color: #666; }
+    .reveal ul { display: block; }
+    .reveal .section-label {
+      font-size: 0.55em; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #888; margin-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========== TITLE ========== -->
+      <section>
+        <h2>Three invariants</h2>
+        <p class="subtitle">Quinn index · OpenAI Witt characters · Dabrowski $L_4$ tails</p>
+        <p class="small">Preliminaries + short overview for the 2026 Hilbert–Smith<br/>
+        signature arguments and their ENR boundary</p>
+      </section>
+
+      <section>
+        <h3>Roadmap</h3>
+        <ol style="font-size:0.85em;">
+          <li><strong>Preliminaries</strong> — signatures, Witt, $L$-theory, ENRs</li>
+          <li><strong>Geometry first</strong> — what the algebra is really measuring</li>
+          <li><strong>Quinn / OpenAI / Dabrowski</strong> — definitions</li>
+          <li><strong>Compare</strong> — same Euclidean germ, two packagings</li>
+        </ol>
+      </section>
+
+      <!-- ========== GEOMETRY FIRST (the missing piece) ========== -->
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>The algebra is packaging. The geometry is a germ.</h3>
+        <div class="box">
+          Quinn $I(X)$, OpenAI Witt characters, and Dabrowski $L_4$ tails look like
+          different formalisms. Geometrically they all ask the same question:
+          <br/><br/>
+          <em>Can a tiny continuous $\mathbb{Z}_p$-motion of a
+          <strong>Euclidean (or ENR-dual) neighborhood</strong>
+          manufacture a “unit’’ of duality — degree $1$ or signature $1$ —
+          and then split that unit into $p^k$ equal covering pieces?</em>
+          <br/><br/>
+          If yes for arbitrarily large $k$, integrality breaks.
+          Sponges fail earlier: they never produce the unit.
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>Two geometric moves (shared)</h3>
+        <div class="def">
+          <strong>1. Chart compression $\to$ unit class.</strong>
+          A small open subgroup of $\mathrm{Homeo}$ barely moves a ball.
+          Haar-average / Newman rigidity $\Rightarrow$ a map that looks like the
+          identity on a chart, then pinches to $S^d$ or $S^n\times\mathbb{CP}^2$.
+          That map carries <em>degree $1$</em> or <em>signature $1$</em>
+          (the “unit’’).
+          <br/><br/>
+          <strong>2. Finite cyclic covers $\to$ $p$-splitting.</strong>
+          Approximate $\mathbb{Z}_p$ by $C_{p^k}$. A free (or free-on-detector)
+          $C_{p^k}$-action gives an orbit map of covering degree $p^k$.
+          Transfer / characters split the unit into $p^k$ equal pieces.
+        </div>
+        <p class="small">OpenAI writes (2) as Witt characters. Dabrowski writes (2) as
+        $\tau=\mathbb{Q}[G/P]$ locally $p$ copies of $\mathrm{id}$. Same covering geometry.</p>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>Why “characters’’ for both?</h3>
+        <div class="box">
+          Not because Fourier analysis is the obstruction — because
+          <strong>free finite cyclic actions are covers</strong>.
+          <ul>
+            <li>Orbit projection $E\to E/C_{p^k}$ has degree $p^k$</li>
+            <li>Transfer multiplies fundamental classes / signatures by $p^k$</li>
+            <li>Characters of $C_{p^k}$ are the Fourier language for the same
+                isotypic splitting of equivariant forms</li>
+            <li>Dabrowski’s permutation module $\mathbb{Q}[G_i/P_i]$
+                <em>is</em> the chain-level cover: locally $p$ sheets</li>
+          </ul>
+        </div>
+        <p class="small">So OpenAI “equal parts $4/p^k$’’ and Dabrowski “eventually $p\mid\sigma$’’
+        are two bookkeeping systems for <strong>covering degree</strong>.</p>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>Quinn $I(X)$: not “cobordism of $\mathbb{R}^n$’’</h3>
+        <div class="def">
+          Common misread: “high-dimensional cobordism classifies Euclidean space.’’
+          <br/><br/>
+          More accurate:
+          <ul>
+            <li>An ENR $\mathbb{Z}$-homology manifold already has
+                <em>algebraic</em> local Poincaré duality (like $\mathbb{R}^n$).</li>
+            <li><strong>Resolution</strong> asks for a cell-like map from a
+                <em>genuine</em> topological manifold — geometric charts up to
+                cell-like collapse.</li>
+            <li>In dimensions $\ge 6$, surgery / $L$-theory says that obstruction
+                is a single integer $I(X)$ (local symmetric signature of the
+                duality “corner’’).</li>
+            <li>$I\equiv 1\pmod{8}$ is the Rokhlin-type shadow of $4$-dimensional
+                signature phenomena inside that local $L$-class.</li>
+          </ul>
+        </div>
+        <p class="small">$I(X)$ measures: “does local duality come from manifold geometry,
+        or only from homology?’’ — not global cobordism of $\mathbb{R}^n$.</p>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>Picture: corner vs chart</h3>
+        <div class="box">
+          <strong>Manifold / resolvable ENR ($I=1$):</strong>
+          every point has neighborhoods cell-like equivalent to balls.
+          Local duality is realized by actual geometry.
+          <br/><br/>
+          <strong>BFMW non-resolvable ($I\neq 1$):</strong>
+          local homology still looks like $\mathbb{R}^n$, but the
+          Poincaré corner carries an exotic local signature $I(X)$.
+          No cell-like manifold resolution.
+          <br/><br/>
+          <strong>Stabilization:</strong> if $I(X)=1$, then $X\times\mathbb{R}^2$
+          <em>is</em> a topological manifold — the remaining geometric
+          obstruction is killed by two extra Euclidean directions.
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>How Quinn feeds the 2026 machines</h3>
+        <div class="box">
+          On a true manifold, the unit in move (1) comes from a Euclidean ball.
+          <br/><br/>
+          On a nowhere-Euclidean ENR, there is no ball — but there is still
+          local duality. The 2026 ENR rephrases treat the detector’s
+          local signature as (a multiple of) $I(X)$:
+          <ul>
+            <li>OpenAI equal parts: $4I(X)/p^k$ vs lattice $L_d$</li>
+            <li>Dabrowski: local signature / tail linked to $I(X)$;
+                single-$p$ cyclotomic fails when $p\mid I(X)$</li>
+          </ul>
+          Geometrically: <em>Quinn replaces the missing chart’s unit
+          by the local $L$-signature of the homology-manifold germ.</em>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>One diagram</h3>
+        <div class="box" style="font-family:ui-monospace,Menlo,monospace;font-size:0.72em;white-space:pre;line-height:1.35;">
+Euclidean / ENR germ
+        │
+        │  (1) small Homeo + Haar / Newman
+        ▼
+   unit class: deg 1 or σ = 1   ←—— Quinn I(X) if no chart
+        │
+        │  (2) free C_{p^k} cover / transfer
+        ▼
+   p^k equal pieces             ←—— characters (OAI) or τ (Dabrowski)
+        │
+        ▼
+   vs integrality lattice / integer tails
+        │
+        ▼
+   contradiction for large k
+        </div>
+        <p class="small">Sponges / solenoids / RW compacta: fail at the top arrow
+        (no unit-producing germ). Algebra never reached.</p>
+      </section>
+
+      <section>
+        <p class="section-label">What's missing geometrically</p>
+        <h3>So what was missing?</h3>
+        <div class="box">
+          The missing geometric object is not a fancier invariant —
+          it is the <strong>unit-producing germ</strong>:
+          <ul>
+            <li>a neighborhood that can supply degree/signature $1$
+                after tiny equivariant averaging, and</li>
+            <li>compatible free finite cyclic covers that split that unit
+                by covering degree $p^k$.</li>
+          </ul>
+          Witt groups, characters, $L_4$ tails, and Quinn $I(X)$ are
+          three languages for bookkeeping that germ + those covers.
+          <br/><br/>
+          Without the germ, Hilbert–Smith packaging does not start.
+          With the germ but only single-$p$ arithmetic, exotic $I(X)$
+          divisible by $p$ can slip through (Dabrowski gap).
+        </div>
+      </section>
+
+      <!-- ========== PRELIMINARIES ========== -->
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>What is a signature?</h3>
+        <div class="def">
+          For an oriented $4k$-manifold $M$ (closed), the <strong>signature</strong>
+          $\sigma(M)\in\mathbb{Z}$ is the signature of the intersection form
+          $$
+          H^{2k}(M;\mathbb{Z})\times H^{2k}(M;\mathbb{Z})\to\mathbb{Z}.
+          $$
+          Number of positive eigenvalues minus number of negative eigenvalues
+          (after tensoring with $\mathbb{R}$).
+        </div>
+        <p class="small">
+          Classic: $\sigma(\mathbb{CP}^2)=1$, $\sigma(S^4)=0$,
+          $\sigma(M\#N)=\sigma(M)+\sigma(N)$.
+        </p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>Signature as a bordism / surgery invariant</h3>
+        <div class="box">
+          <ul>
+            <li>$\sigma$ is a <strong>cobordism invariant</strong> of oriented $4k$-manifolds.</li>
+            <li>In surgery theory, signatures (and their generalizations) obstruct
+                whether a Poincaré complex is homotopy-equivalent to a manifold.</li>
+            <li>For group actions / controlled topology, one needs <em>refined</em>
+                signatures: Witt classes, $L$-theory classes, or “tails” of ordinary signatures.</li>
+          </ul>
+        </div>
+        <p class="small">The 2026 HS arguments manufacture such a refined signature from a
+        Euclidean chart + small $\mathbb{Z}_p$ subgroup, then get a contradiction with $p$-divisibility.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>Witt group (classical)</h3>
+        <div class="def">
+          The <strong>Witt group</strong> $W(R)$ of a ring $R$ (e.g. $R=\mathbb{Z},\mathbb{Q},\mathbb{R}$)
+          classifies nondegenerate symmetric bilinear forms up to
+          <em>metabolic</em> (hyperbolic) summands.
+          <ul>
+            <li>$W(\mathbb{R})\cong\mathbb{Z}$ via signature</li>
+            <li>$W(\mathbb{Q})$ involves signatures at real and $p$-adic places</li>
+            <li>A class can be “integral” relative to a lattice / denominator bound</li>
+          </ul>
+        </div>
+        <p class="small"><span class="tag pre">Witt</span>
+        OpenAI works in a <em>sheafified / continuous</em> Witt group of forms on $S^d$,
+        not just a single number $\sigma$.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>Characters (for the OpenAI packaging)</h3>
+        <div class="def">
+          A <strong>character</strong> of a finite abelian group $G$ is a homomorphism
+          $\chi:G\to S^1$ (or $\mathbb{C}^\times$).
+          <ul>
+            <li>For $G=C_{p^k}=\mu_{p^k}$, characters are labelled by $p^k$-th roots of unity.</li>
+            <li>Haar averaging + character projection splits an equivariant class into
+                <strong>isotypic / equal-size pieces</strong>.</li>
+            <li>OpenAI: $p^k$ equal character pieces of a Witt/signature class on the target sphere.</li>
+          </ul>
+        </div>
+        <p class="small">Slogan: characters cut the signature “pie” into $p^k$ equal slices.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>$L$-theory in one slide</h3>
+        <div class="def">
+          <strong>Ranicki $L$-groups</strong> $L_n(R)$ are surgery obstruction groups for
+          a ring (with involution) $R$.
+          <ul>
+            <li>$L_{4k}(\mathbb{Z})$ relates to ordinary signature</li>
+            <li>For group rings / asymptotic categories, $L_4(A_G(T))$ carries
+                <em>quadratic</em> Poincaré data for a detector space $T$</li>
+            <li>“Ultimate” / Karoubi-localized $L$-theory forgets some control and
+                yields ordinary integer signatures</li>
+          </ul>
+        </div>
+        <p class="small"><span class="tag dab">Dabrowski</span> uses $L_4$ of an asymptotic category,
+        not a sheaf Witt group on $S^d$.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>Signature <em>tail</em></h3>
+        <div class="def">
+          A <strong>signature tail</strong> is a sequence
+          $(\sigma_0,\sigma_1,\sigma_2,\ldots)$ of ordinary integer signatures,
+          considered modulo sequences that are eventually zero:
+          $$
+          \sigma_{\mathrm{tail}}\;\in\;
+          \mathbb{Z}^{\mathbb{N}}\big/\mathbb{Z}^{(\mathbb{N})}.
+          $$
+          “Eventually $p$-divisible” means: for large $i$, $p\mid\sigma_i$.
+        </div>
+        <p class="small">Dabrowski’s contradiction: realization gives the constant tail $1$;
+        divisibility says every tail is eventually in $p\mathbb{Z}$.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>ENR homology manifolds</h3>
+        <div class="def">
+          An <strong>ENR</strong> (Euclidean neighborhood retract) $X\subset\mathbb{R}^N$
+          is a retract of some open neighborhood of itself.
+          <ul>
+            <li><strong>$\mathbb{Z}$-homology $n$-manifold:</strong>
+              $H_*(X,X\setminus\{x\};\mathbb{Z})\cong H_*(\mathbb{R}^n,\mathbb{R}^n\setminus\{0\})$
+              at every $x$</li>
+            <li>Compact ENR $\Leftrightarrow$ finite-dimensional ANR (roughly)</li>
+            <li><strong>$X_{\mathrm{man}}$:</strong> set of points with a Euclidean chart $\cong\mathbb{R}^n$</li>
+            <li>BFMW: nowhere-Euclidean examples exist ($X_{\mathrm{man}}=\varnothing$)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Preliminaries</p>
+        <h3>Resolution of homology manifolds</h3>
+        <div class="box">
+          A <strong>resolution</strong> of an ENR $\mathbb{Z}$-homology $n$-manifold $X$
+          is a cell-like map $f:M\to X$ from a topological $n$-manifold $M$.
+          <ul>
+            <li>Edwards–Quinn: for $n\ge 6$, resolvability is detected by a single integer.</li>
+            <li>That integer is the <strong>Quinn index</strong> $I(X)$.</li>
+            <li>$I(X)=1$ $\Leftrightarrow$ $X$ admits a resolution.</li>
+          </ul>
+        </div>
+        <p class="small">If $I(X)=1$, then $X\times\mathbb{R}^2$ is a topological manifold —
+        so Hilbert–Smith reduces to the manifold case.</p>
+      </section>
+
+      <!-- ========== QUINN ========== -->
+      <section>
+        <p class="section-label">Quinn index</p>
+        <h3>Definition</h3>
+        <div class="def">
+          For a compact connected ENR $\mathbb{Z}$-homology $n$-manifold $X$ with $n\ge 6$:
+          $$
+          I(X)\;\in\;\mathbb{Z},\qquad I(X)\equiv 1\pmod{8}.
+          $$
+          <ul>
+            <li>Constructed as a <strong>local symmetric signature</strong> of the
+                Poincaré duality “corner” of $X$</li>
+            <li>$I(X)=1$ $\Leftrightarrow$ $X$ is resolvable (Edwards–Quinn)</li>
+            <li>Product formula: $I(X\times Y)=I(X)\,I(Y)$</li>
+            <li>BFMW construct examples with $I(X)\neq 1$ and $X_{\mathrm{man}}=\varnothing$</li>
+          </ul>
+        </div>
+        <p class="small"><span class="tag quinn">Quinn</span>
+        Local $L$-signature of the duality corner — geometric resolution obstruction,
+        not a global cobordism class of $\mathbb{R}^n$.</p>
+      </section>
+
+      <section>
+        <p class="section-label">Quinn index</p>
+        <h3>Examples of values</h3>
+        <div class="box">
+          <ul>
+            <li>Topological manifold / resolvable ENR: $I(X)=1$</li>
+            <li>Allowed congruence: $\ldots,\;-15,\;-7,\;1,\;9,\;17,\;25,\;\ldots$</li>
+            <li>Non-resolvable BFMW examples: e.g. candidates with $I(X)=9$ or $25$</li>
+            <li>If $I(X)\neq 1$, then $X\times Y$ is <em>never</em> a manifold for
+                any generalized manifold $Y$ with $I(Y)\equiv 1\pmod{8}$
+                (product formula)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Quinn index</p>
+        <h3>Why it matters for $\mathbb{Z}_p$</h3>
+        <p>On a nowhere-Euclidean BFMW space there is <strong>no chart</strong> —
+        Newman reduction fails.</p>
+        <div class="box">
+          Both 2026 arguments still hope to run on an ENR by treating the
+          detector’s local signature as (a multiple of) $I(X)$:
+          <br/><br/>
+          Kill every $I(X)\neq 0$ $\Rightarrow$ no faithful $\mathbb{Z}_p$ on that ENR.
+        </div>
+        <p class="small">Resolvable case $I=1$: reduce via $X\times\mathbb{R}^2$ to a manifold first.</p>
+      </section>
+
+      <!-- ========== OPENAI ========== -->
+      <section>
+        <p class="section-label">OpenAI packaging</p>
+        <h3>Witt lattice on $S^d$</h3>
+        <p><span class="tag oai">OpenAI</span>
+        Chart $\to$ odd-stabilize into $S^d$ $\to$ sheaf Witt / signature group $E_d(S^d)$.</p>
+        <div class="box">
+          <strong>Integrality:</strong> comparison lattice
+          $L_d^{-1}\mathbb{Z}\,\overline{u}_d$ with fixed $L_d=2^{e_d}$
+          (independent of the $p$-power $k$).
+          <br/><br/>
+          <strong>Generator:</strong> a preferred class $\overline{u}_d$
+          (orientation / signature unit on the target sphere).
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">OpenAI packaging</p>
+        <h3>Witt characters &amp; equal parts</h3>
+        <div class="box">
+          Haar-average a degree-one pinch through the orbit space.
+          Character theory for $C_{p^k}$ splits the class into $p^k$ equal pieces:
+          $$
+          \overline{z}_i(a)
+          \;=\;
+          \frac{4}{p^k}\,\overline{u}_d
+          $$
+          On ENRs (rephrase): replace $4$ by $4I(X)$.
+          <br/><br/>
+          For large $k$ with $p^k > 4\,L_d\,|I(X)|$, this cannot lie in the
+          comparison lattice unless $I(X)=0$.
+        </div>
+        <p class="small">Slogan: $p^k$ equal character slices vs a lattice with bounded denominators.</p>
+      </section>
+
+      <!-- ========== DABROWSKI ========== -->
+      <section>
+        <p class="section-label">Dabrowski packaging</p>
+        <h3>$L_4$ signature tails</h3>
+        <p><span class="tag dab">Dabrowski</span> Same obstruction family, different packaging.</p>
+        <div class="box">
+          <strong>Object:</strong> ultimate quadratic
+          $L_4\bigl(A_G(T)\bigr)$ for a free $C_p$-detector $T$.
+          <br/><br/>
+          <strong>Tail:</strong> ordinary integer signatures in
+          $\mathbb{Z}^{\mathbb{N}}/\mathbb{Z}^{(\mathbb{N})}$.
+          <br/><br/>
+          <strong>Divisibility:</strong> every class has eventually $p$-divisible signatures
+          (Karoubi / controlled Mayer–Vietoris; $\tau=\mathbb{Q}[G_i/P_i]$ locally $p$ copies of $\mathrm{id}$).
+          <br/><br/>
+          <strong>Realization:</strong> chart + Haar + $\mathbb{CP}^2$ germ
+          $\Rightarrow$ a class with signature tail constantly $1$.
+          <br/><br/>
+          Hence $1\in p\mathbb{Z}$.
+        </div>
+      </section>
+
+      <section>
+        <p class="section-label">Dabrowski packaging</p>
+        <h3>Cyclotomic detector (single $p$)</h3>
+        <div class="box">
+          Lemma 3.1: one index-$p$ subgroup step uses
+          $\Phi_{p^a}(1)=p$, so only <strong>single-$p$</strong> divisibility
+          of the tail / local signature.
+          <br/><br/>
+          On ENRs: if the local signature is Quinn’s $I(X)$ and $p\mid I(X)$
+          (e.g. $I=9$, $p=3$), then $I(X)\in p\mathbb{Z}$
+          <em>fails to contradict</em>.
+        </div>
+        <p class="small">Repair: $k$-step cyclotomic tower $\Rightarrow$ $p^k\mid I(X)$;
+        choose $p^k > |I(X)|$ $\Rightarrow$ $I(X)=0$.</p>
+      </section>
+
+      <!-- ========== COMPARE ========== -->
+      <section>
+        <p class="section-label">Compare</p>
+        <h3>Side-by-side</h3>
+        <table>
+          <tr><th></th><th>Quinn</th><th>OpenAI Witt</th><th>Dabrowski</th></tr>
+          <tr>
+            <td>Lives on</td><td>ENR $\mathbb{Z}$-hm</td><td>$E_d(S^d)$ / ENR pinch</td><td>$L_4(A_G(T))$</td>
+          </tr>
+          <tr>
+            <td>Value</td><td>$I(X)\equiv 1\pmod{8}$</td><td>class in $2$-power lattice</td><td>integer signature <em>tail</em></td>
+          </tr>
+          <tr>
+            <td>$p$-input</td><td>—</td><td>$p^k$ equal character parts</td><td>$\tau$ / $\Phi_{p^a}(1)=p$</td>
+          </tr>
+          <tr>
+            <td>Contradiction</td><td>$I\neq 1$ non-resolvable</td><td>parts vs $L_d$</td><td>tail $1$ vs $p\mid\sigma$</td>
+          </tr>
+          <tr>
+            <td>ENR gap</td><td>input</td><td>kills all $I\neq 0$</td><td>fails if $p\mid I$ (single $p$)</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <p class="section-label">Compare</p>
+        <h3>Takeaway</h3>
+        <ul style="font-size:0.85em;">
+          <li><strong>Geometry:</strong> unit-producing germ (chart or Quinn corner)
+              + free $C_{p^k}$ covers of degree $p^k$.</li>
+          <li><strong>Quinn $I(X)$:</strong> local $L$-signature measuring resolution —
+              substitutes for a missing Euclidean ball on BFMW ENRs.</li>
+          <li><strong>Characters / $\tau$:</strong> covering-degree bookkeeping
+              (OpenAI Fourier language; Dabrowski permutation modules).</li>
+          <li><strong>Algebra:</strong> integrality of Witt/$L$ tails vs unbounded
+              $p$-splitting of the unit.</li>
+        </ul>
+        <p class="small">Same obstruction class — once you see the germ + covers,
+        the three formalisms stop looking unrelated.</p>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: "fade",
+      plugins: [RevealMath.KaTeX],
+      katex: {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false },
+          { left: "\\[", right: "\\]", display: true }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
