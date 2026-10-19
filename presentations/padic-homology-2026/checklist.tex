@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{hyperref}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Reviewer checklist}\\[0.3em]
+{\large $p$-Adic Transfer, Signature Tails, and Homology Manifolds}\\[0.2em]
+{\small Alan J.\ Coppola · draft 18 Oct 2026 · mark PASS / WEAK / FAIL}
+\end{center}
+\vspace{0.6em}
+\begin{tabular}{@{}clp{3.0cm}p{4.6cm}@{}}
+\toprule
+ & Statement & Status & Notes / initials \\
+\midrule
+$\square$ & Lemma A — transfer over $\mathbb{Q}$ & \underline{\hspace{2.2cm}} & \\
+$\square$ & Lemma B — Yang $p$-torsion jump & \underline{\hspace{2.2cm}} & \\
+$\square$ & Cor.\ I — McAuley $U^m$ break & \underline{\hspace{2.2cm}} & \\
+$\square$ & Cor.\ H — HM-2 necklace & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm C — polyhedral reduction & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm D — resolvable ENR / stratum & \underline{\hspace{2.2cm}} & \\
+$\square$ & Dabrowski single-$p$ gap on $I(X)$ & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm E — OpenAI ENR rephrase & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm F — $k$-tower upgrade & \underline{\hspace{2.2cm}} & \\
+$\square$ & \S6 settled vs open ($X_{\mathrm{man}}=\varnothing$) & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm G — inverse-limit trichotomy & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm — $\dim_{\mathbb{Z}}=n$, $\dim=\infty$ escape & \underline{\hspace{2.2cm}} & \\
+$\square$ & Prop.\ Borel-join EW + Williams & \underline{\hspace{2.2cm}} & \\
+$\square$ & Thm HM-6 gates G1--G4 (harness/Lean) & \underline{\hspace{2.2cm}} & \\
+$\square$ & Rem.\ remaining $clc_{\mathbb{Z}}$ glue & \underline{\hspace{2.2cm}} & \\
+\bottomrule
+\end{tabular}
+
+\vspace{1em}
+\noindent\textbf{Priority:} HM-6 Borel-join program (\S8) and remaining $clc_{\mathbb{Z}}$ glue;
+then \S6 / E / F / G.\\
+\noindent\textbf{Lean pin:} Dabrowski \texttt{b75523f} · CoppolaHS
+\texttt{CyclotomicTower} / \texttt{PadicExclusionENR} / \texttt{DranishnikovHM6}.\\
+\noindent\textbf{Harness:} \texttt{scripts/hm6\_equivariant\_ew\_harness.py}
+(G1--G4 PASS); loop log
+\texttt{counterexamples/hilbert-smith/HM6\_LOOP\_LOG.md}.\\
+\noindent\textbf{Honesty:} Theorems E/F are relative to OpenAI/Dabrowski geometric
+engines; this note does not alone settle classical HSC.
+HM-6 is an \emph{open construction candidate}, not a claimed existence theorem
+until the $clc_{\mathbb{Z}}$ glue is verified.
+\end{document}

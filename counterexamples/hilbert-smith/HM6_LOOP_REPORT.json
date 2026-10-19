@@ -1,0 +1,104 @@
+{
+  "timestamp": "2026-10-18T23:09:20.439745+00:00",
+  "architecture": "E_{i+1} = (E_i \u0394_q EW_d(E_i, Z, n)) \u00d7_{C_{p^{i+1}}} S^{2m_{i+1}-1}",
+  "iterations": [
+    {
+      "label": "iter1-baseline",
+      "params": {
+        "n": 5,
+        "p": 3,
+        "stages": 4
+      },
+      "all_pass": true,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "BJ": true
+      },
+      "summaries": {
+        "G1": "Classical Williams Part II blocks all i\u22600 mod p under n-skeleton retraction; EW (n+2)-cells bypass for every i.",
+        "G2": "dim_Z lim \u2264 5 (high degrees killed); dims [10, 12, 14, 16] grow.",
+        "G3": "Local H^k \u2245 \u03b4_{k,5} Z preserved; orbit dim_Z = n+2 with R_p(1) tower.",
+        "G4": "Polynomial criterion holds at each stage; cup-length forces dim U = \u221e on every neighborhood while dim_Z U = n.",
+        "BJ": "F \u00d7_{C_p} S^{2m-1} is (2m-2)-connected \u2265 (n+1) at every stage (free-sphere Borel join; Smith \u03c7=0)."
+      }
+    },
+    {
+      "label": "iter2-borel-join",
+      "params": {
+        "n": 7,
+        "p": 5,
+        "stages": 3
+      },
+      "all_pass": true,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "BJ": true
+      },
+      "summaries": {
+        "G1": "Classical Williams Part II blocks all i\u22600 mod p under n-skeleton retraction; EW (n+2)-cells bypass for every i.",
+        "G2": "dim_Z lim \u2264 7 (high degrees killed); dims [12, 14, 16] grow.",
+        "G3": "Local H^k \u2245 \u03b4_{k,7} Z preserved; orbit dim_Z = n+2 with R_p(1) tower.",
+        "G4": "Polynomial criterion holds at each stage; cup-length forces dim U = \u221e on every neighborhood while dim_Z U = n.",
+        "BJ": "F \u00d7_{C_p} S^{2m-1} is (2m-2)-connected \u2265 (n+1) at every stage (free-sphere Borel join; Smith \u03c7=0)."
+      }
+    },
+    {
+      "label": "iter3-cup-growth",
+      "params": {
+        "n": 6,
+        "p": 3,
+        "stages": 5
+      },
+      "all_pass": true,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "BJ": true
+      },
+      "summaries": {
+        "G1": "Classical Williams Part II blocks all i\u22600 mod p under n-skeleton retraction; EW (n+2)-cells bypass for every i.",
+        "G2": "dim_Z lim \u2264 6 (high degrees killed); dims [10, 12, 14, 16, 18] grow.",
+        "G3": "Local H^k \u2245 \u03b4_{k,6} Z preserved; orbit dim_Z = n+2 with R_p(1) tower.",
+        "G4": "Polynomial criterion holds at each stage; cup-length forces dim U = \u221e on every neighborhood while dim_Z U = n.",
+        "BJ": "F \u00d7_{C_p} S^{2m-1} is (2m-2)-connected \u2265 (n+1) at every stage (free-sphere Borel join; Smith \u03c7=0)."
+      }
+    },
+    {
+      "label": "iter4-large-prime",
+      "params": {
+        "n": 9,
+        "p": 7,
+        "stages": 4
+      },
+      "all_pass": true,
+      "gates": {
+        "G1": true,
+        "G2": true,
+        "G3": true,
+        "G4": true,
+        "BJ": true
+      },
+      "summaries": {
+        "G1": "Classical Williams Part II blocks all i\u22600 mod p under n-skeleton retraction; EW (n+2)-cells bypass for every i.",
+        "G2": "dim_Z lim \u2264 9 (high degrees killed); dims [14, 16, 18, 20] grow.",
+        "G3": "Local H^k \u2245 \u03b4_{k,9} Z preserved; orbit dim_Z = n+2 with R_p(1) tower.",
+        "G4": "Polynomial criterion holds at each stage; cup-length forces dim U = \u221e on every neighborhood while dim_Z U = n.",
+        "BJ": "F \u00d7_{C_p} S^{2m-1} is (2m-2)-connected \u2265 (n+1) at every stage (free-sphere Borel join; Smith \u03c7=0)."
+      }
+    }
+  ],
+  "all_pass": true,
+  "lean_probe": {
+    "ran": false,
+    "lean_version_probe": "Lean (version 4.35.0-rc3, arm64-apple-darwin24.6.0, commit 470d5ce1400764999581fd26d5d72b00d990b0f4, Release)",
+    "note": "Full `lake build` invoked separately in hm6-lean step."
+  }
+}

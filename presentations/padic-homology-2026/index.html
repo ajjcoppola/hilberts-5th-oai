@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>p-Adic Transfer, Signature Tails, and Homology Manifolds</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" />
+  <style>
+    :root { --r-main-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+            --r-heading-font: "Iowan Old Style", Palatino, Georgia, serif;
+            --r-main-color: #1a1a1a; --accent: #8b3a2a; }
+    .reveal { font-size: 28px; }
+    .reveal h1, .reveal h2, .reveal h3 { color: var(--accent); text-transform: none; }
+    .reveal .subtitle { color: #444; font-size: 0.7em; }
+    .reveal table { font-size: 0.72em; }
+    .reveal .tag { display: inline-block; padding: 0.1em 0.45em; border: 1px solid #888;
+                   border-radius: 3px; font-size: 0.65em; margin-right: 0.3em; }
+    .reveal .tag.new { border-color: var(--accent); color: var(--accent); }
+    .reveal .tag.rel { border-color: #356; color: #356; }
+    .reveal .tag.cla { border-color: #363; color: #363; }
+    .reveal .small { font-size: 0.75em; }
+    .reveal pre { font-size: 0.55em; }
+    .diagram { font-family: ui-monospace, Menlo, monospace; font-size: 0.62em;
+               text-align: left; white-space: pre; line-height: 1.35; background: #f6f4f1;
+               padding: 0.8em 1em; border-left: 3px solid var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h2>p-Adic Transfer, Signature Tails,<br/>and Homology Manifolds</h2>
+        <p class="subtitle">From a 1980 Binghamton thesis to the 2026 Hilbert–Smith arguments</p>
+        <p><strong>Alan J. Coppola</strong><br/>
+        <span class="small">Ph.D. SUNY Binghamton 1979/80 · advisor L. F. McAuley</span></p>
+        <p class="small">Draft for expert review · 17 Oct 2026</p>
+      </section>
+
+      <section>
+        <h3>The ask (classical)</h3>
+        <p>Can \(\mathbb{Z}_p\) act continuously and faithfully on a connected finite-dimensional manifold?</p>
+        <p class="small">Finite \(C_{p^k}\) can (lens spaces). The obstruction must use the infinite descending chain of open subgroups.</p>
+      </section>
+
+      <section>
+        <h3>1980: transfer</h3>
+        <div class="diagram">Over ℚ:  (1/pʳ) ∑ g*  is a projection
+         ⇒  Ȟ*(X/ℤ_p; ℚ) ≅ Ȟ*(X; ℚ)^{ℤ_p}
+         ⇒  no rational dimension jump
+
+Over ℤ / 𝔽_p: transfer ∘ projection = ×pʳ ≡ 0
+         ⇒  Smith–Gysin / Bockstein raises dim
+         ⇒  Yang: dim_ℤ(M/ℤ_p) = n+2  (p-torsion)</div>
+        <p><span class="tag cla">classical</span> Coppola 1980 · Yang · BRW</p>
+      </section>
+
+      <section>
+        <h3>McAuley 2001 break</h3>
+        <p>Orbit space dim \(n+2\) ⇒ saturated covers have order \(> n+1\).</p>
+        <p>To force unique \(n\)-cycles he uses \(U^m\) of order \(n+1\).</p>
+        <p><strong>That cover cannot be \(A_p\)-invariant.</strong> Chain equivariance on the \(n\)-skeleton fails; the missing \((n+1)\)-chain is the transfer cocycle.</p>
+        <p><span class="tag new">new diagnosis</span></p>
+      </section>
+
+      <section>
+        <h3>Two 2026 packagings</h3>
+        <table>
+          <tr><th></th><th>OpenAI</th><th>Dabrowski</th></tr>
+          <tr><td>Shell</td><td>Newman + chart + avg</td><td>Newman + sphere control</td></tr>
+          <tr><td>Object</td><td>Witt lattice on \(S^d\)</td><td>\(L_4\) signature tail</td></tr>
+          <tr><td>Divisibility</td><td>\(4/p^k\) equal parts</td><td>single \(p\) via \(\Phi_{p^a}(1)=p\)</td></tr>
+          <tr><td>Realization</td><td>degree-1 pinch</td><td>\(\mathbb{CP}^2\) germ</td></tr>
+        </table>
+      </section>
+
+      <section>
+        <h3>Homology-manifold tree</h3>
+        <div class="diagram">HM-1 non-clc / coeff mismatch     → counterexample class
+HM-2 shrinking necklace            → explicit counterexample
+HM-3 polyhedral L-hm               → reduces to manifold (Thm C)
+HM-4 resolvable ENR / X_man ≠ ∅    → chart or X×ℝ² (Thm D)
+HM-5 BFMW, I(X)≠1, X_man=∅         → crown jewel (Thms E,F)</div>
+      </section>
+
+      <section>
+        <h3>Theorem C — polyhedral</h3>
+        <p>Connected polyhedral \(L\)-homology \(n\)-manifold ⇒ dense connected manifold stratum \(X\setminus|K^{(n-2)}|\).</p>
+        <p>Faithful \(\mathbb{Z}_p\) on \(X\) ⇒ faithful on a topological manifold.</p>
+        <p><span class="tag new">new packaging</span> <span class="tag rel">relative to 2026</span></p>
+      </section>
+
+      <section>
+        <h3>Theorem D — resolvable ENR</h3>
+        <p>If \(X_{\mathrm{man}}\neq\varnothing\): Newman + chart reduction.</p>
+        <p>If \(I(X)=1\): \(X\times\mathbb{R}^2\) is a topological manifold (Daverman + Edwards–Quinn).</p>
+        <p><span class="tag rel">relative</span></p>
+      </section>
+
+      <section>
+        <h3>HM-5 splits the engines</h3>
+        <p><strong>Dabrowski gap:</strong> \(\Phi_{p^a}(1)=p\) only. When \(p\mid I(X)\) (e.g. \(I=9\), \(p=3\)), no contradiction.</p>
+        <p><strong>OpenAI rephrase (Thm E):</strong> source \(X\times S^{d-n}\), target \(S^d\); ENR retract summands; \(4c_X/p^k\) vs fixed lattice — kills every \(I(X)\neq 0\).</p>
+        <p><strong>Dabrowski fix (Thm F):</strong> \(k\)-step cyclotomic tower ⇒ \(p^k\mid\sigma\).</p>
+      </section>
+
+      <section>
+        <h3>Theorem G — inverse-limit no-go</h3>
+        <div class="diagram">Free step-kernel C_p on bonding fiber F_x:
+
+Case 1  dim 0 fibers     → Cantor, lose lc⁰
+Case 2  ℚ-acyclic        → Euler χ≡0 (mod p) vs χ=1
+        𝔽_p-acyclic      → Smith fixed-point
+Case 3  non-acyclic      → RW / Menger splicing
+                         → kill local ℤ-homology
+
+Escape: fixed points on necks → HM-2 necklace only</div>
+        <p><span class="tag new">new</span></p>
+      </section>
+
+      <section>
+        <h3>Lean status</h3>
+        <ul class="small">
+          <li>Dabrowski pin: <code>palomar-review/module-system-20261015</code> @ <code>b75523f</code></li>
+          <li>Toolchain: Lean <code>v4.35.0-rc3</code>, mathlib <code>1a547d8</code></li>
+          <li>Comparator axioms (upstream): <code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code></li>
+          <li>CoppolaHS: <code>CyclotomicTower</code>, <code>QuinnIndex</code>, <code>PadicExclusionENR</code></li>
+          <li><em>Honest:</em> no full ENR L-theory reimplementation in v1</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>What to check first</h3>
+        <ol>
+          <li>Theorem E (OpenAI ENR rephrase)</li>
+          <li>Theorem F (k-tower)</li>
+          <li>Theorem G (trichotomy)</li>
+          <li>McAuley corollary</li>
+        </ol>
+        <p class="small">Checklist PDF in this pack · paper Appendix B</p>
+      </section>
+
+      <section>
+        <h3>Paper + pack</h3>
+        <p class="small">
+          <code>papers/padic-homology-manifolds/main.pdf</code><br/>
+          <code>presentations/padic-homology-2026/</code><br/>
+          <code>lean/CoppolaHS/</code><br/>
+          <code>dabrowski/upstream-palomar/</code> @ b75523f
+        </p>
+        <p>Co-authorship secondary · Dabrowski natural on Theorem F</p>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [RevealMath.KaTeX]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+flowchart TB
+  Shell["Shared Euclidean shell: Newman + charts + small open subgroups"]
+  Shell --> OAI["OpenAI: Witt lattice on S^d"]
+  Shell --> DAB["Dabrowski: L4 signature tail"]
+  OAI --> OAIarith["Equal parts 4/p^k"]
+  DAB --> DABarith["Single p via Φ_p^a(1)=p"]
+  OAIarith --> ENR["ENR I(X)≠0: rephrases"]
+  DABarith --> GAP["Fails when p | I(X)"]
+  GAP --> TOWER["k-tower upgrade → p^k"]

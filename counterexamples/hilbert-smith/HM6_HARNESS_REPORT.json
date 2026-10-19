@@ -1,0 +1,586 @@
+{
+  "params": {
+    "n": 5,
+    "p": 3,
+    "stages": 4
+  },
+  "gates": [
+    {
+      "gate": "G1",
+      "name": "Williams torus bypass via Edwards\u2013Walsh cells",
+      "pass": true,
+      "detail": [
+        {
+          "i": 1,
+          "without_EW": {
+            "p": 3,
+            "n": 5,
+            "i_mod_p": 1,
+            "ew_cells_attached": false,
+            "bidegree_on_T": [
+              1,
+              3
+            ],
+            "bidegree_on_S_prime": [
+              1,
+              3
+            ],
+            "obstruction_active": true,
+            "bypass_ok": false,
+            "notes": [
+              "Williams Part II: i=1 \u2260 0 mod 3; bidegree (1, 3) cannot factor through diagonal C_p quotient (bounded n-skeleton retraction)."
+            ]
+          },
+          "with_EW": {
+            "p": 3,
+            "n": 5,
+            "i_mod_p": 1,
+            "ew_cells_attached": true,
+            "bidegree_on_T": [
+              1,
+              3
+            ],
+            "bidegree_on_S_prime": [
+              1,
+              3
+            ],
+            "obstruction_active": false,
+            "bypass_ok": true,
+            "notes": [
+              "Edwards\u2013Walsh (n+2)-cells attached (n=5): diagonal circle S' bounds without n-skeleton retraction; Williams Part II torus obstruction bypassed."
+            ]
+          }
+        },
+        {
+          "i": 2,
+          "without_EW": {
+            "p": 3,
+            "n": 5,
+            "i_mod_p": 2,
+            "ew_cells_attached": false,
+            "bidegree_on_T": [
+              1,
+              3
+            ],
+            "bidegree_on_S_prime": [
+              2,
+              3
+            ],
+            "obstruction_active": true,
+            "bypass_ok": false,
+            "notes": [
+              "Williams Part II: i=2 \u2260 0 mod 3; bidegree (2, 3) cannot factor through diagonal C_p quotient (bounded n-skeleton retraction)."
+            ]
+          },
+          "with_EW": {
+            "p": 3,
+            "n": 5,
+            "i_mod_p": 2,
+            "ew_cells_attached": true,
+            "bidegree_on_T": [
+              1,
+              3
+            ],
+            "bidegree_on_S_prime": [
+              2,
+              3
+            ],
+            "obstruction_active": false,
+            "bypass_ok": true,
+            "notes": [
+              "Edwards\u2013Walsh (n+2)-cells attached (n=5): diagonal circle S' bounds without n-skeleton retraction; Williams Part II torus obstruction bypassed."
+            ]
+          }
+        }
+      ],
+      "summary": "Classical Williams Part II blocks all i\u22600 mod p under n-skeleton retraction; EW (n+2)-cells bypass for every i."
+    },
+    {
+      "gate": "G2",
+      "name": "Pro-acyclicity in degrees > n",
+      "pass": true,
+      "stages": [
+        {
+          "stage": 0,
+          "dim": 10,
+          "betti_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "betti_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Z": null,
+          "map_rank_Fp": null
+        },
+        {
+          "stage": 1,
+          "dim": 12,
+          "betti_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "betti_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "stage": 2,
+          "dim": 14,
+          "betti_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "betti_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "stage": 3,
+          "dim": 16,
+          "betti_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "betti_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Z": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "map_rank_Fp": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "lim_betti_Z": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "lim_betti_Fp": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dims_grow": true,
+      "summary": "dim_Z lim \u2264 5 (high degrees killed); dims [10, 12, 14, 16] grow."
+    },
+    {
+      "gate": "G3",
+      "name": "Local Z-cohomology n-manifold + BRW n+2 jump",
+      "pass": true,
+      "detail": [
+        {
+          "stage": 0,
+          "local_H": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 1,
+            "6": 0
+          },
+          "fiber_dim": 8,
+          "fiber_acyclic_through_n+1": true,
+          "orbit_dim_Z": 7,
+          "Rp1_injection": true
+        },
+        {
+          "stage": 1,
+          "local_H": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 1,
+            "6": 0
+          },
+          "fiber_dim": 10,
+          "fiber_acyclic_through_n+1": true,
+          "orbit_dim_Z": 7,
+          "Rp1_injection": true
+        },
+        {
+          "stage": 2,
+          "local_H": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 1,
+            "6": 0
+          },
+          "fiber_dim": 12,
+          "fiber_acyclic_through_n+1": true,
+          "orbit_dim_Z": 7,
+          "Rp1_injection": true
+        },
+        {
+          "stage": 3,
+          "local_H": {
+            "0": 0,
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 1,
+            "6": 0
+          },
+          "fiber_dim": 14,
+          "fiber_acyclic_through_n+1": true,
+          "orbit_dim_Z": 7,
+          "Rp1_injection": true
+        }
+      ],
+      "summary": "Local H^k \u2245 \u03b4_{k,5} Z preserved; orbit dim_Z = n+2 with R_p(1) tower."
+    },
+    {
+      "gate": "G4",
+      "name": "Dranishnikov K-theory cup-length \u21d2 dim U = \u221e",
+      "pass": true,
+      "detail": [
+        {
+          "stage": 0,
+          "k": 2,
+          "l": 1,
+          "n_i": 9,
+          "m": 1,
+          "p_power": 3,
+          "hypothesis_m_p_lt_ni": true,
+          "poly_not_in_ideal": true,
+          "coeff_m": 3,
+          "vp_coeff_m": 1,
+          "cup_length_lower_bound": 1,
+          "implies_dim_U_infty": true
+        },
+        {
+          "stage": 1,
+          "k": 3,
+          "l": 2,
+          "n_i": 12,
+          "m": 2,
+          "p_power": 3,
+          "hypothesis_m_p_lt_ni": true,
+          "poly_not_in_ideal": true,
+          "coeff_m": 9,
+          "vp_coeff_m": 2,
+          "cup_length_lower_bound": 2,
+          "implies_dim_U_infty": true
+        },
+        {
+          "stage": 2,
+          "k": 4,
+          "l": 3,
+          "n_i": 15,
+          "m": 3,
+          "p_power": 3,
+          "hypothesis_m_p_lt_ni": true,
+          "poly_not_in_ideal": true,
+          "coeff_m": 27,
+          "vp_coeff_m": 3,
+          "cup_length_lower_bound": 3,
+          "implies_dim_U_infty": true
+        },
+        {
+          "stage": 3,
+          "k": 5,
+          "l": 4,
+          "n_i": 18,
+          "m": 4,
+          "p_power": 3,
+          "hypothesis_m_p_lt_ni": true,
+          "poly_not_in_ideal": true,
+          "coeff_m": 81,
+          "vp_coeff_m": 4,
+          "cup_length_lower_bound": 4,
+          "implies_dim_U_infty": true
+        }
+      ],
+      "cup_length_bounds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "summary": "Polynomial criterion holds at each stage; cup-length forces dim U = \u221e on every neighborhood while dim_Z U = n."
+    },
+    {
+      "gate": "BJ",
+      "name": "Borel-join connectivity (free C_p without Smith below n+1)",
+      "pass": true,
+      "detail": [
+        {
+          "stage": 0,
+          "m": 5,
+          "sphere_dim": 9,
+          "conn_F": 4,
+          "free_on_sphere": true,
+          "borel_join_conn": 8,
+          "acyclic_through_n+1": true,
+          "euler_smith_ok": true
+        },
+        {
+          "stage": 1,
+          "m": 6,
+          "sphere_dim": 11,
+          "conn_F": 4,
+          "free_on_sphere": true,
+          "borel_join_conn": 10,
+          "acyclic_through_n+1": true,
+          "euler_smith_ok": true
+        },
+        {
+          "stage": 2,
+          "m": 7,
+          "sphere_dim": 13,
+          "conn_F": 4,
+          "free_on_sphere": true,
+          "borel_join_conn": 12,
+          "acyclic_through_n+1": true,
+          "euler_smith_ok": true
+        },
+        {
+          "stage": 3,
+          "m": 8,
+          "sphere_dim": 15,
+          "conn_F": 4,
+          "free_on_sphere": true,
+          "borel_join_conn": 14,
+          "acyclic_through_n+1": true,
+          "euler_smith_ok": true
+        }
+      ],
+      "summary": "F \u00d7_{C_p} S^{2m-1} is (2m-2)-connected \u2265 (n+1) at every stage (free-sphere Borel join; Smith \u03c7=0)."
+    }
+  ],
+  "all_pass": true,
+  "architecture": "E_{i+1} = (E_i \u0394_q EW_d(E_i, Z, n)) \u00d7_{C_{p^{i+1}}} S^{2m_{i+1}-1}"
+}

@@ -6,3 +6,11 @@ __pycache__/
 build/
 *.egg-info/
 package-lock.json
+
+# Lean build artifacts (local only; re-fetch with `lake exe cache get`)
+**/.lake/
+dabrowski/upstream-palomar/
+dabrowski/lean-extension/*.log
+
+# Nested full Dabrowski/palomar clone is optional local tooling — pin in PROVENANCE,
+# do not vendor the multi-GB tree into the published audit repo.

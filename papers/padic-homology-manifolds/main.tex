@@ -1,0 +1,1349 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% Status tags for reviewer checklist
+\newcommand{\status}[1]{\textit{\textcolor{black!70}{[#1]}}}
+\newcommand{\checkbox}{\fbox{\phantom{X}}}
+
+\newtcolorbox{checkboxenv}[1][]{
+  colback=gray!6,colframe=gray!50,boxrule=0.4pt,arc=1pt,
+  left=4pt,right=4pt,top=3pt,bottom=3pt,
+  title={What to check},fonttitle=\bfseries\small,#1
+}
+
+\title{\textit{p}-Adic Transfer, Signature Tails, and Homology Manifolds:\\
+From a 1980 Binghamton Thesis to the 2026 Hilbert--Smith Arguments}
+\author{Alan J.\ Coppola\thanks{%
+Ph.D., SUNY Binghamton, 1979/80; advisor Louis~F.\ McAuley.
+Email: \texttt{ajjc@optngn.com}.
+Draft for private review; co-authorship invitations open.
+OpenAI (2026-09-23) and A.~Dabrowski (2026-10-08) are cited as source
+arguments being extended and delimited, not as co-authors of this draft.}}
+\date{Draft: 18 October 2026\\[0.4em]
+\small\textit{arXiv-style preprint --- not yet submitted}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+I revisit the Hilbert--Smith $p$-adic exclusion problem through the lens of my
+1980 Binghamton dissertation on $p$-adic transfer and Smith--Yang sequences,
+and through the two 2026 packaging arguments of OpenAI (Witt/signature lattice
+on $S^d$) and Dabrowski (integral $L_4$ signature tails).  The classical
+Yang jump $\dim_{\mathbb{Z}}(M/\mathbb{Z}_p)=n+2$ is $p$-torsion; over
+$\mathbb{Q}$ the transfer is a projection and no dimension jump occurs.
+I give a clean diagnosis of the break in McAuley's 2001 arXiv manuscript,
+prove (relative to the 2026 manifold theorems) that connected polyhedral and
+resolvable ENR homology manifolds reduce to the topological-manifold case,
+and isolate the remaining crown jewel: nowhere-Euclidean Bryant--Ferry--Mio--Weinberger
+ENR $\mathbb{Z}$-homology manifolds with Quinn index $I(X)\neq 1$.
+There OpenAI's equal-parts lattice argument rephrases to kill every $I(X)\neq 0$,
+while Dabrowski's single-$p$ cyclotomic detector fails whenever $p\mid I(X)$;
+a $k$-step cyclotomic tower restores $p^k$-divisibility.
+An inverse-limit trichotomy shows Raymond--Williams-style towers cannot produce
+a connected locally connected ENR cohomology-manifold counterexample.
+The unique remaining frontier is class HM-6
+($\dim_{\mathbb{Z}}X=n<\infty$, $\dim X=\infty$), where we develop a
+Borel-join Edwards--Walsh + Williams splicing program and verify its algebraic
+gates computationally and in Lean~4.
+Section~\ref{sec:compare} separates three layers when
+$X_{\mathrm{man}}=\varnothing$: chart proofs fail, signature exclusion is
+conditional on the ENR rephrase or $k$-tower, and inverse-limit
+\emph{construction} is blocked---so emptiness of the manifold stratum is not
+a license to build an effective $p$-adic action.  Each major statement is tagged
+\textit{classical / relative / new} and carries a short reviewer checklist.
+\end{abstract}
+
+\tableofcontents
+\vspace{1em}
+\noindent\textit{Status of this draft.}
+This is a working manuscript for reading, annotation, and possible co-authorship.
+It does \textbf{not} claim an independent complete proof of the classical
+Hilbert--Smith conjecture.  Theorems that depend on OpenAI or Dabrowski are
+explicitly marked \status{relative}.  Lean formalization notes appear in
+Appendix~\ref{app:lean}.
+
+%======================================================================
+\section{Introduction: a memoir bridge}
+\label{sec:intro}
+
+\subsection{What Hilbert--Smith asks}
+A continuous effective action of a $p$-adic group $\mathbb{Z}_p$ on a connected
+finite-dimensional topological manifold $M$ is conjectured to be impossible
+(Hilbert's fifth problem in the compact/transformation-group form; see
+\cite{newman1931,smith1941,yang1960}).  Finite cyclic groups of $p$-power order
+do act freely on manifolds (lens spaces); the obstruction, if it exists, must
+use the infinite descending chain of open subgroups
+$p^j\mathbb{Z}_p\subset\mathbb{Z}_p$.
+
+\subsection{What I proved in 1980}
+In my dissertation~\cite{coppola1980}, advised by L.~F.\ McAuley at SUNY
+Binghamton, I constructed a $p$-adic transfer homomorphism for the inverse
+system of finite cyclic groups $\mathbb{Z}_{p^r}=A_p/p^r A_p$ and used it to
+derive the Smith--Yang exact sequences governing $\mathbb{Z}_{p^r}$-actions on
+compact metric spaces.  Two facts were already clear:
+\begin{enumerate}[label=(\alph*)]
+\item Over a field $L$ of characteristic $\neq p$ (in particular over
+$\mathbb{Q}$), the transfer $(1/p^r)\sum_{g\in\mathbb{Z}_{p^r}}g^*$ is a
+projection at every finite stage.  Passing to the limit identifies
+$\check{H}^*(X/A_p;\mathbb{Q})\xrightarrow{\sim}\check{H}^*(X;\mathbb{Q})^{A_p}$.
+\item Over $\mathbb{Z}$ and $\mathbb{F}_p$, the composite of transfer and
+projection is multiplication by $p^r\equiv 0\pmod{p}$, producing the
+Bockstein/Smith--Gysin connecting maps that raise cohomological dimension.
+On a compact $n$-manifold (or suitable homology manifold) $M$, Yang's theorem
+and Bredon--Raymond--Williams give
+\[
+\dim_{\mathbb{Z}}(M/A_p)=n+2,\qquad
+H^{n+2}_c(M/A_p;\mathbb{Z})/K\cong\mathbb{Z}[1/p]/\mathbb{Z}.
+\]
+\end{enumerate}
+Raymond and Williams~\cite{raymondwilliams1960,raymondwilliams1963} realized the
+same $(n+2)$-dimensional jump on an $n$-dimensional compactum by inverse limits
+of $(n+2)$-complexes with period-$p^i$ homeomorphisms retracting onto
+$n$-skeleta.  Those examples are \emph{not} locally Euclidean and are not
+locally connected in the cohomology-manifold sense.
+
+\subsection{McAuley 2001 and the break}
+McAuley~\cite{mcauley2001} attempted a full proof of Hilbert--Smith.
+His argument uses of $M$ only local compactness, connectedness, $lc^n$, and
+local homology $H_n(X,X\setminus D;\mathbb{Z}_p)\cong\mathbb{Z}_p$.
+Because $\dim(M/A_p)=n+2$, saturated covers pulled back from the orbit space
+have order $>n+1$.  To force unique $n$-cycles for a \v{C}ernavski\u{\i}-type
+sum, he interposes a refinement $U^m$ of order $n+1$.  That cover
+\textbf{cannot} be $A_p$-invariant, and the resulting chain maps fail to be
+equivariant on the $n$-skeleton of the nerve.  The missing $(n+1)$-chain is
+precisely where the Smith--Yang transfer cocycle lives.  I record this as
+Corollary~\ref{cor:mcauley} below; it is historical diagnosis, not a
+replacement proof.
+
+\subsection{Two 2026 packagings}
+In September--October 2026 two independent arguments appeared that sit in a
+different family from Yang dim-raising:
+\begin{itemize}
+\item \textbf{OpenAI}~\cite{openai2026}: after Newman chart reduction and Haar
+averaging into an odd sphere $S^d$, an integral Witt/signature lattice with
+fixed denominator bound $L_d$ is divided into $p^k$ equal parts
+$4/p^k$, contradicting integrality for large $k$.
+\item \textbf{Dabrowski}~\cite{dabrowski2026}: an integral signature
+\emph{tail} in $L_4(A_G(T))$ is $p$-divisible by Karoubi/controlled
+Mayer--Vietoris, while an effective $\mathbb{Z}_p$-action realizes a class
+with tail $1$ via a degree-one sphere control map and $\mathbb{CP}^2$
+localization---contradicting $1\in p\mathbb{Z}$.
+\end{itemize}
+Both share a Euclidean shell (Newman, charts, orientation, small open
+subgroups).  Their arithmetic engines differ: equal parts in a fixed lattice
+versus single-$p$ cyclotomic divisibility of a tail.
+
+\subsection{Relative-paper framing and seven contributions}
+\label{sec:contributions}
+
+\begin{checkboxenv}
+\textbf{ArXiv framing (read first).}
+The exclusion results Theorems~\ref{thm:E}--\ref{thm:F} are
+\textbf{conditional / relative}: assuming the 2026 topological-manifold
+exclusion machines of OpenAI~\cite{openai2026} or
+Dabrowski~\cite{dabrowski2026}, we determine the exact boundary of $p$-adic
+exclusion across the six classes HM-1--HM-6 of Definition~\ref{def:hm}.
+This manuscript does \textbf{not} claim a standalone classical proof of
+Hilbert--Smith on topological manifolds.  What is new is the boundary map,
+the Quinn-index / $k$-tower arithmetic, the inverse-limit trichotomy, and the
+HM-6 construction program.
+\end{checkboxenv}
+
+Under that framing the paper makes seven mathematical contributions:
+\begin{enumerate}[label=\textbf{C\arabic*.}]
+\item \textbf{Quinn-index obstruction to single-$p$ arithmetic}
+(Theorem~\ref{thm:dabrowski-gap}):
+on a nowhere-Euclidean BFMW ENR $\mathbb{Z}$-homology $n$-manifold
+($n\ge 6$, $X_{\mathrm{man}}=\varnothing$), Dabrowski's single index-$p$ step
+yields only $I(X)\in p\mathbb{Z}$, which fails to contradict whenever an odd
+prime $p$ divides $I(X)$ (e.g.\ $I(X)=9$ for $p=3$).
+\item \textbf{$k$-step cyclotomic tower upgrade}
+(Theorem~\ref{thm:F} + Lean~4):
+replacing the single index-$p$ subgroup by a $k$-step filtration forces
+$p^k\mid I(X)$; choosing $p^k>|I(X)|$ kills every nonzero Quinn index.
+Formalized in \texttt{CyclotomicTower.lean} / \texttt{QuinnIndex.lean}.
+\item \textbf{OpenAI ENR rephrase for nowhere-Euclidean generalized manifolds}
+(Theorem~\ref{thm:E}):
+bypassing source-sphere compactification by keeping
+$\widehat{M}=X\times S^{d-n}$ and pinching into $S^d$; equal-parts
+integrality kills every $I(X)\neq 0$.
+\item \textbf{Unconditional reductions for polyhedral and nonempty-stratum
+homology manifolds}
+(Theorems~\ref{thm:C},~\ref{thm:D}):
+connected polyhedral $L$-homology manifolds have dense open
+$\mathrm{Homeo}(X)$-invariant manifold strata; resolvable ENRs reduce via
+$X\times\mathbb{R}^2$.
+\item \textbf{One-page diagnosis of McAuley's 2001 break via the 1980 transfer}
+(Corollary~\ref{cor:mcauley}):
+an order-$(n+1)$ refinement cannot be $A_p$-invariant when
+$\dim_{\mathbb{Z}}(M/A_p)=n+2$.
+\item \textbf{Bounded-dimension inverse-limit no-go trichotomy}
+(Theorem~\ref{thm:G}):
+free step-kernel $C_p$ on compact bonding fibers forces Cantor fibers, an
+Euler/Smith contradiction, or destruction of local $H_n$.
+\item \textbf{HM-6 infinite-covering-dimension frontier}
+(Theorem~\ref{thm:dranishnikov-escape},
+Proposition~\ref{prop:borel-join-hm6}):
+the unique class escaping OpenAI ENR rephrase, Dabrowski $k$-tower, and
+bounded-dimension Euler obstruction, with an explicit Borel-join
+Edwards--Walsh + Williams splicing architecture verified by a symbolic
+harness (Gates G1--G4) and Lean~4 module \texttt{DranishnikovHM6.lean}.
+\end{enumerate}
+
+%======================================================================
+\section{Preliminaries}
+\label{sec:prelim}
+
+\begin{definition}[Manifold stratum]
+For a space $X$ and fixed $n$, write $X_{\mathrm{man}}$ for the set of points
+with a neighborhood homeomorphic to $\mathbb{R}^n$.  We say $X$ is
+\emph{nowhere Euclidean} if $X_{\mathrm{man}}=\varnothing$.
+\end{definition}
+
+\begin{definition}[Homology / cohomology manifolds]
+An ENR $\mathbb{Z}$-homology $n$-manifold is a Euclidean neighborhood retract
+$X$ with $H_*(X,X\setminus\{x\};\mathbb{Z})\cong H_*(\mathbb{R}^n,\mathbb{R}^n\setminus\{0\})$
+for every $x$.  By Raymond~\cite{raymond1965}, for compact ENRs this coincides
+with the ENR $\mathbb{Z}$-cohomology $n$-manifold condition.  We write
+\emph{generalized $n$-manifold} in the sense of Bryant--Ferry--Mio--Weinberger
+\cite{bfmw1996}.
+\end{definition}
+
+\begin{definition}[Quinn index]
+For a compact connected ENR $\mathbb{Z}$-homology $n$-manifold $X$ ($n\ge 6$),
+Quinn's resolution index $I(X)\in\mathbb{Z}$ satisfies
+$I(X)\equiv 1\pmod{8}$.  Resolvable spaces have $I(X)=1$; BFMW construct
+examples with $I(X)\neq 1$ and $X_{\mathrm{man}}=\varnothing$.
+The product formula $I(X\times Y)=I(X)I(Y)$ implies that if $I(X)\neq 1$,
+then $X\times Y$ is never a topological manifold for any generalized manifold
+$Y$ with $I(Y)\equiv 1\pmod{8}$.
+\end{definition}
+
+\begin{definition}[Six homology-manifold classes]
+\label{def:hm}
+\begin{description}[style=nextline,leftmargin=1.2em]
+\item[HM-1] Non-$clc$ \v{C}ech cohomology $n$-manifolds over $L$ with
+$\mathrm{char}(L)\neq p$, without $\mathbb{F}_p$-regularity.
+\item[HM-2] Disconnected or $0$-dimensional-junction $\mathbb{Z}$-homology
+$n$-manifolds (shrinking necklace).
+\item[HM-3] Connected polyhedral (simplicial/PL) $L$-homology $n$-manifolds.
+\item[HM-4] Connected resolvable ENR $\mathbb{Z}$-homology $n$-manifolds
+($I(X)=1$, or any connected $\mathbb{F}_p$-cm with $X_{\mathrm{man}}\neq\varnothing$).
+\item[HM-5] Nowhere-Euclidean non-resolvable ENR $\mathbb{Z}$-homology
+$n$-manifolds ($n\ge 6$, $I(X)\neq 1$, $\dim X=n$).
+\item[HM-6] Non-ENR (Dranishnikov / Edwards--Walsh) $\mathbb{Z}$-cohomology
+$n$-manifolds with \emph{finite cohomological dimension}
+$\dim_{\mathbb{Z}}X=n<\infty$ and \emph{infinite topological covering dimension}
+$\dim X=\infty$ ($X_{\mathrm{man}}=\varnothing$).
+\end{description}
+\end{definition}
+
+%======================================================================
+\section{Classical transfer and the McAuley break}
+\label{sec:classical}
+
+\begin{lemma}[Transfer over $\mathbb{Q}$]
+\label{lem:A}
+\status{classical --- Coppola 1980 / BRW}
+Let $G$ be a compact $p$-adic group acting continuously on a compact
+metrizable space $E$.  Then
+\[
+r^*:\check{H}^*(E/G;\mathbb{Q})\longrightarrow\check{H}^*(E;\mathbb{Q})^G
+\]
+is split injective.  In particular there is no rational cohomological
+dimension jump.
+\end{lemma}
+
+\begin{proof}[Sketch]
+At each finite stage $\mathbb{Z}_{p^r}$, the operator
+$(1/p^r)\sum g^*$ is a projection onto invariants.  Inverse limits preserve
+the splitting over $\mathbb{Q}$.
+\end{proof}
+
+\begin{checkboxenv}
+Confirm that OpenAI's \texttt{lem:orbit-injectivity} is exactly this statement
+(no covering-dimension hypothesis).  Confirm that Dabrowski never needs a
+rational dimension jump.
+\end{checkboxenv}
+
+\begin{lemma}[Yang jump is $p$-torsion]
+\label{lem:B}
+\status{classical --- Yang / BRW / Coppola}
+If $M$ is a compact connected orientable $n$-manifold (or suitable
+$\mathbb{Z}$-homology $n$-manifold) with a faithful continuous
+$\mathbb{Z}_p$-action, then $\dim_{\mathbb{Z}}(M/\mathbb{Z}_p)=n+2$ and the
+extra cohomology is $p$-primary torsion of the form
+$\mathbb{Z}[1/p]/\mathbb{Z}$ up to finite kernel.
+\end{lemma}
+
+\begin{corollary}[McAuley break]
+\label{cor:mcauley}
+\status{new as a one-page diagnosis; phenomenon classical}
+In the setting of~\cite{mcauley2001}, any cover $U^m$ of order $n+1$ pulled
+back toward $M$ cannot be $A_p$-invariant when
+$\dim_{\mathbb{Z}}(M/A_p)=n+2$.  Consequently the chain-level maps used to
+produce unique $n$-cycles on $N(V^m_n)$ fail to be $A_p$-equivariant; the
+discrepancy is an $(n+1)$-chain carrying the Smith--Yang transfer cocycle.
+\end{corollary}
+
+\begin{checkboxenv}
+Read McAuley Lemmas 6--8 (\texttt{arXiv:math/0103215v8}, pp.~near 33 and
+1460--1488 in the PDF text layer).  Check that order$(U^m)=n+1$ is forced by
+wanting unique $n$-cycles, and that this contradicts $A_p$-invariance when the
+orbit space has dimension $n+2$.
+\end{checkboxenv}
+
+%======================================================================
+\section{Counterexamples on weakened hypotheses}
+\label{sec:counterex}
+
+\begin{proposition}[Necklace counterexample]
+\label{prop:necklace}
+\status{new as an explicit HM-2 class; ingredients classical}
+Fix $m\ge 1$.  On the $i$-th copy $M_i=S^{2m-1}$, let $\mathbb{Z}_p$ act via
+$\mathbb{Z}_p\twoheadrightarrow C_{p^i}\subset S^1$.  Embed the spheres as
+radius $2^{-i}$ and shrink to a junction point $x_\infty$.  The resulting
+compact connected metrizable space $X$ carries a faithful continuous
+$\mathbb{Z}_p$-action, but local homology at $x_\infty$ has infinite rank, so
+$X$ is not a $\mathbb{Z}$-homology manifold at the junction.
+\end{proposition}
+
+\begin{corollary}[Coefficient mismatch]
+\label{cor:hm1}
+\status{classical mechanism --- Raymond 1961/1965}
+If one drops $lc^n$ over $\mathbb{Z}$ and $\mathbb{F}_p$-cohomology-manifold
+regularity, Vietoris maps over $\mathbb{Q}$ may have Cantor $\mathbb{Z}_p$-fibers
+because $\check{H}^*(\mathbb{Z}_p;\mathbb{Q})$ is trivial in positive degrees.
+Neither 2026 proof leaks onto this class: both require local connectedness and
+Newman-type rigidity over $\mathbb{F}_p$.
+\end{corollary}
+
+%======================================================================
+\section{Polyhedral and resolvable reductions}
+\label{sec:reductions}
+
+\begin{theorem}[Polyhedral reduction]
+\label{thm:C}
+\status{new packaging; classical PL local duality}
+Let $L\neq 0$ be a commutative ring with unit and let $X=|K|$ be a connected
+second-countable polyhedral $L$-homology $n$-manifold ($n\ge 1$).  Then:
+\begin{enumerate}[label=(\roman*)]
+\item $X_{\mathrm{man}}$ contains $X\setminus|K^{(n-2)}|$ and is a connected,
+dense, open, $\mathrm{Homeo}(X)$-invariant topological $n$-manifold without
+boundary;
+\item every faithful continuous $\mathbb{Z}_p$-action on $X$ restricts to a
+faithful continuous action on $X_{\mathrm{man}}$;
+\item consequently both OpenAI~\cite{openai2026} and Dabrowski~\cite{dabrowski2026},
+if accepted for topological manifolds, exclude faithful continuous
+$\mathbb{Z}_p$-actions on $X$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+In a simplicial $L$-homology $n$-manifold the link of every $(n-1)$-simplex
+has $\tilde{H}_0\cong L$, hence exactly two vertices.  Open stars off the
+$(n-2)$-skeleton are Euclidean.  Connectivity of the dual
+$(n,n-1)$-gallery graph prevents $|K^{(n-2)}|$ from separating $X$.
+Homeomorphisms preserve $X_{\mathrm{man}}$; density plus Hausdorffness makes
+restriction $\mathrm{Homeo}(X)\to\mathrm{Homeo}(X_{\mathrm{man}})$ injective.
+Apply the topological-manifold theorem on $X_{\mathrm{man}}$.
+\end{proof}
+
+\begin{remark}[Direct Dabrowski route on polyhedral $\mathbb{Q}$-hm]
+Even without deleting $|K^{(n-2)}|$, Dabrowski's dual-block carrier acyclicity
+(his Lemma~7.4) holds verbatim on any polyhedral $\mathbb{Q}$-homology
+manifold: only rational link acyclicity is used.
+\end{remark}
+
+\begin{checkboxenv}
+Verify gallery connectivity for connected polyhedral homology manifolds over
+an arbitrary coefficient ring $L\neq 0$.  Confirm that Dabrowski Lemma~7.4
+really uses only $\mathbb{Q}$-link acyclicity.
+\end{checkboxenv}
+
+\begin{theorem}[Resolvable ENR / nonempty manifold stratum]
+\label{thm:D}
+\status{relative to Newman on $\mathbb{F}_p$-cm + Edwards--Quinn}
+Let $X$ be a connected Hausdorff second-countable $\mathbb{F}_p$-cohomology
+$n$-manifold of finite covering dimension.
+\begin{enumerate}[label=(\roman*)]
+\item If $X_{\mathrm{man}}\neq\varnothing$, then any faithful continuous
+$\mathbb{Z}_p$-action induces a faithful action of some open subgroup
+$p^j\mathbb{Z}_p\cong\mathbb{Z}_p$ on a Euclidean open set
+$O\subset X_{\mathrm{man}}$, so both 2026 arguments apply as written.
+\item If $I(X)=1$ (resolvable case), then $X\times\mathbb{R}^2$ is a
+topological $(n+2)$-manifold by Daverman and Edwards--Quinn, and a faithful
+action on $X$ extends to $X\times\mathbb{R}^2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Sketch of (i)]
+Newman's theorem for connected $\mathbb{F}_p$-cohomology manifolds of finite
+covering dimension~\cite{smith1941,connerfloyd1959} implies that no nontrivial
+$p$-power periodic homeomorphism fixes a nonempty open set.  The OpenAI
+chart-reduction argument then produces a faithful small-subgroup action on a
+coordinate ball.
+\end{proof}
+
+\begin{checkboxenv}
+Confirm Newman for connected $\mathbb{F}_p$-cm (Conner--Floyd Cor.~6.2 / Bredon).
+Confirm Daverman: $I(X)=1\Rightarrow X\times\mathbb{R}^2$ has DDP and is a
+manifold by Edwards--Quinn.
+\end{checkboxenv}
+
+%======================================================================
+\section{The crown jewel: nowhere-Euclidean ENR homology manifolds}
+\label{sec:hm5}
+
+By Theorem~\ref{thm:D}, the only connected $\mathbb{Z}$-homology $n$-manifolds
+not immediately reduced to a Euclidean chart are those with
+$X_{\mathrm{man}}=\varnothing$.  Such spaces exist for every $n\ge 6$
+\cite{bfmw1996}, with arbitrary Quinn index $I(X)\equiv 1\pmod{8}$,
+$I(X)\neq 1$.
+
+\begin{theorem}[Dabrowski arithmetic fails when $p\mid I(X)$]
+\label{thm:dabrowski-gap}
+\status{new as a delimitation of Dabrowski}
+Suppose one replaces the compactified coordinate sphere in Dabrowski
+\S\S8--13 by a compact connected orientable non-resolvable ENR
+$\mathbb{Z}$-homology $n$-manifold $X$ with Quinn index $I(X)$.  After
+Karoubi localization cutting $X\times\mathbb{CP}^2$ down to a scalar germ,
+the signature tail is
+\[
+\sigma_{\mathrm{tail}}(\alpha)=\bigl[(I(X),I(X),I(X),\ldots)\bigr].
+\]
+Dabrowski's divisibility uses only $\Phi_{p^{a_i}}(1)=p$, hence only
+single-$p$ divisibility $\sigma_{\mathrm{tail}}\in p\mathbb{Z}^{\mathbb{N}}/\mathbb{Z}^{(\mathbb{N})}$.
+For every odd prime $p$ dividing $I(X)$ (e.g.\ $I(X)=9$, $p=3$), the
+relation $I(X)\in p\mathbb{Z}$ is true and yields \textbf{no contradiction}.
+\end{theorem}
+
+\begin{theorem}[OpenAI-style ENR rephrase]
+\label{thm:E}
+\status{relative to OpenAI; new as an ENR packaging}
+Let $X$ be a compact connected orientable ENR $\mathbb{Z}$-homology
+$n$-manifold with a continuous $\mathbb{Z}_p$-action.  Rephrase
+OpenAI~\cite{openai2026} by setting $\widehat{M}=X\times S^{d-n}$
+($d>n$ odd, $d\ge 3$) as \emph{source}, keeping the \emph{target} test space
+the standard sphere $S^d$.  Then:
+\begin{enumerate}[label=(\roman*)]
+\item Newman holds on $X$ as a connected $\mathbb{F}_p$-cm;
+\item $\widehat{M}$ is a retract of a compact finite polyhedron, so derived
+pushforwards land in the idempotent-complete test category
+$\mathcal{T}(S^d)$ without triangulating $\widehat{M}$;
+\item moving the test uses Poincar\'e--Alexander duality on the homology
+manifold $W\subset\widehat{M}$ rather than sliding Euclidean balls;
+\item the denominator lattice $L_d^{-1}\mathbb{Z}\overline{u}_d$ is a
+property of the \emph{target} $S^d$ alone, so the equal-parts identity
+\[
+\overline{z}_i(a)=\frac{4\,c_X}{p^k}\,\overline{u}_d
+\]
+contradicts integrality once $p^k>4|c_X|L_d$, for \textbf{every} prime $p$
+and every $c_X=I(X)\neq 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{checkboxenv}
+\textbf{Critical relative steps.}
+(1)~Idempotent-completeness of $\mathcal{T}(S^d)$ absorbs ENR retracts.
+(2)~Alexander duality $\check{H}^d(W^+\setminus q^{-1}(V);\mathbb{Q})=0$
+replaces the sliding-ball homotopy.
+(3)~The lattice bound $L_d$ depends only on the target sphere.
+Mark WEAK if any of these is not accepted as written in OpenAI.
+\end{checkboxenv}
+
+\begin{theorem}[Dabrowski $k$-tower upgrade]
+\label{thm:F}
+\status{new arithmetic proposal; relative to Dabrowski geometric engine}
+Replace the single index-$p$ subgroup detector in Dabrowski~\S8 by a
+$k$-step filtration
+\[
+H_j\supset H_{j+1}\supset\cdots\supset H_{j+k}
+\]
+with $k$ equivariant sphere detectors for the free $C_p$-quotients
+$H_{j+r-1}/H_{j+r}$.  The $k$ commuting nilpotent operators
+$\nu_r=p\,\mathrm{id}-\tau\otimes(-)$ force the integer multiplicity
+polynomial $F(t)\in\mathbb{Z}[t]$ to be divisible by
+$\prod_{r=0}^{k-1}\Phi_{p^{a_i-r}}(t)$, hence
+\[
+p^k=\prod_{r=0}^{k-1}\Phi_{p^{a_i-r}}(1)\ \Big|\ F(1)=\sigma(V_i,b_i).
+\]
+Choosing $k$ with $p^k>|I(X)|$ upgrades the contradiction from
+$I(X)\in p\mathbb{Z}$ to $I(X)\in p^k\mathbb{Z}$, killing every Quinn index
+compatible with BFMW (combined with $\varepsilon$-Poincar\'e polyhedral
+approximations in place of a fixed triangulation).
+\end{theorem}
+
+\begin{checkboxenv}
+Check that $k$ commuting nilpotents really multiply cyclotomic factors in
+$\mathbb{Z}[t]$ without introducing denominators (the polynomial divisibility
+step is formalized and compiled in \texttt{CoppolaHS/CyclotomicTower.lean}).
+Check that BFMW $\varepsilon$-approximations supply the controlled input
+Dabrowski needs in place of a single triangulation.  This theorem is the
+natural invitation point for Dabrowski as co-author or correspondent.
+\end{checkboxenv}
+
+\subsection{Plain-English guide to Theorems~\ref{thm:dabrowski-gap}--\ref{thm:F}}
+\label{sec:plain-english}
+
+Because the notation above mixes controlled $L$-theory, derived sheaf
+categories, and Quinn's surgery index, it is worth stating in plain English
+what Theorems~\ref{thm:dabrowski-gap},~\ref{thm:E}, and~\ref{thm:F} actually
+say and why Theorems~\ref{thm:E} and~\ref{thm:F} are marked \status{relative}.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item \textbf{Are Theorems~\ref{thm:E} and~\ref{thm:F} genuine theorems?}
+Yes---they are \emph{conditional (relative) theorems}.  The tag
+\status{relative} means that this short paper does not re-prove the full
+2026 OpenAI or Dabrowski manifold machines from scratch; instead it proves that
+\emph{if} the OpenAI sheaf-Witt machine on $S^d$ holds (or \emph{if}
+Dabrowski's controlled $L$-theory machine holds on $\varepsilon$-Poincar\'e
+spaces), then the exclusion of effective $\mathbb{Z}_p$-actions extends from
+topological manifolds to every compact connected orientable ENR
+$\mathbb{Z}$-homology manifold, even when $X_{\mathrm{man}}=\varnothing$.
+\item \textbf{What is the ``single-$p$ gap'' in
+Theorem~\ref{thm:dabrowski-gap}?}
+Dabrowski's proof on a manifold extracts an integer signature $\sigma$ and
+proves two things:
+\begin{enumerate}[label=(\alph*)]
+\item algebraically, using \emph{one} step $H_j/H_{j+1}\cong C_p$ of the
+$p$-adic group and the cyclotomic identity $\Phi_{p^a}(1)=p$, the integer
+$\sigma$ must be divisible by $p$ ($\sigma\in p\mathbb{Z}$);
+\item geometrically, on a Euclidean manifold chart, $\sigma=1$, contradicting
+$1\in p\mathbb{Z}$.
+\end{enumerate}
+On a nowhere-Euclidean BFMW homology manifold $X$ ($X_{\mathrm{man}}=\varnothing$),
+the local signature is no longer $1$: it is \emph{Quinn's resolution index}
+$I(X)\equiv 1\pmod{8}$ (for instance $I(X)=9$, $25$, or $-7$).  If $I(X)=9$
+and $p=3$, then Dabrowski's algebraic step says ``$9$ is divisible by $3$,''
+which is \emph{true} ($9=3\times 3$) and gives \textbf{no contradiction}.
+\item \textbf{What does ``OpenAI ENR rephrase'' (Theorem~\ref{thm:E}) mean?}
+In OpenAI's manifold proof, one picks a Euclidean coordinate chart
+$\mathbb{R}^n\subset M$, compactifies it into a \emph{source} sphere $S^d$,
+and maps that source sphere to a \emph{target} test sphere $S^d$ through the
+orbit space.  When $X_{\mathrm{man}}=\varnothing$, $X$ has no Euclidean chart,
+so there is no source sphere.  The \emph{ENR rephrase} is a simple geometric
+bypass: do \emph{not} replace the source by a sphere.  Keep
+$\widehat{M}=X\times S^{d-n}$ itself as the source space, and pinch a small
+neighborhood into the standard target sphere $S^d$.  Because $X$ is a compact
+\emph{ENR} (a retract of a finite polyhedron $B$), the pushed-forward sheaf
+complex from $\widehat{M}$ is a direct summand of the pushforward from $B$, so
+it automatically lies in OpenAI's idempotent-complete test category
+$\mathcal{T}(S^d)$ on the target sphere without needing a chart or a
+triangulation.  Instead of dividing $4$ into $p^k$ equal parts, one divides
+$4\,I(X)$ into $p^k$ equal parts in a fixed denominator lattice
+$L_d^{-1}\mathbb{Z}$.  Because $k$ can be chosen arbitrarily large
+($p^k>4|I(X)|L_d$), this kills \emph{every} $I(X)\neq 0$, even when
+$p\mid I(X)$.
+\item \textbf{What does ``Dabrowski $k$-tower upgrade'' (Theorem~\ref{thm:F})
+mean?}
+Instead of using a single subgroup step $H_j\supset H_{j+1}$ (which only divides
+by a single factor of $p$), use a \emph{tower of $k$ nested steps}
+\[
+H_j\supset H_{j+1}\supset H_{j+2}\supset\cdots\supset H_{j+k}
+\]
+inside $\mathbb{Z}_p$.  Each of the $k$ steps contributes a distinct
+cyclotomic polynomial $\Phi_{p^{a-r}}(t)$ dividing the character polynomial
+$F(t)\in\mathbb{Z}[t]$.  Evaluating at $t=1$ multiplies the $k$ factors
+$\Phi_{p^{a-r}}(1)=p$, forcing $\sigma=I(X)$ to be divisible by $p^k$
+(compiled in Lean~4 in \texttt{CoppolaHS/CyclotomicTower.lean}).  When
+$I(X)=9$ and $p=3$, taking $k=3$ forces $27\mid 9$, restoring the
+contradiction.
+\end{enumerate}
+
+%======================================================================
+\section{Settled exclusion vs open construction when $X_{\mathrm{man}}=\varnothing$}
+\label{sec:compare}
+
+The crown-jewel Theorems~\ref{thm:dabrowski-gap}--\ref{thm:F} and the
+inverse-limit Theorem~\ref{thm:G} below are easy to misread as saying
+``every homology manifold forbids faithful $\mathbb{Z}_p$-actions'' or,
+conversely, ``when $X_{\mathrm{man}}=\varnothing$ a counterexample is still
+available.''  Neither reading is correct.  This section records the logical
+status explicitly.
+
+\subsection{The question}
+\label{sec:settled-question}
+
+\begin{enumerate}[label=\textbf{Q\arabic*.}]
+\item Do \emph{all} homology / cohomology manifolds exclude effective continuous
+$\mathbb{Z}_p$-actions?
+\item If not, can one still \emph{construct} a faithful continuous
+$\mathbb{Z}_p$-action on a connected ENR $\mathbb{Z}$-homology manifold with
+$X_{\mathrm{man}}=\varnothing$?
+\end{enumerate}
+
+\begin{proposition}[Short answers]
+\label{prop:short-answers}
+\status{new packaging of prior theorems}
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{No to Q1.}  Weakened classes admit actions: HM-1 (coefficient /
+$lc^n$ mismatch) and HM-2 (shrinking necklace) are counterexample classes
+(Section~\ref{sec:counterex}).  The 2026 arguments never claimed those scopes.
+\item \textbf{For connected ENR $\mathbb{Z}$-homology manifolds the answer
+splits on $X_{\mathrm{man}}$ and $I(X)$:}
+\begin{itemize}
+\item if $X_{\mathrm{man}}\neq\varnothing$, or $X$ is polyhedral, or
+$I(X)=1$, then faithful continuous $\mathbb{Z}_p$-actions are excluded
+\emph{relative to} the topological-manifold Hilbert--Smith theorems
+(Theorems~\ref{thm:C},~\ref{thm:D});
+\item if $X_{\mathrm{man}}=\varnothing$ and $I(X)\neq 1$ (BFMW), then
+\emph{as-written} OpenAI/Dabrowski chart arguments do not apply, but
+\begin{itemize}
+\item accepting the OpenAI ENR rephrase (Theorem~\ref{thm:E}), or the
+Dabrowski $k$-tower (Theorem~\ref{thm:F}), again excludes every faithful
+continuous action;
+\item independently, Theorem~\ref{thm:G} blocks the standard
+\emph{constructive} route (inverse limits of simplicial $C_{p^i}$-actions
+with free step kernels).
+\end{itemize}
+\end{itemize}
+\item \textbf{What remains open} is only a narrow logical gap: a faithful
+continuous $\mathbb{Z}_p$-action on some BFMW space with
+$X_{\mathrm{man}}=\varnothing$ and $I(X)\neq 1$, built by a method that is
+\emph{neither} an inverse-limit tower of the Raymond--Williams type
+\emph{nor} subject to the geometric inputs of Theorems~\ref{thm:E}
+or~\ref{thm:F}.  No such construction is known, and Theorem~\ref{thm:G}
+explains why the usual attempt fails.
+\end{enumerate}
+\end{proposition}
+
+\subsection{Case $X_{\mathrm{man}}\neq\varnothing$: exclusion is immediate}
+\label{sec:settled-nonempty}
+
+\begin{theorem}[Chart reduction when a manifold point exists]
+\label{thm:settled-chart}
+\status{restatement of Theorem~\ref{thm:D}(i); classical Newman}
+Let $X$ be a connected Hausdorff second-countable $\mathbb{F}_p$-cohomology
+$n$-manifold of finite covering dimension.  If
+$X_{\mathrm{man}}\neq\varnothing$, then a faithful continuous
+$\mathbb{Z}_p$-action on $X$ induces a faithful continuous action of an open
+subgroup $p^j\mathbb{Z}_p\cong\mathbb{Z}_p$ on a Euclidean open set
+$O\subset X_{\mathrm{man}}$.  In particular, there is \textbf{no} remaining
+construction problem in this case: any purported action is already an action
+on a topological manifold chart, excluded by the 2026 manifold theorems (or by
+classical Hilbert--Smith if those are granted).
+\end{theorem}
+
+Polyhedral spaces (Theorem~\ref{thm:C}) always have dense
+$X_{\mathrm{man}}$.  Resolvable ENRs with $I(X)=1$ reduce by
+$X\times\mathbb{R}^2$ (Theorem~\ref{thm:D}(ii)) even if the Disjoint Disks
+Property fails on $X$ itself.
+
+\subsection{Case $X_{\mathrm{man}}=\varnothing$: three layers, not one}
+\label{sec:settled-empty}
+
+Nowhere-Euclidean BFMW spaces exist for $n\ge 6$ with $I(X)\equiv 1\pmod{8}$
+and $I(X)\neq 1$ \cite{bfmw1996}.  For those spaces the situation has
+\emph{three} distinct layers.
+
+\paragraph{Layer 1 --- As-written 2026 proofs do not fire.}
+Both OpenAI and Dabrowski begin by choosing a Euclidean chart (or a free point
+with a contractible Euclidean neighborhood).  If
+$X_{\mathrm{man}}=\varnothing$, that first step is unavailable.
+Theorem~\ref{thm:dabrowski-gap} records a further arithmetic failure mode for
+\emph{naive} Dabrowski transplantation: single-$p$ cyclotomic divisibility does
+not contradict $I(X)$ when $p\mid I(X)$.  This is a delimitation, not a
+construction.
+
+\paragraph{Layer 2 --- Conditional exclusion (Theorems~\ref{thm:E},~\ref{thm:F}).}
+\begin{itemize}
+\item \textbf{OpenAI route.}  Keep the \emph{target} sphere $S^d$ and replace
+the source by $\widehat{M}=X\times S^{d-n}$.  Newman still holds on the
+connected $\mathbb{F}_p$-cm $X$; ENR retracts land in the idempotent-complete
+test category; the equal-parts lattice contradiction kills every
+$I(X)\neq 0$, including those divisible by $p$.
+\item \textbf{Dabrowski route.}  Upgrade the single index-$p$ detector to a
+$k$-step cyclotomic tower so that $p^k\mid\sigma$ with $p^k>|I(X)|$.
+\end{itemize}
+If either geometric package is accepted, then \textbf{no} faithful continuous
+$\mathbb{Z}_p$-action exists on any compact connected orientable ENR
+$\mathbb{Z}$-homology manifold---including those with
+$X_{\mathrm{man}}=\varnothing$.
+
+\paragraph{Layer 3 --- Construction is blocked for inverse limits
+(Theorem~\ref{thm:G}).}
+Even if one temporarily suspends Theorems~\ref{thm:E} and~\ref{thm:F}, the
+standard way one might try to \emph{build} an action---compatible simplicial
+$C_{p^i}$-actions on an inverse system $E_i$, as in Raymond--Williams---cannot
+produce a connected locally connected ENR cohomology manifold.  Free step
+kernels on bonding fibers force Cantor failure of $lc^0$, Euler/Smith
+obstructions to acyclicity, or non-acyclic splicing that destroys local
+$\mathbb{Z}$-homology.  The only inverse-limit escape is the HM-2 necklace,
+which is not a homology manifold at the junction.
+
+\begin{theorem}[No inverse-limit ENR counterexample when $X_{\mathrm{man}}=\varnothing$]
+\label{thm:no-ilim-enr}
+\status{corollary of Theorem~\ref{thm:G}; clarified for constructors}
+There is no inverse system of finite $n$-dimensional simplicial complexes with
+compatible $C_{p^i}$-actions and free step-kernel action on bonding fibers
+whose inverse limit is a connected locally connected ENR
+$\mathbb{Z}$-cohomology $n$-manifold (resolvable or not).  In particular, one
+cannot construct a BFMW counterexample to $p$-adic exclusion by a
+Raymond--Williams-style tower.
+\end{theorem}
+
+\subsection{What a would-be constructor must achieve}
+\label{sec:constructor-burden}
+
+To exhibit a faithful continuous $\mathbb{Z}_p$-action on a space $X$ with
+$X_{\mathrm{man}}=\varnothing$ that escapes this note, one would need all of
+the following simultaneously:
+\begin{enumerate}[label=(\alph*)]
+\item $X$ is a connected ENR $\mathbb{Z}$-homology $n$-manifold with
+$I(X)\neq 1$ (so $X\times Y$ never becomes a manifold);
+\item the action is jointly continuous and faithful;
+\item the geometric inputs of Theorem~\ref{thm:E} fail (e.g.\ the pushed class
+is not equal-parts-integrable in $\mathcal{T}(S^d)$, or Newman/averaging
+cannot be run on $X$), \emph{and} the $k$-tower inputs of
+Theorem~\ref{thm:F} fail;
+\item the action is not realized by an inverse limit of the type forbidden by
+Theorem~\ref{thm:G}.
+\end{enumerate}
+Items (a)--(b) are the BFMW wish-list; (c)--(d) are the actual burden.
+Until such an example appears, the correct summary is:
+
+\begin{quote}
+\itshape
+Within the finite-dimensional (ENR) class, homology manifolds with
+$X_{\mathrm{man}}\neq\varnothing$, polyhedral triangulations, or $I(X)=1$ are
+excluded via chart reduction, and nowhere-Euclidean BFMW spaces ($I(X)\neq 1$)
+are excluded relative to Theorem~\ref{thm:E} (OpenAI ENR rephrase) or
+Theorem~\ref{thm:F} (Dabrowski $k$-tower), while fixed-dimension simplicial
+inverse limits are blocked by Theorem~\ref{thm:G}.
+To search for a \textbf{non-necklace inverse-limit example} of a
+$\mathbb{Z}_p$-action on a homology manifold, one must drop finite
+\textbf{topological} dimension ($\dim X<\infty$, hence ENR) while keeping finite
+\textbf{cohomological} dimension ($\dim_{\mathbb{Z}}X=n<\infty$), as analyzed in
+Section~\ref{sec:nogo} below.
+\end{quote}
+
+\begin{checkboxenv}
+Verify that all three exclusions for $X_{\mathrm{man}}=\varnothing$
+(Theorem~\ref{thm:E}, Theorem~\ref{thm:F}, and Theorem~\ref{thm:G}) depend
+crucially on \emph{finite topological covering dimension} ($\dim X<\infty$ /
+ENR / bounded-dimension complexes $E_i$), and that dropping $\dim X<\infty$ while
+preserving $\dim_{\mathbb{Z}}X=n$ is the unique way to reopen inverse-limit
+constructions without necklace pinch points.
+\end{checkboxenv}
+
+\subsection{OpenAI vs Dabrowski packaging (reminder)}
+\label{sec:packaging-table}
+
+\begin{center}
+\begin{tabular}{@{}llp{5.0cm}@{}}
+\toprule
+Ingredient & OpenAI & Dabrowski \\
+\midrule
+Euclidean shell & Newman + chart + averaging & Newman + free point + sphere control \\
+Arithmetic object & Witt/signature lattice on $S^d$ & $L_4$ integer signature tail \\
+Divisibility & equal parts $4/p^k$, arbitrary $k$ & single $p$ via $\Phi_{p^a}(1)=p$ \\
+Realization & degree-1 pinch through orbit space & $\mathbb{CP}^2$ germ after localization \\
+ENR $I(X)\neq 1$ & rephrases (Thm~\ref{thm:E}) & needs $k$-tower (Thm~\ref{thm:F}) \\
+Lean & none for this proof & large \texttt{HSFormal} tree \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Shared Euclidean ingredients: Newman rigidity, local charts/orientation,
+arbitrarily small open subgroups of $\mathrm{Homeo}$, and an integral
+signature lattice (Witt or $L$-theory).  Sponges/solenoids/Menger fail the
+Euclidean shell, not the arithmetic---so the obstruction, if correct, is
+Euclidean rather than purely dynamical.  When $X_{\mathrm{man}}=\varnothing$
+the shell must be rephrased (Theorem~\ref{thm:E}) or arithmetically upgraded
+(Theorem~\ref{thm:F}); it is not simply abandoned.
+
+%======================================================================
+\section{Inverse-limit no-go in finite dimension and the $\dim_{\mathbb{Z}}<\infty$, $\dim=\infty$ frontier}
+\label{sec:nogo}
+
+\subsection{The bounded-dimension trichotomy}
+
+\begin{theorem}[Inverse-limit trichotomy in bounded topological dimension]
+\label{thm:G}
+\status{new}
+Suppose $X=\varprojlim(E_i,\pi_i)$ is an inverse limit of finite
+$n$-dimensional simplicial complexes with compatible simplicial actions of
+$C_{p^i}=\mathbb{Z}_p/p^i\mathbb{Z}_p$, as in Raymond--Williams.  Let
+$K_i=\ker(C_{p^i}\to C_{p^{i-1}})\cong C_p$ act on a bonding fiber
+$F_x=\pi_i^{-1}(x)$.  At a regular free orbit of $C_{p^i}$ on $E_i$, the
+step kernel $K_i$ acts freely on the compact fiber $F_x$, forcing one of:
+\begin{enumerate}[label=\textbf{Case \arabic*:}]
+\item \textbf{Zero-dimensional fibers} ($|F_x|=p$).
+Then $X$ accumulates Cantor $\mathbb{Z}_p$-fibers, fails $lc^0$, and is never
+a cohomology manifold over any ring.
+\item \textbf{Cell-like / $\mathbb{Q}$-acyclic connected fibers at stage $i$.}
+$\mathbb{F}_p$-acyclic free $C_p$-actions on finite-dimensional compacta are
+impossible by Smith.  $\mathbb{Q}$-acyclic finite free $C_p$-complexes are
+impossible by Euler characteristic:
+$\chi(F_x)=p\cdot\chi(F_x/C_p)\equiv 0\pmod{p}$, while acyclicity forces
+$\chi=1$.
+\item \textbf{Connected fibers with $\chi\equiv 0\pmod{p}$ and nontrivial
+homology in degrees $\le n$.}
+Splicing non-acyclic fibers of dimension $\le n$ (Raymond--Williams blocks,
+Menger $\mu^n$) destroys local homology
+$H_n(X,X\setminus\{x\})\cong\mathbb{Z}$ along the splicing locus.
+\end{enumerate}
+Thus no bounded-dimension tower yields a connected locally connected ENR
+cohomology manifold with a free step-kernel action on bonding fibers.
+\end{theorem}
+
+\begin{corollary}[Only necklace escape in bounded topological dimension]
+\label{cor:H}
+\status{new}
+Within bounded-dimension simplicial towers, the only escape that preserves open
+manifold strata is to allow fixed points of $K_i$ on bonding necks---i.e., a
+finite necklace/wedge of manifolds or lens spaces joining along singular
+points, converging to the HM-2 shrinking-necklace class of
+Proposition~\ref{prop:necklace}, where local homology fails at the accumulation
+point.
+\end{corollary}
+
+\begin{checkboxenv}
+Case~2 Euler obstruction: confirm $\chi=1$ for $\mathbb{Q}$-acyclic finite
+complexes and $\chi\equiv 0\pmod{p}$ under free $C_p$.  Case~3: confirm that
+bounded-dimension RW/Menger splicing kills local $\mathbb{Z}$-homology.
+\end{checkboxenv}
+
+\subsection{How to escape the necklace trap: $\dim_{\mathbb{Z}}X=n<\infty$ with $\dim X=\infty$ (HM-6)}
+\label{sec:dranishnikov}
+
+If one wants to construct a \textbf{non-necklace} inverse-limit example of a
+faithful $\mathbb{Z}_p$-action on a connected $\mathbb{Z}$-homology (or
+\v{C}ech $\mathbb{Z}$-cohomology) $n$-manifold $X=\varprojlim(E_i,\pi_i)$, the
+analysis above pinpoints the exact hypothesis that must be relaxed:
+\emph{finite topological covering dimension} ($\dim X<\infty$).
+
+Recall the fundamental dichotomy of cohomological dimension theory due to
+Edwards--Walsh~\cite{walsh1981}, Dranishnikov~\cite{dranishnikov1988},
+Mitchell~\cite{mitchell1990}, and
+Dranishnikov--Ferry--Weinberger~\cite{dfw2006} and
+Dydak--Walsh~\cite{dydakwalsh1993}:
+\begin{itemize}
+\item A compact metric $\mathbb{Z}$-cohomology $n$-manifold ($clc_{\mathbb{Z}}$,
+with $H^*(X,X\setminus\{x\};\mathbb{Z})\cong H^*(\mathbb{R}^n,\mathbb{R}^n\setminus\{0\};\mathbb{Z})$
+at every point) is an \textbf{ENR} (equivalently, an \textbf{ANR})
+\emph{if and only if} its topological covering dimension is finite
+($\dim X=n$).
+\item Using Dranishnikov's solution to Alexandroff's problem ($\dim_{\mathbb{Z}}X=3$,
+$\dim X=\infty$)~\cite{dranishnikov1988} and Edwards--Walsh cell-like
+resolutions, there exist compact connected $\mathbb{Z}$-cohomology
+$n$-manifolds (\emph{class HM-6}) that are cell-like images of $n$-manifolds or
+generalized $n$-manifolds and satisfy
+\[
+\dim_{\mathbb{Z}}X = n < \infty, \qquad \dim X = \infty, \qquad
+X_{\mathrm{man}}=\varnothing.
+\]
+Such spaces are inverse limits of finite polyhedra $E_i$ whose topological
+dimensions \emph{grow without bound} ($\dim E_i = d_i \to \infty$), while the
+bonding maps $\pi_{i+1}:E_{i+1}\to E_i$ kill all cohomology in degrees $>n$
+via Eilenberg--MacLane $K(\mathbb{Z},n)$ / Postnikov resolution blocks.
+\end{itemize}
+
+\begin{theorem}[Why $\dim_{\mathbb{Z}}X=n<\infty$, $\dim X=\infty$ reopens all three doors]
+\label{thm:dranishnikov-escape}
+\status{new}
+Let $X=\varprojlim(E_i,\pi_i)$ be a compact connected $\mathbb{Z}$-cohomology
+$n$-manifold with $\dim_{\mathbb{Z}}X=n<\infty$ and $\dim X=\infty$ (so $X$ is
+not an ENR and $\dim E_i = d_i \to \infty$).  Then:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Theorem~\ref{thm:E} (OpenAI ENR rephrase) does not apply:}
+because $\dim X=\infty$, $X$ cannot be embedded in any Euclidean space
+$\mathbb{R}^N$ and is not a retract of any finite polyhedron $B$.  Hence
+$Rf_*\underline{\mathbb{C}}_{\widehat{M}}$ is not a direct summand of a
+polyhedral generator in $\mathcal{T}_0(S^d)$, and Verdier biduality
+$a_X^!\mathbb{R}\simeq\underline{\mathbb{R}}_X[n]$ loses its finite $c$-soft
+dimension hypothesis.
+\item \textbf{Theorem~\ref{thm:F} (Dabrowski $k$-tower) does not apply:}
+because $\dim X=\infty$, $X$ is not an ANR/ENR and does not admit
+bounded-dimension controlled polyhedral Poincar\'e approximations.
+\item \textbf{Case~2 of Theorem~\ref{thm:G} (single-stage Euler obstruction) is
+bypassed:} when the fiber dimension $\dim F_x = d_i > n$ is allowed to grow
+with $i$, a finite complex $F_x$ with a free $C_p$-action can be
+\textbf{$\mathbb{Z}$-acyclic through degree $n+1$},
+\[
+\tilde{H}^q(F_x;\mathbb{Z}) = 0 \quad \text{for all } 0\le q\le n+1,
+\]
+while satisfying $\chi(F_x)=p\,\chi(F_x/C_p)\equiv 0\pmod{p}$ by placing its
+compensating Betti numbers purely in high degrees $q = d_i \gg n+1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (i) and (ii) follow immediately from the characterization of compact ENRs
+as finite-dimensional ANRs (Borsuk) and the definition of OpenAI's category
+$\mathcal{T}(S^d)$ as the idempotent completion of pushforwards from compact
+finite polyhedra.  For (iii), take $F_x=S^{2m_i-1}$ with the standard free linear
+$C_p$-action and $2m_i-1 > n+1$: then $\tilde{H}^q(F_x;\mathbb{Z})=0$ for all
+$q\le n+1$ and $\chi(F_x)=0\equiv 0\pmod{p}$.  (Alternatively, in even top
+degree $2m_i>n+1$, a free $C_p$-complex with $\tilde{H}^q=0$ for $q<2m_i$ and
+$\tilde{H}^{2m_i}(F_x;\mathbb{Z})\cong\mathbb{Z}^{p-1}$ has
+$\chi(F_x)=1+(p-1)=p\equiv 0\pmod{p}$.)  By the Leray spectral sequence of
+$\pi_i:E_i\to E_{i-1}$, vanishing of $\tilde{H}^q(F_x;\mathbb{Z})$ for
+$q\le n+1$ implies that $\pi_i^*$ is an isomorphism on local cohomology in all
+degrees $\le n$, so splicing $F_x$ does \emph{not} destroy local
+$n$-manifold homology at stage $i$.
+\end{proof}
+
+\subsection{Architecture and exact hurdle for a Dranishnikov--Raymond--Williams construction}
+\label{sec:drw-blueprint}
+
+Theorem~\ref{thm:dranishnikov-escape} shows how to avoid both the necklace
+pinch points of HM-2 and the low-dimensional homology destruction of
+Raymond--Williams (Case~3 of Theorem~\ref{thm:G}): push the free-$C_p$ fiber
+topology to growing dimensions $d_i\to\infty$, and kill those high-dimensional
+classes at later stages so that $\check{H}^q(X;\mathbb{Z})=\varinjlim_i H^q(E_i;\mathbb{Z})=0$
+for all $q>n$ (\emph{pro-acyclicity}).
+
+\begin{proposition}[Pro-acyclicity over $\mathbb{F}_p$ vs $\mathbb{Z}$ in a growing-dimension $C_{p^i}$-tower]
+\label{prop:drw-blueprint}
+\status{new construction analysis}
+Consider an inverse system $E_0\xleftarrow{\pi_1}E_1\xleftarrow{\pi_2}\cdots$
+with compatible $C_{p^i}$-actions and growing fiber dimensions
+$2m_i-1 > n+1$.
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Mod-$p$ pro-acyclicity is automatic ($\mathrm{cd}_p(\mathbb{Z}_p)=1$):}
+Unlike the finite group $C_p$, which has $\mathrm{cd}_p(C_p)=\infty$, the
+profinite group $\mathbb{Z}_p=\varprojlim C_{p^i}$ has continuous mod-$p$
+cohomological dimension $1$: under the quotient $q_{i+1}:C_{p^{i+1}}\twoheadrightarrow C_{p^i}$,
+the degree-$2$ Bockstein generator $u_i\in H^2(BC_{p^i};\mathbb{F}_p)$ pulls
+back to $q_{i+1}^*(u_i)=0\in H^2(BC_{p^{i+1}};\mathbb{F}_p)$, so
+\[
+\varinjlim_i H^q(BC_{p^i};\mathbb{F}_p) = H^q_{\mathrm{cts}}(\mathbb{Z}_p;\mathbb{F}_p) = 0
+\quad \text{for all } q\ge 2.
+\]
+Concretely, on the free $C_{p^i}$-sphere $S^{2m_i-1}\subset\mathbb{C}^{m_i}$,
+the $q_{i+1}$-equivariant coordinate $p$-th power map
+\[
+\phi_i(z_1,\dots,z_{m_i}) = \frac{(z_1^p,\dots,z_{m_i}^p)}{\|(z_1^p,\dots,z_{m_i}^p)\|}
+\]
+has degree $p^{m_i}\equiv 0\pmod{p}$, so $\phi_i^*=0$ on
+$\tilde{H}^*(S^{2m_i-1};\mathbb{F}_p)$ in a single step!
+\item \textbf{The integral solenoid tail and Dranishnikov killing:}
+On integral cohomology $\tilde{H}^{2m_i-1}(S^{2m_i-1};\mathbb{Z})\cong\mathbb{Z}$,
+the map $\phi_i^*$ is multiplication by $p^{m_i}\neq 0$.  Iterating $\phi_i$ in
+a \emph{fixed} dimension $2m-1$ produces a $p$-adic solenoid with
+$\check{H}^{2m-1}\cong\mathbb{Z}[1/p]$ rather than $\dim_{\mathbb{Z}}X=n$.
+To obtain $\dim_{\mathbb{Z}}X=n$, stage $i+1$ must instead kill the integral
+class in $H^{2m_i-1}(E_i;\mathbb{Z})$ by routing $\pi_{i+1}$ through a higher-dimensional
+equivariant Eilenberg--MacLane $K(\mathbb{Z},2m_i-1)$ / Postnikov block of
+dimension $d_{i+1}>2m_i-1$ (the Edwards--Walsh / Dranishnikov step).
+\item \textbf{The Smith--Coppola constraint in the limit:}
+If the limit $X=\varprojlim E_i$ achieves $\dim_{\mathbb{Z}}X=n$, then by
+Universal Coefficients $\dim_{\mathbb{F}_p}X\le n<\infty$.  Because P.~A.\
+Smith's fixed-point theorem holds for compact spaces of finite
+$\mathbb{F}_p$-cohomological dimension (even when $\dim X=\infty$), no
+\emph{finite} subgroup $C_p$ can act freely on an $\mathbb{F}_p$-acyclic closed
+subset of $X$.  The construction relies on the fact that $\mathbb{Z}_p$ is
+\emph{torsion-free} (so no finite $C_p$ acts on $X$ itself) while the orbit
+space $X/\mathbb{Z}_p$ absorbs my 1980 transfer / Yang torsion jump
+$\dim_{\mathbb{Z}}(X/\mathbb{Z}_p)=n+2$ with top group $\mathbb{Z}[1/p]/\mathbb{Z}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{checkboxenv}
+\textbf{Workplan for a non-necklace HM-6 construction:}
+To turn Proposition~\ref{prop:drw-blueprint} into an explicit counterexample in
+class HM-6 ($\dim_{\mathbb{Z}}X=n$, $\dim X=\infty$), one must construct the
+equivariant Dranishnikov resolution block at step~(b): given the free
+$C_{p^i}$-fiber $S^{2m_i-1}$ at stage $i$, build the stage-$(i+1)$ free
+$C_{p^{i+1}}$-complex $E_{i+1}\xrightarrow{\pi_{i+1}}E_i$ so that
+$\pi_{i+1}^*:H^{2m_i-1}(E_i;\mathbb{Z})\to H^{2m_i-1}(E_{i+1};\mathbb{Z})$ is
+zero while maintaining $\tilde{H}^q(F_x;\mathbb{Z})=0$ for all $q\le n+1$.
+The subsections below record the Williams obstruction, the Edwards--Walsh
+bypass, the Borel-join architecture, and the remaining analytic gate.
+\end{checkboxenv}
+
+\subsection{Williams's functor and the 1967 Part~II torus obstruction}
+\label{sec:williams-torus}
+
+Williams~\cite{williams1967} (building on Raymond--Williams~\cite{raymondwilliams1960,raymondwilliams1963})
+defines a splicing functor $K\Delta_q X$: replace every $m$-simplex of a
+barycentric subdivision $K'$ by a building block $(X_i,B_i,q_i)$ carrying a
+period-$p^i$ map, glued along $\partial\Delta^m$.  In Part~II
+(\cite{williams1967}, pp.~149--154), forcing the bonding map
+$L_{i+1}\to L_i$ to factor simplicially through the $n$-skeleton
+(Definition~3.1.1: so that $\dim X\le n$) produces a torus
+$T=S^1\times\beta^+$ on which a map of type $(1,p)$ cannot respect the
+diagonal $C_p$-identification $y_2 y_3^i$.
+
+Concretely, the diagonal circle $S'=\{(\theta,i\theta)\}$ is invariant, and a
+map $g'$ forced into the $2$-skeleton has bidegree $(1,p)$ on $T$, hence type
+$(i,p)$ on $S'$.  When $i\not\equiv 0\pmod{p}$ this cannot factor through the
+diagonal $C_p$-quotient---the classical Part~II no-go.
+
+\begin{remark}[Why Part~II does not kill HM-6]
+\label{rmk:williams-depends-on-skeleton}
+\status{new}
+The obstruction uses the $n$-skeleton retraction hypothesis.  If bonding maps
+factor instead through higher cells of an Edwards--Walsh complex
+$EW_d(L_i,\mathbb{Z},n)$ that kill $H^{>n}$ \emph{cohomologically} without
+collapsing the $(n+1)$-skeleton geometrically, then $S'$ can bound in the
+attached cells of dimension $>n$ and the bidegree contradiction disappears.
+\end{remark}
+
+\subsection{Edwards--Walsh resolutions and Dranishnikov $K$-theory blocks}
+\label{sec:ew-blocks}
+
+The Edwards--Walsh complex $EW(K,\mathbb{Z},n)\to|K|$
+\cite{walsh1981,dranishnikov1988,dydakwalsh1993} replaces every simplex
+$\sigma$ of dimension $>n$ by an Eilenberg--MacLane complex
+$K(\bigoplus\mathbb{Z},n)$ whose $(n+1)$-skeleton is $\sigma^{(n)}$.  This
+kills all cohomology in degrees $>n$ (so $\dim_{\mathbb{Z}}X\le n$) while
+allowing topological dimension $\dim K_i=d_i\to\infty$.
+
+By Dranishnikov--Ferry--Weinberger~\cite{dfw2006},
+$\widetilde{KO}_*(K(\pi,n);\mathbb{Z}_p)=0$ for $n\ge 3$ (and for finite
+$\pi$, $n\ge 2$).  Bonding maps may therefore factor through finite skeletons
+of $EW(K_i,\mathbb{Z},n)$ while remaining essential in mod-$p$ $K$-theory,
+forcing every neighborhood in $X=\varprojlim K_i$ to have infinite covering
+dimension.  Dranishnikov's polynomial criterion
+\cite[Prop.~3.3]{dranishnikov2016} makes this checkable:
+\[
+\bigl((y+1)^{p^{k-l}}-1\bigr)^m
+\notin
+\bigl\langle (y+1)^{p^k}-1,\, y^{n_i}\bigr\rangle
+\subset\mathbb{Z}[y]
+\]
+whenever $m<p^l$ and $m\,p^{k-l}<n_i$, yielding unbounded cup-length on every
+open neighborhood $U\subset X$.
+
+\subsection{Borel-join equivariant Edwards--Walsh splicing}
+\label{sec:borel-join}
+
+A finite group $C_p$ cannot act freely on an infinite-dimensional
+$K(\mathbb{Z},n)$ without nonvanishing Tate cohomology.  The remedy is to
+perform Edwards--Walsh attachment via the \textbf{Borel construction} with a
+free odd sphere of growing dimension.
+
+\begin{proposition}[Borel-join HM-6 architecture]
+\label{prop:borel-join-hm6}
+\status{new construction analysis}
+Fix $n\ge 2$ and an odd prime $p$.  Inductively construct finite simplicial
+complexes $E_i$ with free $C_{p^i}$-actions and bonding maps
+$\pi_{i+1}:E_{i+1}\to E_i$ by
+\[
+E_{i+1}
+\;=\;
+\bigl(E_i\,\Delta_{q_i}\,EW_{d_i}(E_i,\mathbb{Z},n)\bigr)
+\times_{C_{p^{i+1}}}
+S^{2m_{i+1}-1},
+\]
+where $2m_{i+1}-1>n+1$ and $d_{i+1}>d_i$.  Then at every finite stage:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Free action without Smith below degree $n+1$:}
+$S^{2m_{i+1}-1}$ is $(2m_{i+1}-2)$-connected with $\chi=0$, so the Borel join
+is $(n+1)$-acyclic and $\chi\equiv 0\pmod{p}$ (no Euler contradiction).
+\item \textbf{Williams Part~II bypass:}
+Edwards--Walsh $(n+2)$-cells let the diagonal circle $S'$ bound without
+$n$-skeleton retraction (Remark~\ref{rmk:williams-depends-on-skeleton}).
+\item \textbf{Pro-acyclicity $\Rightarrow\dim_{\mathbb{Z}}X=n$:}
+coordinate $p$-powers kill mod-$p$ classes in high degree; Edwards--Walsh
+cells kill integral classes in degrees $>n$, so
+$\varinjlim_i H^q(E_i;\mathbb{Z})=0$ for $q>n$.
+\item \textbf{Infinite covering dimension on every neighborhood:}
+Dranishnikov's criterion supplies cup-length $\to\infty$ on every open star,
+hence $\dim U=\infty$ while $\dim_{\mathbb{Z}}U=n$.
+\item \textbf{BRW constraint on the orbit space:}
+any successful limit must satisfy
+$\dim_{\mathbb{Z}}(X/A_p)=n+2$ with top group injecting onto
+$R_p(1)=\mathbb{Z}[1/p]/\mathbb{Z}$
+\cite{raymondwilliams1960,coppola1980}---a constraint, not an obstruction.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Item~(i) is the standard connectivity of free linear $C_p$-spheres and the
+join formula $\mathrm{conn}(F\times_{C_p}S^{2m-1})\ge 2m-2$ when the action on
+the sphere is free.  Item~(ii) is Remark~\ref{rmk:williams-depends-on-skeleton}.
+Item~(iii) combines Proposition~\ref{prop:drw-blueprint}(a)--(b) with the
+Postnikov killing cells of $EW_{d_i}$.  Item~(iv) is
+\cite[Prop.~3.3--3.4]{dranishnikov2016}.  Item~(v) is the classical
+Bredon--Raymond--Williams transfer theorem, which uses only
+$\dim_{\mathbb{Z}}X=n<\infty$, not finite covering dimension.
+\end{proof}
+
+\subsection{Remaining analytic gate and computational verification}
+\label{sec:hm6-gate}
+
+\begin{theorem}[Finite-stage HM-6 gates]
+\label{thm:hm6-gates}
+\status{new --- computational / Lean}
+On every finite stage of the architecture in
+Proposition~\ref{prop:borel-join-hm6}, the following four gates hold for all
+tested parameters $(n,p,\text{stages})\in\{(5,3,4),(7,5,3),(6,3,5),(9,7,4)\}$
+(symbolic harness
+\texttt{scripts/hm6\_equivariant\_ew\_harness.py}; loop log
+\texttt{counterexamples/hilbert-smith/HM6\_LOOP\_LOG.md}):
+\begin{description}[style=nextline,leftmargin=1.2em]
+\item[G1] Williams torus bypass via Edwards--Walsh $(n+2)$-cells.
+\item[G2] Pro-acyclicity in degrees $>n$ (integral and mod~$p$) with
+strictly growing $\dim E_i$.
+\item[G3] Local $\mathbb{Z}$-cohomology $n$-manifold condition
+$H^k\cong\delta_{k,n}\mathbb{Z}$, with orbit-space Yang jump $n+2$ and
+$R_p(1)$ tower.
+\item[G4] Dranishnikov Prop.~3.3 polynomial criterion with unbounded
+cup-length $\Rightarrow\dim U=\infty$.
+\end{description}
+The Borel-join connectivity lemma, the cup-length valuation gate
+$v_p(\mathrm{coeff}_m)=m<k$, and the HM-6 escape from
+\texttt{OpenAIENRInput}/\texttt{DabrowskiTowerInput} are formalized in
+\texttt{lean/CoppolaHS/CoppolaHS/DranishnikovHM6.lean}
+(Lean~\texttt{v4.35.0-rc3}, \texttt{lake build} clean).
+\end{theorem}
+
+\begin{remark}[Single remaining analytic verification]
+\label{rmk:hm6-remaining}
+\status{open geometric glue}
+What remains for a complete geometric counterexample is the local
+$clc_{\mathbb{Z}}$ degree-$n$ Poincar\'e duality \emph{gluing} across simplex
+boundaries $\partial\sigma$ when the Edwards--Walsh block is pulled back over
+the Yang $(n+2)$-dimensional orbit space.  Finite-stage gates G1--G4 verify
+the algebraic and homological scaffolding; the continuous-limit gluing is the
+sole outstanding geometric step.
+\end{remark}
+
+\begin{checkboxenv}
+Confirm G1--G4 on the harness for your preferred $(n,p)$; check that
+\texttt{DranishnikovHM6.lean} builds; treat Remark~\ref{rmk:hm6-remaining} as
+the remaining research gate, not as a claimed existence theorem.
+\end{checkboxenv}
+
+%======================================================================
+\section{Summary matrix}
+\label{sec:matrix}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{3.4cm}p{2.4cm}p{7.2cm}@{}}
+\toprule
+Class & Faithful $\mathbb{Z}_p$? & Verdict \\
+\midrule
+HM-1 non-$clc$ / coeff.\ mismatch & yes (mechanism) & Outside both 2026 scopes \\
+HM-2 necklace & yes (explicit) & Local homology fails at junction \\
+HM-3 polyhedral & no & Thm~\ref{thm:C} $\to$ manifold theorem \\
+HM-4 resolvable / $X_{\mathrm{man}}\neq\varnothing$ & no & Thm~\ref{thm:D},~\ref{thm:settled-chart} \\
+HM-5 BFMW ENR, $X_{\mathrm{man}}=\varnothing$, $I\neq 1$ & no (rel.\ E or F) & Bounded-dim inverse limit blocked by Thm~\ref{thm:G} \\
+HM-6 non-ENR, $\dim_{\mathbb{Z}}X=n$, $\dim X=\infty$ & \textbf{open candidate} & Escapes E, F, G(2); Borel-join architecture Prop.~\ref{prop:borel-join-hm6}; gates Thm~\ref{thm:hm6-gates}; glue Rem.~\ref{rmk:hm6-remaining} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textit{Reading guide for HM-5 vs.\ HM-6.}
+Within finite topological dimension ($\dim X=n$, i.e.\ ENRs, HM-5),
+exclusion holds relative to Theorem~\ref{thm:E} or~\ref{thm:F}, and
+Theorem~\ref{thm:G} blocks bounded-dimension inverse limits.  Dropping finite
+topological dimension while keeping finite cohomological dimension
+($\dim_{\mathbb{Z}}X=n$, $\dim X=\infty$, HM-6) is the unique frontier where a
+non-necklace inverse-limit construction is not ruled out by any of the three.
+
+%======================================================================
+\section*{Acknowledgments}
+I thank Louis~F.\ McAuley for the 1979--80 Binghamton apprenticeship that
+made the transfer machine possible.  The 2026 OpenAI and Dabrowski manuscripts
+are the occasion for this synthesis; any errors in delimitation are mine.
+Cursor(Opus~5.5/Grok) assisted with drafting and typesetting under my
+direction.
+
+\appendix
+%======================================================================
+\section{Lean status (honest boundary)}
+\label{app:lean}
+
+Dabrowski's formalization~\cite{dabrowski2026} was compiled locally from branch
+\texttt{palomar-review/module-system-20261015} at
+\texttt{b75523f0036bc857f31620ee18af970151036311}
+(vendored under \texttt{dabrowski/upstream-palomar/}), Lean
+\texttt{v4.35.0-rc3}, mathlib \texttt{1a547d8}, TauCeti \texttt{c7af81f}.
+
+\begin{verbatim}
+#print axioms HSFormal.hilbertSmith
+'HSFormal.hilbertSmith' depends on axioms:
+  [propext, Classical.choice, Quot.sound]
+\end{verbatim}
+
+Extension modules live in \texttt{lean/CoppolaHS/}:
+\begin{itemize}
+\item \texttt{CyclotomicTower.lean} --- product of $k$ prime-power cyclotomics
+$\Rightarrow p^k\mid F(1)$ (Theorem~\ref{thm:F} arithmetic);
+\item \texttt{QuinnIndex.lean} --- abstract $I(X):\mathbb{Z}$ with
+$I\equiv 1\pmod{8}$ and product-formula hypotheses;
+\item \texttt{PadicExclusionENR.lean} --- conditional Theorems E/F shells;
+\item \texttt{ChallengeENR.lean} / \texttt{SolutionENR.lean} --- statement +
+relative solution notes;
+\item \texttt{DranishnikovHM6.lean} --- Borel-join connectivity, Dranishnikov
+cup-length valuation gate, HM-6 escape from ENR packaging
+(Theorem~\ref{thm:hm6-gates}).
+\end{itemize}
+We do \textbf{not} claim a full controlled $L$-theory reimplementation for ENRs
+in Lean~v1.  Geometric BFMW inputs remain named hypotheses with paper citations.
+The HM-6 geometric gluing of Remark~\ref{rmk:hm6-remaining} is likewise not
+formalized.
+
+%======================================================================
+\section{Reviewer checklist}
+\label{app:checklist}
+
+Mark each item PASS / WEAK / FAIL.  Co-author invitations may attach initials.
+
+\vspace{0.6em}
+\noindent
+\begin{tabular}{@{}clp{7.8cm}@{}}
+\toprule
+ & Statement & Your mark \\
+\midrule
+\checkbox & Lemma~\ref{lem:A} (transfer over $\mathbb{Q}$) & \underline{\hspace{2.5cm}} \\
+\checkbox & Lemma~\ref{lem:B} (Yang $p$-torsion jump) & \underline{\hspace{2.5cm}} \\
+\checkbox & Corollary~\ref{cor:mcauley} (McAuley break) & \underline{\hspace{2.5cm}} \\
+\checkbox & Proposition~\ref{prop:necklace} (HM-2 necklace) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:C} (polyhedral reduction) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:D} (resolvable / nonempty stratum) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:dabrowski-gap} (single-$p$ gap) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:E} (OpenAI ENR rephrase) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:F} ($k$-tower upgrade) & \underline{\hspace{2.5cm}} \\
+\checkbox & Prop.~\ref{prop:short-answers} (settled vs open) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:settled-chart} /~\ref{thm:no-ilim-enr} & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:G} (bounded-dim inverse-limit trichotomy) & \underline{\hspace{2.5cm}} \\
+\checkbox & Corollary~\ref{cor:H} (necklace escape in bounded dim) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:dranishnikov-escape} ($\dim_{\mathbb{Z}}=n,\dim=\infty$ escape) & \underline{\hspace{2.5cm}} \\
+\checkbox & Prop.~\ref{prop:drw-blueprint} (Dranishnikov--RW blueprint) & \underline{\hspace{2.5cm}} \\
+\checkbox & Prop.~\ref{prop:borel-join-hm6} (Borel-join EW + Williams) & \underline{\hspace{2.5cm}} \\
+\checkbox & Theorem~\ref{thm:hm6-gates} (G1--G4 harness / Lean) & \underline{\hspace{2.5cm}} \\
+\checkbox & Remark~\ref{rmk:hm6-remaining} (remaining $clc_{\mathbb{Z}}$ glue) & \underline{\hspace{2.5cm}} \\
+\bottomrule
+\end{tabular}
+
+\vspace{1em}
+\noindent\textit{Priority for first readers:} Section~\ref{sec:plain-english}
+(plain-English guide to Theorems~\ref{thm:dabrowski-gap}--\ref{thm:F}),
+Section~\ref{sec:dranishnikov}--\ref{sec:drw-blueprint} (the
+$\dim_{\mathbb{Z}}X=n$, $\dim X=\infty$ frontier for non-necklace examples),
+then Theorem~\ref{thm:G} and Corollary~\ref{cor:mcauley}.
+
+\begin{thebibliography}{99}
+
+\bibitem{bfmw1996}
+J.~Bryant, S.~Ferry, W.~Mio, and S.~Weinberger,
+\textit{Topology of homology manifolds},
+Ann.\ of Math.\ (2) \textbf{143} (1996), 435--467.
+
+\bibitem{dranishnikov1988}
+A.~N.\ Dranishnikov,
+\textit{On a problem of P.~S.\ Aleksandrov},
+Mat.\ Sb.\ (N.S.) \textbf{135(177)} (1988), 551--557; English transl.,
+Math.\ USSR-Sb.\ \textbf{63} (1989), 539--545.
+
+\bibitem{dydakwalsh1993}
+J.~Dydak and J.~J.\ Walsh,
+\textit{Infinite-dimensional compacta having cohomological dimension two: an
+application of the Sullivan conjecture},
+Topology \textbf{32} (1993), 93--104.
+
+\bibitem{dfw2006}
+A.~N.\ Dranishnikov, S.~Ferry, and S.~Weinberger,
+\textit{Large Riemannian manifolds which are flexible},
+Ann.\ of Math.\ (2) \textbf{157} (2003), 919--938;
+see also arXiv:math/0611004.
+
+\bibitem{dranishnikov2016}
+A.~N.\ Dranishnikov,
+\textit{On dimension of product of groups},
+Sbornik Math.\ \textbf{207} (2016); see also arXiv related notes on
+essential lens sequences and $K$-theory cup-length.
+
+\bibitem{williams1967}
+R.~F.\ Williams,
+\textit{The construction of certain $p$-adic transformation groups},
+Trans.\ Amer.\ Math.\ Soc.\ \textbf{129} (1967), 140--156.
+
+\bibitem{mitchell1990}
+W.~J.~R.\ Mitchell,
+\textit{Defining the boundary of a homology manifold},
+Proc.\ Amer.\ Math.\ Soc.\ \textbf{110} (1990), 509--513.
+
+\bibitem{walsh1981}
+J.~J.\ Walsh,
+\textit{Dimension, cohomological dimension, and cell-like mappings},
+in \textit{Shape Theory and Geometric Topology} (Dubrovnik, 1981),
+Lecture Notes in Math.\ \textbf{870}, Springer, 1981, pp.~105--118.
+
+\bibitem{connerfloyd1959}
+P.~E.\ Conner and E.~E.\ Floyd,
+\textit{Differentiable periodic maps},
+Springer, 1960.  %(classic reference; Newman-type results)
+
+\bibitem{coppola1980}
+A.~J.\ Coppola,
+\textit{On $p$-adic transformation groups},
+Ph.D.\ thesis, SUNY at Binghamton, 1980
+(summarized in McAuley~\cite{mcauley2001}, ref.~[28]).
+
+\bibitem{dabrowski2026}
+A.~Dabrowski (with AI agents),
+\textit{Integral tail signatures and the Hilbert--Smith conjecture},
+preprint, 8~Oct~2026,
+\url{https://github.com/adbrw/HS_proof}.
+
+\bibitem{mcauley2001}
+L.~F.\ McAuley,
+\textit{A proof of the Hilbert--Smith conjecture},
+arXiv:math/0103215v8, 2001.
+
+\bibitem{newman1931}
+M.~H.~A.\ Newman,
+\textit{A theorem on periodic transformations of spaces},
+Quart.\ J.\ Math.\ Oxford Ser.\ \textbf{2} (1931), 1--8.
+
+\bibitem{openai2026}
+OpenAI,
+\textit{The Hilbert--Smith conjecture in every finite dimension},
+preprint, 23~Sep~2026,
+\url{https://github.com/openai/math}.
+
+\bibitem{raymond1965}
+F.~Raymond,
+\textit{Some remarks on the coefficients used in the theory of homology manifolds},
+Pacific J.\ Math.\ \textbf{15} (1965), 1365--1376.
+
+\bibitem{raymondwilliams1960}
+F.~Raymond and R.~F.\ Williams,
+\textit{Examples of $p$-adic transformation groups},
+Bull.\ Amer.\ Math.\ Soc.\ \textbf{66} (1960), 392--394.
+
+\bibitem{raymondwilliams1963}
+F.~Raymond and R.~F.\ Williams,
+\textit{Examples of $p$-adic transformation groups},
+Ann.\ of Math.\ (2) \textbf{78} (1963), 92--106.
+
+\bibitem{smith1941}
+P.~A.\ Smith,
+\textit{Transformations of finite period},
+Ann.\ of Math.\ (2) \textbf{39} (1938), 127--164; III,
+ibid.\ \textbf{42} (1941), 446--458.
+
+\bibitem{yang1960}
+C.~T.\ Yang,
+\textit{$p$-adic transformation groups},
+Michigan Math.\ J.\ \textbf{7} (1960), 201--218.
+
+\end{thebibliography}
+
+\end{document}

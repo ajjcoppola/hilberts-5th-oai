@@ -1,0 +1,13 @@
+name = "CoppolaHS"
+version = "0.1.0"
+defaultTargets = ["CoppolaHS"]
+
+[[lean_lib]]
+name = "CoppolaHS"
+
+# Same mathlib pin as Dabrowski HS_proof / TauCeti c7af81f.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "1a547d8a48a8fa7877d2decb69d7294723bb0187"

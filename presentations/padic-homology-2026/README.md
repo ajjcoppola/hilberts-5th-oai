@@ -1,0 +1,17 @@
+# Presentation pack — p-adic homology manifolds (2026)
+
+| File | Role |
+|------|------|
+| [`index.html`](index.html) | Reveal.js slides (~15) |
+| [`checklist.pdf`](checklist.pdf) | One-page reviewer checklist |
+| [`checklist.tex`](checklist.tex) | Checklist source |
+| [`figures/*.mmd`](figures/) | Mermaid diagram sources |
+| [`../.. /papers/padic-homology-manifolds/main.pdf`](../../papers/padic-homology-manifolds/main.pdf) | Archive paper |
+
+Open `index.html` in a browser (needs network for Reveal/KaTeX CDN).
+
+Sendable zip built as `padic-homology-2026-pack.zip` in this directory (when present).
+
+**HM-6 (18 Oct 2026):** pack also includes harness report, loop log,
+`DranishnikovHM6.lean`, and `scripts/hm6_equivariant_ew_harness.py`.
+Finite-stage gates G1–G4 PASS; continuous $clc_{\mathbb{Z}}$ glue remains open.

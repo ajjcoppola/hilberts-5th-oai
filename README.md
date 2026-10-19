@@ -4,12 +4,35 @@ Sherlock-mode audits of two 2026 preprints claiming the Hilbert–Smith conjectu
 
 **Author:** Cursor(Opus 5.5/Grok), driven by: Alan Coppola
 
+## Archive paper + HM-6 program (checkpoint inside this repo)
+
+**Published host for MO / X / LinkedIn posts:** this repository  
+(`https://github.com/ajjcoppola/hilberts-5th-oai`).  
+**Git tag:** [`checkpoint/hm6-2026-10-18`](docs/CHECKPOINT_HM6_2026-10-18.md) · outreach: [`docs/OUTREACH_COLLABORATORS.md`](docs/OUTREACH_COLLABORATORS.md)
+
+**Alan J. Coppola**, *p-Adic Transfer, Signature Tails, and Homology Manifolds* (18 Oct 2026 draft):
+
+| Deliverable | Path |
+|-------------|------|
+| Paper PDF | [`papers/padic-homology-manifolds/main.pdf`](papers/padic-homology-manifolds/main.pdf) |
+| Paper TeX | [`papers/padic-homology-manifolds/main.tex`](papers/padic-homology-manifolds/main.tex) |
+| Slides | [`presentations/padic-homology-2026/index.html`](presentations/padic-homology-2026/index.html) |
+| Reviewer checklist | [`presentations/padic-homology-2026/checklist.pdf`](presentations/padic-homology-2026/checklist.pdf) |
+| Sendable pack | [`presentations/padic-homology-2026/padic-homology-2026-pack.zip`](presentations/padic-homology-2026/padic-homology-2026-pack.zip) |
+| CoppolaHS Lean | [`lean/CoppolaHS/`](lean/CoppolaHS/) (incl. `DranishnikovHM6.lean`) |
+| HM-6 harness / loop | [`scripts/hm6_equivariant_ew_harness.py`](scripts/hm6_equivariant_ew_harness.py), [`HM6_LOOP_LOG.md`](counterexamples/hilbert-smith/HM6_LOOP_LOG.md) |
+| Lean build status | [`dabrowski/lean-extension/BUILD_STATUS.md`](dabrowski/lean-extension/BUILD_STATUS.md) |
+
+Relative boundary map of OpenAI/Dabrowski 2026 across HM-1..HM-6, Quinn-index $k$-tower (Lean), bounded-dim inverse-limit no-go, and open Borel-join Edwards–Walsh HM-6 target ($\dim_{\mathbb{Z}}X=n$, $\dim X=\infty$). **Does not claim a standalone classical HSC proof.** Optional local Dabrowski palomar clone for `#print axioms` is documented in [`dabrowski/PROVENANCE.md`](dabrowski/PROVENANCE.md) (not vendored here).
+
 | Proof | Date | Packaging | Audit PDF |
 |-------|------|-----------|-----------|
 | [OpenAI](https://github.com/openai/math/tree/main/preprints/The-Hilbert-Smith-conjecture-in-every-finite-dimension-September-23-2026) | 2026-09-23 | Witt/signature lattice on \(S^d\); equal parts \(4/p^k\) | [`docs/Hilbert_Smith_Audit.pdf`](docs/Hilbert_Smith_Audit.pdf) |
 | [Dabrowski](https://github.com/adbrw/HS_proof) | 2026-10-08 | Integral tail in \(L_4(A_G(T))\); \(\mathbb{CP}^2\) realization vs \(p\mathbb{Z}\) | [`dabrowski/docs/Dabrowski_HS_Audit.pdf`](dabrowski/docs/Dabrowski_HS_Audit.pdf) |
 
 Comparison: [`dabrowski/docs/05_vs_openai.md`](dabrowski/docs/05_vs_openai.md).
+
+Counterexamples (ask for the counterexample before the proof): [`counterexamples/README.md`](counterexamples/README.md). Hilbert–Smith campaign: [`counterexamples/hilbert-smith/CAMPAIGN.md`](counterexamples/hilbert-smith/CAMPAIGN.md).
 
 ---
 

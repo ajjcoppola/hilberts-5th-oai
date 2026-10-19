@@ -23,3 +23,22 @@ Vendored (sparse) from A. Dabrowski’s Hilbert–Smith repository:
 Sparse Lean files: `Challenge`, `Solution`, `HSFormal`, `Statement`, `HilbertSmith`, `HilbertSmithNegK`, `HilbertSmithFinal`, `HilbertSmithModel`, `EquivariantSignature`, `CharacterDetector`, `ChartData`, `Germ`, `CornerClass`, `AlgebraicReduction`, `BoundaryReduction`, `ControlledDuality`.
 
 This copy is for reverse-verification only. It is not affiliated with A. Dabrowski. The full Lean tree remains at the upstream URL; this audit did **not** run `lake build` or `#print axioms`.
+
+---
+
+## Palomar full checkout (2026-10-17) — local optional, not in published tree
+
+For `lake build` and `#print axioms`, clone Dabrowski’s tree locally (gitignored
+from this published audit repo to avoid multi-GB `.lake` / nested git):
+
+```bash
+git clone https://github.com/adbrw/HS_proof.git dabrowski/upstream-palomar
+cd dabrowski/upstream-palomar
+git checkout palomar-review/module-system-20261015
+# expect tip near b75523f0036bc857f31620ee18af970151036311
+lake exe cache get && lake build HSFormal
+```
+
+Local axiom print (when rebuilt): `propext`, `Classical.choice`, `Quot.sound`
+(see [`lean-extension/print_axioms.txt`](lean-extension/print_axioms.txt) /
+[`lean-extension/BUILD_STATUS.md`](lean-extension/BUILD_STATUS.md)).
