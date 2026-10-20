@@ -85,53 +85,48 @@ https://github.com/ajjcoppola/hilberts-5th-oai
 
 ## Follow-up announcement (2026-10-20) — GitHub WIP
 
-Frame as a **follow-up** to the reverse-read posts, not a new “HS is proved” claim. Pitch: the public repo now has a homology-manifold boundary map + an open HM-6 construction program.
+Start from Coppola’s own wording. Use complete sentences. Spell out abbreviations on first use (homology manifold, Euclidean neighborhood retract, Quinn index). Do **not** claim a classical Hilbert–Smith proof.
 
-### X / Bluesky (recommended, ~280–400 chars)
+**Slide-deck summary to refer to (do not dump the whole matrix):**
+The invariants deck explains Quinn’s resolution index, OpenAI’s Witt characters, and Dabrowski’s signature tails as three bookkeeping languages for the same geometry: a neighborhood that can produce a degree-one or signature-one “unit,” together with finite cyclic covers that split that unit by covering degree. The homology-manifold deck maps those 2026 arguments across six classes of homology and cohomology manifolds.
 
-Follow-up to the OpenAI / Dabrowski Hilbert–Smith reverse-reads.
+### LinkedIn (primary; complete sentences)
 
-Public WIP on GitHub: relative boundary map of those 2026 signature arguments across homology-manifold classes HM-1..HM-6 (Quinn index, Lean k-tower, inverse-limit no-go). Open construction target: dim_Z = n but dim = ∞.
+I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — that there are no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. The repository holds draft papers, explanatory slide decks, and other AI-assisted collateral.
 
-Not a classical HS proof. Coauthors welcome on the clc_Z glue.
+In particular, as far as I know, and as far as I have tried to construct one, the remaining open target is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. That is homology-manifold class six in the notes: local duality still looks n-dimensional over the integers, but covering dimension is infinite, so the 2026 Euclidean-neighborhood-retract packaging does not apply.
 
-https://github.com/ajjcoppola/hilberts-5th-oai
-
-### X thread (3 posts)
-
-1/ Follow-up. I reverse-read the two 2026 Hilbert–Smith signature arguments (OpenAI Witt lattice; Dabrowski L4 tails). Same obstruction family: integrality vs p-divisibility after a Euclidean germ.
-
-Repo: https://github.com/ajjcoppola/hilberts-5th-oai
-
-2/ WIP update: a relative map of those engines across homology / cohomology manifolds HM-1..HM-6.
-
-Polyhedral + resolvable ENRs reduce. BFMW with Quinn I(X)≠1 is the ENR crown jewel (single-p arithmetic gap; k-tower repair in Lean). Bounded-dim inverse limits are blocked.
-
-3/ Remaining bullseye is HM-6: finite cohomological dim, infinite covering dim. Borel-join Edwards–Walsh + Williams scaffolding is in the repo; the clc_Z glue is still open.
-
-Draft paper + slides + library in the README. Not claiming classical HS. Help welcome.
+The slide decks try to make the algebra geometric. Quinn’s index is a local signature that asks whether that duality comes from genuine manifold charts (up to cell-like collapse), not a cobordism classification of Euclidean space. OpenAI’s Witt characters and Dabrowski’s L-theory tails are two ways of recording the same covering-degree splitting of a unit class. I am not claiming a standalone classical Hilbert–Smith proof. Collaborators in cohomological dimension and Lean are welcome.
 
 https://github.com/ajjcoppola/hilberts-5th-oai
 
-### LinkedIn
+Optional second paragraph with one extra link (skip if it feels busy):
+Invariants explainer (open the HTML in a browser): https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/index.html
 
-Follow-up to my reverse-reads of the two 2026 Hilbert–Smith arguments (OpenAI; Dabrowski).
+### X thread (recommended; complete sentences)
 
-The public GitHub repo now has a **WIP geometric-topology layer**: a relative boundary map of those signature machines across homology and cohomology manifolds (classes HM-1 through HM-6). Polyhedral and resolvable ENRs reduce to the manifold case. On Bryant–Ferry–Mio–Weinberger ENRs the Quinn index is the local signature that the 2026 packagings try to kill; Dabrowski’s single-p cyclotomic step has a gap when p divides I(X), repaired by a k-step tower (Lean 4). Bounded-dimension inverse limits are blocked by an Euler / Smith trichotomy.
-
-The remaining open target is HM-6: compact Z-cohomology n-manifolds with finite cohomological dimension and infinite covering dimension. The repo has a Borel-join Edwards–Walsh + Williams construction program, a literature library, and slides on the shared geometry (unit-producing germ + cyclic covers) behind Quinn, Witt characters, and L4 tails.
-
-This is **not** a standalone classical Hilbert–Smith proof. Seeking collaborators in ENR / cohomological dimension / Lean.
+1/ I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. It contains draft papers, explanatory slide decks, and other AI-assisted collateral.
 
 https://github.com/ajjcoppola/hilberts-5th-oai
 
-### Mastodon / longer X alt
+2/ In particular, as far as I know and have tried to construct one, the remaining open example would be an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. That is a homology manifold, not a Euclidean manifold.
 
-WIP follow-up on Hilbert–Smith + homology manifolds.
+3/ The slide decks try to explain the invariants geometrically. Quinn’s index measures whether local duality comes from genuine charts. OpenAI’s Witt characters and Dabrowski’s signature tails both record how a cyclic cover would split a unit class into p-power equal pieces. This is a work in progress, not a classical Hilbert–Smith proof.
 
-After reverse-reading OpenAI (Witt / equal parts) and Dabrowski (L4 signature tails), I posted a public boundary map: where those arguments extend, where they fail, and what is still constructible. Six classes HM-1..HM-6. Open candidate is infinite covering dimension with dim_Z still finite.
+### X / Bluesky (single post, if a thread is too long)
 
-Repo (paper draft, Lean, harness, slides):
+I have put my work on understanding and extending the recent Hilbert–Smith arguments into one GitHub repository: draft papers, slide decks, and other AI-assisted notes. The remaining construction I have tried for is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. The slides explain Quinn’s index, Witt characters, and signature tails geometrically. Work in progress, not a classical proof.
+
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+### Mastodon / Bluesky long
+
+I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments (no effective p-adic actions on Euclidean manifolds) into a single GitHub repository, with draft papers, explanatory slide decks, and other AI-assisted collateral.
+
+In particular, as far as I know and have tried to construct one, the remaining open target is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension — a homology manifold, not Euclidean space.
+
+The invariants deck summarizes Quinn’s resolution index, OpenAI’s Witt characters, and Dabrowski’s signature tails as bookkeeping for the same geometry: a unit-producing neighborhood and finite cyclic covers. This is not a standalone classical Hilbert–Smith proof.
+
 https://github.com/ajjcoppola/hilberts-5th-oai
 
 ---
