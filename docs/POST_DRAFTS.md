@@ -1,8 +1,9 @@
-# Post drafts (updated 2026-10-18)
+# Post drafts (updated 2026-10-20)
 
 Repo: https://github.com/ajjcoppola/hilberts-5th-oai  
-Checkpoint tag: `checkpoint/hm6-2026-10-18`  
+Checkpoint tags: `checkpoint/hm6-2026-10-18`, `checkpoint/invariants-deck-2026-10-19`  
 Archive paper PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/papers/padic-homology-manifolds/main.pdf  
+Invariants slides: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/index.html  
 OpenAI audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
 Dabrowski audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/dabrowski/docs/Dabrowski_HS_Audit.pdf  
 Outreach / collaborators: [`OUTREACH_COLLABORATORS.md`](OUTREACH_COLLABORATORS.md)
@@ -78,6 +79,59 @@ https://github.com/ajjcoppola/hilberts-5th-oai
 
 OpenAI and Dabrowski both try Hilbert–Smith via signature integrality vs $p$-divisibility (Witt sheaves vs $L_4$ tails). I reverse-read both. Question: which Euclidean properties actually block $\mathbb{Z}_p$?
 
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+---
+
+## Follow-up announcement (2026-10-20) — GitHub WIP
+
+Frame as a **follow-up** to the reverse-read posts, not a new “HS is proved” claim. Pitch: the public repo now has a homology-manifold boundary map + an open HM-6 construction program.
+
+### X / Bluesky (recommended, ~280–400 chars)
+
+Follow-up to the OpenAI / Dabrowski Hilbert–Smith reverse-reads.
+
+Public WIP on GitHub: relative boundary map of those 2026 signature arguments across homology-manifold classes HM-1..HM-6 (Quinn index, Lean k-tower, inverse-limit no-go). Open construction target: dim_Z = n but dim = ∞.
+
+Not a classical HS proof. Coauthors welcome on the clc_Z glue.
+
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+### X thread (3 posts)
+
+1/ Follow-up. I reverse-read the two 2026 Hilbert–Smith signature arguments (OpenAI Witt lattice; Dabrowski L4 tails). Same obstruction family: integrality vs p-divisibility after a Euclidean germ.
+
+Repo: https://github.com/ajjcoppola/hilberts-5th-oai
+
+2/ WIP update: a relative map of those engines across homology / cohomology manifolds HM-1..HM-6.
+
+Polyhedral + resolvable ENRs reduce. BFMW with Quinn I(X)≠1 is the ENR crown jewel (single-p arithmetic gap; k-tower repair in Lean). Bounded-dim inverse limits are blocked.
+
+3/ Remaining bullseye is HM-6: finite cohomological dim, infinite covering dim. Borel-join Edwards–Walsh + Williams scaffolding is in the repo; the clc_Z glue is still open.
+
+Draft paper + slides + library in the README. Not claiming classical HS. Help welcome.
+
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+### LinkedIn
+
+Follow-up to my reverse-reads of the two 2026 Hilbert–Smith arguments (OpenAI; Dabrowski).
+
+The public GitHub repo now has a **WIP geometric-topology layer**: a relative boundary map of those signature machines across homology and cohomology manifolds (classes HM-1 through HM-6). Polyhedral and resolvable ENRs reduce to the manifold case. On Bryant–Ferry–Mio–Weinberger ENRs the Quinn index is the local signature that the 2026 packagings try to kill; Dabrowski’s single-p cyclotomic step has a gap when p divides I(X), repaired by a k-step tower (Lean 4). Bounded-dimension inverse limits are blocked by an Euler / Smith trichotomy.
+
+The remaining open target is HM-6: compact Z-cohomology n-manifolds with finite cohomological dimension and infinite covering dimension. The repo has a Borel-join Edwards–Walsh + Williams construction program, a literature library, and slides on the shared geometry (unit-producing germ + cyclic covers) behind Quinn, Witt characters, and L4 tails.
+
+This is **not** a standalone classical Hilbert–Smith proof. Seeking collaborators in ENR / cohomological dimension / Lean.
+
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+### Mastodon / longer X alt
+
+WIP follow-up on Hilbert–Smith + homology manifolds.
+
+After reverse-reading OpenAI (Witt / equal parts) and Dabrowski (L4 signature tails), I posted a public boundary map: where those arguments extend, where they fail, and what is still constructible. Six classes HM-1..HM-6. Open candidate is infinite covering dimension with dim_Z still finite.
+
+Repo (paper draft, Lean, harness, slides):
 https://github.com/ajjcoppola/hilberts-5th-oai
 
 ---
