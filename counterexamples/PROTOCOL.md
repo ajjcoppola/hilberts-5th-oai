@@ -1,5 +1,7 @@
 # Protocol: find the counterexample, then read the proof
 
+**AI disclaimer:** This protocol is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../docs/AI_DISCLAIMER.md`](../docs/AI_DISCLAIMER.md).
+
 Use this for any AI-assisted proof of an open or recently claimed theorem. Hilbert–Smith is the first instance ([`hilbert-smith/CAMPAIGN.md`](hilbert-smith/CAMPAIGN.md)).
 
 ## Step 1 — Reflect (wide net)

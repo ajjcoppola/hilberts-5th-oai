@@ -1,5 +1,7 @@
 # Hilbert–Smith campaign (executed 2026-10-16)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 First execution of the counterexample harness on two 2026 Hilbert–Smith writeups (OpenAI 2026-09-23 and Dabrowski 2026-10-08), calibrated against:
 - **Alan J. Coppola (1980)**, *On $p$-adic Transformation Groups* (Ph.D. Thesis, SUNY at Binghamton; $p$-adic transfer homomorphism and algorithmic Smith–Yang exact sequences, ref. [28] in McAuley 2001),
 - **Frank Raymond & R. F. Williams (1960/1963)** (`/Users/ajjc/Downloads/Examples_of_-adic_transformation_groups.pdf`),

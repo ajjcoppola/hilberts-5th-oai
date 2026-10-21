@@ -1,5 +1,7 @@
 # Promotion & collaborator venues (beyond MO / X / LinkedIn)
 
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`AI_DISCLAIMER.md`](AI_DISCLAIMER.md).
+
 Companion to the published audit repo  
 https://github.com/ajjcoppola/hilberts-5th-oai  
 Checkpoint: [`CHECKPOINT_HM6_2026-10-18.md`](CHECKPOINT_HM6_2026-10-18.md).
@@ -15,6 +17,27 @@ Checkpoint: [`CHECKPOINT_HM6_2026-10-18.md`](CHECKPOINT_HM6_2026-10-18.md).
 | MathOverflow | Research *question* on Euclidean structure (rewrite in POST_DRAFTS) | [515824](https://mathoverflow.net/questions/515824) (closed; reopen with structure question) |
 | X / Bluesky | Short signature-family teaser → repo | Drafts in [`POST_DRAFTS.md`](POST_DRAFTS.md) |
 | LinkedIn | Longer boundary-map narrative for applied/math audience | Same drafts |
+| Substack / Medium | Memoir + development story | [`BLOG_HILBERT_SMITH_DEV_STORY.md`](BLOG_HILBERT_SMITH_DEV_STORY.md) (paste-ready) |
+
+### A′. Where to post the blog and short notes (2026-10-20)
+
+There is **no dedicated Hilbert–Smith expert stream on X**. Public attention is still attached to OpenAI’s 6 October math dump, not to Newman charts or Quinn index. Use existing dump threads only as *pointers* to the blog; do not argue correctness in the replies.
+
+| Stream | Why it is worth a comment | How to post |
+|--------|---------------------------|-------------|
+| **Own X / Bluesky / Mastodon / LinkedIn** | You control the framing; complete-sentence drafts already exist | Lead with the blog URL after it is live; use [`POST_DRAFTS.md`](POST_DRAFTS.md) |
+| [Gradient Damage HS page](https://gradientdamage.com/openai-math/hilbert-smith-conjecture-in-every-dimension/) + [YouTube short](https://gradientdamage.com/videos/hilbert-smith-conjecture-openai-claims-a-proof-in-every-dimension/) | The only popular explainer that *names this preprint*; animation is not a proof | Comment / email: independent reverse-read + homology-manifold boundary; link repo + blog |
+| [AIProofWatch problem 304](https://aiproofwatch.com/problems/openai-problem-304) | They already track the OpenAI claim as unverified | Offer the audit PDFs as an independent boundary map, not as certification |
+| [Hacker News: OpenAI math release](https://news.ycombinator.com/item?id=49984923) | Large, still-indexed thread; people there are asking “what should a human do with these manuscripts?” | One late comment, or a separate **Show HN** of `hilberts-5th-oai` + blog. Do not claim a proof |
+| [openai.com math-progress post](https://openai.com/index/sharing-ai-progress-in-mathematics/) | Canonical announcement; Oct 15 Simons $5M follow-up for *examining* AI results | Quote-post the announcement with the blog; later, watch Simons workshops rather than lobbying the company |
+| [MathOverflow 515824](https://mathoverflow.net/questions/515824) | Already your question; closed as work-checking | **Edit/reopen** with the structure question in POST_DRAFTS. Do not paste the blog |
+| Lean Zulip `#maths` | Formalizers who can read `lean/CoppolaHS` | One paragraph from POST_DRAFTS; ask about expanding arithmetic shells, not “is HSC proved” |
+| Mathstodon (e.g. Tao’s dump notes) | High-signal mathematicians discussing *release ethics*, not HS geometry | Standalone post with the blog. Do **not** @-mention Tao asking for a proof check |
+| `openai/math` or `adbrw/HS_proof` GitHub | Upstream artifacts | Scope questions only. Do not file a “refutation” issue |
+
+**Skip:** generic #AI / “OpenAI solved math” quote-tweet piles; Daniel Litt’s dump-reaction thread unless Hilbert–Smith specifically appears; any venue that rewards “I verified the proof.”
+
+**Order of operations:** publish the blog → LinkedIn + X thread with blog URL → Gradient Damage / AIProofWatch pointer → optional Show HN → MO reopen as a *question*, not as promotion.
 
 ---
 

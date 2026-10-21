@@ -1,5 +1,7 @@
 # Catalog of models
 
+**AI disclaimer:** This catalog is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 Each row is a place a *nearby* claim is already false, or a trap that looks like one. Use these as the codomain of the protocol. Do not add a row without a citation.
 
 ## False conclusions (faithful continuous \(\mathbb{Z}_p\), or a Lie group the argument might forbid)

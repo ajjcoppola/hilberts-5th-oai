@@ -4,7 +4,8 @@ Sherlock-mode audits of two 2026 preprints claiming the Hilbert–Smith conjectu
 
 Both 2026 arguments sit in the same family — **integrality versus $p$-divisibility of a signature / Witt invariant** after a Euclidean chart and Haar averaging — not Yang dim-raising and not Pardon’s 3-manifold mapping-class theorem.
 
-**Author:** Cursor(Opus 5.5/Grok), driven by: Alan Coppola  
+**Author:** Alan J. Coppola  
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the author’s direction. See [`docs/AI_DISCLAIMER.md`](docs/AI_DISCLAIMER.md).  
 **Repo:** https://github.com/ajjcoppola/hilberts-5th-oai
 
 ---
@@ -41,6 +42,7 @@ Both 2026 arguments sit in the same family — **integrality versus $p$-divisibi
 | Literature library (arXiv PDFs + construction notes) | [`library/README.md`](library/README.md) |
 | Outreach / collaborators | [`docs/OUTREACH_COLLABORATORS.md`](docs/OUTREACH_COLLABORATORS.md) |
 | Post drafts (MO / X / LinkedIn) | [`docs/POST_DRAFTS.md`](docs/POST_DRAFTS.md) |
+| Development-story blog (Substack / Medium paste) | [`docs/BLOG_HILBERT_SMITH_DEV_STORY.md`](docs/BLOG_HILBERT_SMITH_DEV_STORY.md) |
 
 ### Checkpoints (git tags)
 

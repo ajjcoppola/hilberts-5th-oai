@@ -1,5 +1,7 @@
 # Provenance
 
+**AI disclaimer:** The reverse-verification notes in this folder are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. Dabrowski’s vendored paper and Lean tree keep their own authorship.
+
 Vendored (sparse) from A. Dabrowski’s Hilbert–Smith repository:
 
 - **Upstream:** https://github.com/adbrw/HS_proof

@@ -1,5 +1,7 @@
 # Sponge / non-manifold stress test (Dabrowski)
 
+**AI disclaimer:** This audit is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Goal:** Can the argument be run on spaces where faithful continuous \(\mathbb{Z}_p\)-actions **exist**, thereby “proving too much”? If every lemma’s hypotheses hold on such a space, that is a candidate gap. If a manifold-specific hypothesis fails early, the proof is correctly scoped.
 
 **Framing:** A Menger sponge where Hilbert–Smith is false does **not** refute a theorem about manifolds. It is a probe for overclaiming.

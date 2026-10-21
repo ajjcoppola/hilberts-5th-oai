@@ -1,5 +1,7 @@
 # HM-6 Symbolic /loop Log
 
+**AI disclaimer:** This log is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 - Timestamp (UTC): `2026-10-18T23:09:20.439745+00:00`
 - Architecture: `E_{i+1} = (E_i Δ_q EW_d(E_i, Z, n)) ×_{C_{p^{i+1}}} S^{2m_{i+1}-1}`
 - Overall: **PASS**

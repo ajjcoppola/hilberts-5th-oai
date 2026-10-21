@@ -1,5 +1,7 @@
 # Trunk A — Lens / solenoid / circle-bundle construction
 
+**AI disclaimer:** These construction notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Plan:** [`../../plans/HM6_FINISH_LINE.md`](../../plans/HM6_FINISH_LINE.md)  
 **Primary PDF:** [`../pdfs/1504.07277.pdf`](../pdfs/1504.07277.pdf) (Dranishnikov, essential lens sequence)
 

@@ -1,5 +1,7 @@
 # Lemma dependency ledger (Dabrowski)
 
+**AI disclaimer:** This ledger is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Extracted from the vendored PDF `HSproof.pdf` (17 pp.) and sparse Lean headers. There is no public LaTeX tree; labels below are PDF lemma numbers.
 
 ## Core dependency chain (contradiction)

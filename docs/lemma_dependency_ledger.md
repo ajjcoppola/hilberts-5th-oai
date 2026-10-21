@@ -1,5 +1,7 @@
 # Lemma dependency ledger
 
+**AI disclaimer:** This ledger is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Extracted from vendored LaTeX labels and the proof's load-bearing citations.
 File paths are relative to [`paper/`](../paper/).
 

@@ -1,5 +1,7 @@
 # Targeted audit ledger (Sherlock targets A–C)
 
+**AI disclaimer:** This audit is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Scope:** line-by-line on load-bearing lemmas only (plan: targeted audit).  
 **Grades:** `PASS` = argument appears complete and correctly cited; `WEAK` = plausible but citation gap, omitted routine detail, or hypothesis that needs expert check; `FAIL` = identified break.  
 **Overall targeted verdict:** **No FAIL found.** Several `WEAK` items remain the natural places for independent expert / Lean scrutiny. The proof does **not** “prove too much” on known sponge models (see [`03_sponge_stress_test.md`](03_sponge_stress_test.md)).

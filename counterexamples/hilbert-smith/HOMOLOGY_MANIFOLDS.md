@@ -1,5 +1,7 @@
 # Homology Manifolds: Counterexamples vs. Proofs for $p$-Adic Actions
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 This document executes the second phase of the campaign: rephrasing the Hilbert–Smith $p$-adic exclusion problem across **all classes of homology and cohomology manifolds**, testing where **counterexamples** exist and where **proofs** (classical Smith–Yang–Coppola, OpenAI 2026, and Dabrowski 2026) hold or break.
 
 Primary references used:

@@ -1,5 +1,7 @@
 # Lean build status (2026-10-17)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 ## Dabrowski HSFormal (palomar)
 
 | Field | Value |

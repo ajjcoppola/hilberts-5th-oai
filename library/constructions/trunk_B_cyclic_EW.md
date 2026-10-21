@@ -1,5 +1,7 @@
 # Trunk B — Finite recursive cyclic + Edwards–Walsh Borel-join
 
+**AI disclaimer:** These construction notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Plan:** [`../../plans/HM6_FINISH_LINE.md`](../../plans/HM6_FINISH_LINE.md)  
 **Primary PDFs:** [`../pdfs/1909.12660.pdf`](../pdfs/1909.12660.pdf) (Levin/RW), [`../pdfs/1102.2225.pdf`](../pdfs/1102.2225.pdf) (EW)  
 **Harness:** [`../../scripts/hm6_equivariant_ew_harness.py`](../../scripts/hm6_equivariant_ew_harness.py)

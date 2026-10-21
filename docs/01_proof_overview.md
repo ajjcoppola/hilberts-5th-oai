@@ -1,5 +1,7 @@
 # Proof overview — OpenAI Hilbert–Smith preprint (2026-09-23)
 
+**AI disclaimer:** This audit is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Answers to reverse-verification questions Q1, Q2, Q4, Q6.
 Source: vendored LaTeX in [`paper/`](../paper/).
 

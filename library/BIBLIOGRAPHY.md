@@ -1,5 +1,7 @@
 # Bibliography catalog
 
+**AI disclaimer:** This catalog is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. Third-party papers keep their own authorship.
+
 Status: **LOCAL** = PDF under `library/pdfs/`; **REPO** = elsewhere in hilberts-5th-oai; **DOI** = cite-only (paywall / no free PDF vendored).
 
 ## Core for Trunk A (lens / solenoid / circle)

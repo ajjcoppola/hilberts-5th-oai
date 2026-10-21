@@ -1,5 +1,7 @@
 # Sherlock Session: HM-6 Dranishnikov–Williams Bullseye
 
+**AI disclaimer:** This session log is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Date:** 2026-10-18  
 **Repo:** Hilberts-5th-OAI  
 **Mode:** Sherlock + `/loop` (symbolic harness + Lean)

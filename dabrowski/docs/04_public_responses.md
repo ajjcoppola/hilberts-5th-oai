@@ -1,5 +1,7 @@
 # Public responses to the Dabrowski Hilbert–Smith preprint (Q3)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Search date:** 2026-10-08  
 **Paper:** A. Dabrowski’s AI agents, *Integral tail signatures and the Hilbert–Smith conjecture*, 2026-10-08, in [adbrw/HS_proof](https://github.com/adbrw/HS_proof).
 

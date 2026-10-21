@@ -1,5 +1,7 @@
 # Checkpoint: Archive paper + HM-6 Borel-join program (2026-10-18)
 
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`AI_DISCLAIMER.md`](AI_DISCLAIMER.md).
+
 **Host repo (published in MO / X / LinkedIn posts):**  
 https://github.com/ajjcoppola/hilberts-5th-oai
 

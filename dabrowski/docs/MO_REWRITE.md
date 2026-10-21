@@ -1,5 +1,7 @@
 # MathOverflow rewrite (copy)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Canonical paste lives in [`docs/POST_DRAFTS.md`](../../docs/POST_DRAFTS.md) (updated 2026-10-08).
 
 **Title:** Which local Euclidean properties block continuous \(\mathbb{Z}_p\)-actions? (OpenAI vs Dabrowski signature arguments)

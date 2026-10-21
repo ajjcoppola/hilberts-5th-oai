@@ -1,5 +1,7 @@
 # Counterexamples to AI-assisted proofs
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../docs/AI_DISCLAIMER.md`](../docs/AI_DISCLAIMER.md).
+
 Seminar rule: **ask for the counterexample before the proof.**
 
 A claimed proof of an open theorem is not refuted by rereading it. It is refuted when the argument still runs on a space where the conclusion is already false. That is how Ščepin treated McAuley’s 2001 Hilbert–Smith preprint: the writeup proved something stronger, and that stronger claim had a known counterexample (community account: [MathOverflow 32656](https://mathoverflow.net/questions/32656)).

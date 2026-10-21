@@ -1,5 +1,7 @@
 # Sherlock: Coppola HS archive paper + Lean extension (2026-10-17)
 
+**AI disclaimer:** This session log is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 ## Ask
 Implement archive paper + Lean extension plan: vendor Dabrowski palomar, install Lean, draft paper, CoppolaHS modules, presentation pack, repo/session log.
 

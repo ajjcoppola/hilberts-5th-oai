@@ -1,5 +1,7 @@
 # Literature & construction library (HM-6 / $p$-adic actions)
 
+**AI disclaimer:** Construction notes in this library are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../docs/AI_DISCLAIMER.md`](../docs/AI_DISCLAIMER.md). Vendored third-party PDFs keep their own authorship.
+
 Supporting the finish-line plan [`plans/HM6_FINISH_LINE.md`](../plans/HM6_FINISH_LINE.md).
 
 | Path | Contents |

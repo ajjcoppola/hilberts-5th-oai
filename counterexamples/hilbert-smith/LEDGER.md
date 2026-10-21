@@ -1,5 +1,7 @@
 # Hilbert–Smith counterexample ledger (executed 2026-10-16)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 Status values: **SCOPED**, **HIT**, **EDGE**, **TRAP**, **PASS (static)**, **REPHRASED**.
 
 Models are defined in [`../models/CATALOG.md`](../models/CATALOG.md). Full homology-manifold proofs and counterexamples are in [`HOMOLOGY_MANIFOLDS.md`](HOMOLOGY_MANIFOLDS.md).

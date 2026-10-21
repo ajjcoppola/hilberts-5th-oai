@@ -2,6 +2,8 @@
 
 Archive-paper formalization layer (Alan J. Coppola, 2026-10-17).
 
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the author’s direction. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 | Module | Role |
 |--------|------|
 | `CyclotomicTower.lean` | `p^k ∣ F(1)` from a product of `k` prime-power cyclotomics (Theorem F arithmetic) |

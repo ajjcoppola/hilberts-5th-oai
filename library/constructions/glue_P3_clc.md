@@ -1,5 +1,7 @@
 # Shared finish P3 — $clc_{\mathbb{Z}}$ Poincaré glue
 
+**AI disclaimer:** These construction notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Plan:** [`../../plans/HM6_FINISH_LINE.md`](../../plans/HM6_FINISH_LINE.md)  
 **Paper:** Rem. `hm6-remaining` in `papers/padic-homology-manifolds/main.tex`
 

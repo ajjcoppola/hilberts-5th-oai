@@ -2,6 +2,8 @@
 
 **Draft archive paper (Alan J. Coppola)** — for private review and possible co-authorship.
 
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the author’s direction. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 | File | Role |
 |------|------|
 | [`main.tex`](main.tex) | Source |

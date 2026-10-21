@@ -1,5 +1,7 @@
 # Provenance
 
+**AI disclaimer:** Reverse-verification notes elsewhere in this repository are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. The vendored OpenAI preprint keeps its own authorship.
+
 Vendored from the OpenAI Math Release preprint:
 
 - **Upstream:** https://github.com/openai/math

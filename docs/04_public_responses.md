@@ -1,5 +1,7 @@
 # Public responses to the OpenAI Hilbert–Smith preprint (Q3)
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Search date:** 2026-10-07  
 **Paper:** OpenAI, *The Hilbert–Smith conjecture in every finite dimension*, 2026-09-23, in [openai/math](https://github.com/openai/math/tree/main/preprints/The-Hilbert-Smith-conjecture-in-every-finite-dimension-September-23-2026).
 

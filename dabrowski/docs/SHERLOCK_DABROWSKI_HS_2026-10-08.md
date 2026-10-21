@@ -1,5 +1,7 @@
 # Sherlock session — Dabrowski Hilbert–Smith preprint
 
+**AI disclaimer:** This session log is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Date:** 2026-10-08  
 **Workspace:** `/Users/ajjc/proj/Hilberts-5th-OAI`  
 **Protocol:** Sherlock Mode (6 steps) + plan `dabrowski_hs_sherlock`

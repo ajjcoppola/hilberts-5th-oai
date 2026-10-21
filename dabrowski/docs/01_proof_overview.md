@@ -1,5 +1,7 @@
 # Proof overview — Dabrowski Hilbert–Smith preprint (2026-10-08)
 
+**AI disclaimer:** This audit is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Answers to reverse-verification questions Q1, Q2, Q4, Q6, applied to A. Dabrowski’s *Integral tail signatures and the Hilbert–Smith conjecture*.
 Source: vendored PDF in [`paper/HSproof.pdf`](../paper/HSproof.pdf).
 

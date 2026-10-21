@@ -1,12 +1,15 @@
 # Post drafts (updated 2026-10-20)
 
+**AI disclaimer:** Coppola-produced papers and collateral in this repository are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`AI_DISCLAIMER.md`](AI_DISCLAIMER.md).
+
 Repo: https://github.com/ajjcoppola/hilberts-5th-oai  
 Checkpoint tags: `checkpoint/hm6-2026-10-18`, `checkpoint/invariants-deck-2026-10-19`  
 Archive paper PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/papers/padic-homology-manifolds/main.pdf  
 Invariants slides: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/index.html  
 OpenAI audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
 Dabrowski audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/dabrowski/docs/Dabrowski_HS_Audit.pdf  
-Outreach / collaborators: [`OUTREACH_COLLABORATORS.md`](OUTREACH_COLLABORATORS.md)
+Outreach / collaborators: [`OUTREACH_COLLABORATORS.md`](OUTREACH_COLLABORATORS.md)  
+Blog (Substack / Medium paste): [`BLOG_HILBERT_SMITH_DEV_STORY.md`](BLOG_HILBERT_SMITH_DEV_STORY.md)
 
 Closed MO question to edit/reopen: https://mathoverflow.net/questions/515824
 
@@ -83,6 +86,29 @@ https://github.com/ajjcoppola/hilberts-5th-oai
 
 ---
 
+## Blog announcement (after Substack or Medium is live)
+
+Replace `BLOG_URL` with the published Substack or Medium link. Until then, the GitHub source is  
+https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/BLOG_HILBERT_SMITH_DEV_STORY.md
+
+### X / Bluesky (blog pointer)
+
+I wrote a short development story: from a 1980 Binghamton dissertation on p-adic transfer, through McAuley’s 2001 break, to reverse-reading the 2026 OpenAI and Dabrowski Hilbert–Smith arguments. The remaining construction I have tried for is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. Work in progress, not a classical proof.
+
+BLOG_URL
+
+Repo: https://github.com/ajjcoppola/hilberts-5th-oai
+
+### LinkedIn (blog pointer)
+
+I have written a development story of the Hilbert–Smith work I have been doing this month. It starts with the p-adic transfer homomorphism from my 1980 Binghamton dissertation, explains the break in McAuley’s 2001 manuscript, and then describes how I reverse-read the 2026 OpenAI and Dabrowski arguments. I am not claiming a standalone classical Hilbert–Smith proof. The remaining open target, as far as I have tried to construct one, is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension.
+
+BLOG_URL
+
+https://github.com/ajjcoppola/hilberts-5th-oai
+
+---
+
 ## Follow-up announcement (2026-10-20) — GitHub WIP
 
 Start from Coppola’s own wording. Use complete sentences. Spell out abbreviations on first use (homology manifold, Euclidean neighborhood retract, Quinn index). Do **not** claim a classical Hilbert–Smith proof.
@@ -92,7 +118,7 @@ The invariants deck explains Quinn’s resolution index, OpenAI’s Witt charact
 
 ### LinkedIn (primary; complete sentences)
 
-I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — that there are no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. The repository holds draft papers, explanatory slide decks, and other AI-assisted collateral.
+I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — that there are no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. The repository holds draft papers, explanatory slide decks, and other collateral. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models.
 
 In particular, as far as I know, and as far as I have tried to construct one, the remaining open target is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. That is homology-manifold class six in the notes: local duality still looks n-dimensional over the integers, but covering dimension is infinite, so the 2026 Euclidean-neighborhood-retract packaging does not apply.
 
@@ -105,7 +131,7 @@ Invariants explainer (open the HTML in a browser): https://github.com/ajjcoppola
 
 ### X thread (recommended; complete sentences)
 
-1/ I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. It contains draft papers, explanatory slide decks, and other AI-assisted collateral.
+1/ I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments — no effective p-adic actions on Euclidean manifolds — into a single GitHub repository. It contains draft papers, explanatory slide decks, and other collateral. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models.
 
 https://github.com/ajjcoppola/hilberts-5th-oai
 
@@ -115,13 +141,13 @@ https://github.com/ajjcoppola/hilberts-5th-oai
 
 ### X / Bluesky (single post, if a thread is too long)
 
-I have put my work on understanding and extending the recent Hilbert–Smith arguments into one GitHub repository: draft papers, slide decks, and other AI-assisted notes. The remaining construction I have tried for is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. The slides explain Quinn’s index, Witt characters, and signature tails geometrically. Work in progress, not a classical proof.
+I have put my work on understanding and extending the recent Hilbert–Smith arguments into one GitHub repository: draft papers, slide decks, and other notes. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models. The remaining construction I have tried for is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension. The slides explain Quinn’s index, Witt characters, and signature tails geometrically. Work in progress, not a classical proof.
 
 https://github.com/ajjcoppola/hilberts-5th-oai
 
 ### Mastodon / Bluesky long
 
-I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments (no effective p-adic actions on Euclidean manifolds) into a single GitHub repository, with draft papers, explanatory slide decks, and other AI-assisted collateral.
+I have chosen to put the work I have done on understanding and extending the recent Hilbert–Smith arguments (no effective p-adic actions on Euclidean manifolds) into a single GitHub repository, with draft papers, explanatory slide decks, and other collateral. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models.
 
 In particular, as far as I know and have tried to construct one, the remaining open target is an effective p-adic action on a compact integer-cohomology manifold of finite cohomological dimension and infinite covering dimension — a homology manifold, not Euclidean space.
 
@@ -155,7 +181,7 @@ Paper draft: `papers/padic-homology-manifolds/main.pdf`
 
 ### X / Bluesky
 
-Relative boundary map of OpenAI + Dabrowski Hilbert–Smith arguments across homology-manifold classes HM-1..HM-6, plus an open HM-6 target ($\dim_Z=n$, $\dim=\infty$) with Lean $k$-tower + symbolic gates.
+Relative boundary map of OpenAI + Dabrowski Hilbert–Smith arguments across homology-manifold classes HM-1..HM-6, plus an open HM-6 target ($\dim_Z=n$, $\dim=\infty$) with Lean $k$-tower + symbolic gates. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models.
 
 Not a classical HSC claim. Coauthors welcome on the $clc_Z$ glue.
 
@@ -163,7 +189,7 @@ https://github.com/ajjcoppola/hilberts-5th-oai
 
 ### LinkedIn
 
-I posted reverse-reads of the two 2026 Hilbert–Smith signature arguments (OpenAI / Dabrowski) in a public GitHub audit repo. New checkpoint: a draft geometric-topology note that (i) frames exclusion results as *relative* to those engines, (ii) isolates Dabrowski’s single-$p$ Quinn-index gap and a $k$-tower repair (Lean 4), and (iii) opens a construction program for infinite-covering-dimension cohomology manifolds (HM-6). Seeking collaborators in ENR / cohomological dimension / Lean — details in the repo’s `docs/OUTREACH_COLLABORATORS.md`.
+I posted reverse-reads of the two 2026 Hilbert–Smith signature arguments (OpenAI / Dabrowski) in a public GitHub audit repo. This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models. New checkpoint: a draft geometric-topology note that (i) frames exclusion results as *relative* to those engines, (ii) isolates Dabrowski’s single-$p$ Quinn-index gap and a $k$-tower repair (Lean 4), and (iii) opens a construction program for infinite-covering-dimension cohomology manifolds (HM-6). Seeking collaborators in ENR / cohomological dimension / Lean — details in the repo’s `docs/OUTREACH_COLLABORATORS.md`.
 
 https://github.com/ajjcoppola/hilberts-5th-oai
 

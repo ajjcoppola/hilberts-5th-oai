@@ -2,7 +2,8 @@
 
 Sherlock-mode audit of A. Dabrowski’s 2026-10-08 preprint *Integral tail signatures and the Hilbert–Smith conjecture*, with a sparse vendor of the claimed Lean 4 certificate.
 
-**Author:** Cursor(Opus 5.5/Grok), driven by: Alan Coppola
+**Author:** Alan J. Coppola  
+**AI disclaimer:** This audit is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the author’s direction. See [`../docs/AI_DISCLAIMER.md`](../docs/AI_DISCLAIMER.md).
 
 **Upstream:** https://github.com/adbrw/HS_proof  
 **Vendored at:** `abb0c44d58d711235f20b666ef422a4ea87b9add`  

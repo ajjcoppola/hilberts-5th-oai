@@ -1,5 +1,7 @@
 # Sherlock: HM-6 finish line — solenoid + cyclic towers
 
+**AI disclaimer:** This session log is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 **Date:** 2026-10-19  
 **Repo:** hilberts-5th-oai @ `checkpoint/hm6-2026-10-18`  
 **Goal:** Effective $A_p$ (or solenoidal) action on a $\mathbb{Z}$-cohomology $n$-manifold, built one complex at a time.

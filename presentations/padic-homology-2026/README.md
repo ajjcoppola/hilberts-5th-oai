@@ -1,5 +1,7 @@
 # Presentation pack — p-adic homology manifolds (2026)
 
+**AI disclaimer:** This work is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../../docs/AI_DISCLAIMER.md`](../../docs/AI_DISCLAIMER.md).
+
 | File | Role |
 |------|------|
 | [`index.html`](index.html) | Reveal.js slides (~15) |

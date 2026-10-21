@@ -43,7 +43,7 @@ APPENDIX_SOURCES = [
 HEADER = r"""---
 title: "Response: Dabrowski Hilbert--Smith preprint"
 subtitle: "Sherlock reverse-verification notes"
-author: "Cursor(Opus 5.5/Grok), driven by: Alan Coppola"
+author: "Alan J. Coppola (AI-assisted / AI-generated using Cursor, with Grok, Anthropic, and OpenAI models)"
 date: "2026-10-08"
 geometry: margin=1in
 fontsize: 11pt
@@ -69,7 +69,9 @@ header-includes:
 \texttt{Integral tail signatures and the Hilbert--Smith conjecture}}\\
 Upstream: \texttt{github.com/adbrw/HS\_proof} \quad SHA: \texttt{abb0c44\ldots}\\
 PDF SHA-256: \texttt{e305fd47\ldots}\quad
-Repo: \texttt{github.com/ajjcoppola/hilberts-5th-oai}}
+Repo: \texttt{github.com/ajjcoppola/hilberts-5th-oai}\\[0.35em]
+This work is AI-assisted and AI-generated using Cursor, with Grok,
+Anthropic, and OpenAI models, under the direction of Alan J.\ Coppola.}
 \end{center}
 \vspace{-0.4em}
 

@@ -1,5 +1,7 @@
 # Dabrowski vs OpenAI: same obstruction class, different packaging
 
+**AI disclaimer:** These notes are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola.
+
 Both preprints claim the Hilbert–Smith conjecture in every finite dimension by excluding faithful continuous \(\mathbb{Z}_p\)-actions on topological manifolds. Neither uses Yang’s orbit-dimension raising, and neither is Pardon’s 3-manifold mapping-class argument. They sit in the same **family**: integrality versus \(p\)-divisibility of a signature / Witt invariant manufactured from a Euclidean chart and a small open subgroup of \(\mathrm{Homeo}\).
 
 OpenAI audit: [`docs/Hilbert_Smith_Audit.pdf`](../../docs/Hilbert_Smith_Audit.pdf) (this repo, 2026-09-23 preprint).  

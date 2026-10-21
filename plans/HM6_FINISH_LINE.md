@@ -1,5 +1,7 @@
 # Plan: HM-6 finish line — effective $A_p$ on a $\mathbb{Z}$-cohomology manifold
 
+**AI disclaimer:** This plan is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`../docs/AI_DISCLAIMER.md`](../docs/AI_DISCLAIMER.md).
+
 **Status:** active  
 **Date:** 2026-10-19  
 **Checkpoint:** `checkpoint/hm6-2026-10-18` on https://github.com/ajjcoppola/hilberts-5th-oai  
