@@ -1,10 +1,10 @@
 # From Binghamton in 1980 to two 2026 Hilbert–Smith arguments
 
+**AI disclaimer.** This essay, and the papers and notes it points to, are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under my direction. Errors remain mine.
+
 **A development story, not a proof.**  
 Alan J. Coppola · 20 October 2026  
 For Substack (Alan Coppola) or Medium (@ajjcoppola)
-
-**AI disclaimer.** This essay, and the papers and notes it points to, are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under my direction. Errors remain mine.
 
 ---
 

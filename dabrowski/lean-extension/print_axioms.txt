@@ -1,1 +1,2 @@
+# AI disclaimer: This capture is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. The theorem below is Dabrowski’s HSFormal.hilbertSmith, not a Coppola proof.
 'HSFormal.hilbertSmith' depends on axioms: [propext, Classical.choice, Quot.sound]

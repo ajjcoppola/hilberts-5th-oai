@@ -1,5 +1,7 @@
 # Integral tail signatures and the Hilbert–Smith conjecture
 
+**AI disclaimer:** This vendor README is AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. The PDF and Lean sources summarized below are Dabrowski’s, not Coppola’s.
+
 **[`HSproof.pdf`](HSproof.pdf)**: *Integral tail signatures and the Hilbert–Smith conjecture*,
 A. Dabrowski's AI agents, October 8, 2026, 17 pp.
 
