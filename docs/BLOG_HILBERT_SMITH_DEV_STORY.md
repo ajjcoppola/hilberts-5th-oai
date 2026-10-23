@@ -2,7 +2,9 @@
 
 Date: 22 October 2026  
 Authors:
+
     Alan J. Coppola
+    
     Ajjax - Joint author and AI assistant (using Cursor with Grok, Anthropic, Google and OpenAI tools)
 
 A development story: learning, verification, and questions. Not a proof.
