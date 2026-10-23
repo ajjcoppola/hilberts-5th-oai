@@ -4,13 +4,14 @@
 
 | File | Role |
 |------|------|
+| [`padic-homology-2026.pdf`](padic-homology-2026.pdf) | Slide PDF (GitHub-viewable) |
 | [`index.html`](index.html) | Reveal.js slides (~15) |
 | [`checklist.pdf`](checklist.pdf) | One-page reviewer checklist |
 | [`checklist.tex`](checklist.tex) | Checklist source |
 | [`figures/*.mmd`](figures/) | Mermaid diagram sources |
 | [`../.. /papers/padic-homology-manifolds/main.pdf`](../../papers/padic-homology-manifolds/main.pdf) | Archive paper |
 
-Open `index.html` in a browser (needs network for Reveal/KaTeX CDN).
+Open `index.html` in a browser for the live deck (needs network for Reveal/KaTeX CDN). Rebuild the PDF with `scripts/export_slides_pdf.sh`.
 
 Sendable zip built as `padic-homology-2026-pack.zip` in this directory (when present).
 

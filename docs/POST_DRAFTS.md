@@ -3,15 +3,17 @@
 **AI disclaimer:** Coppola-produced papers and collateral in this repository are AI-assisted and AI-generated using Cursor, with Grok, Anthropic, and OpenAI models, under the direction of Alan J. Coppola. See [`AI_DISCLAIMER.md`](AI_DISCLAIMER.md).
 
 Repo: https://github.com/ajjcoppola/hilberts-5th-oai  
-Checkpoint tags: `checkpoint/hm6-2026-10-18`, `checkpoint/invariants-deck-2026-10-19`  
+Checkpoint tags: `checkpoint/hm6-2026-10-18`, `checkpoint/invariants-deck-2026-10-19`, `checkpoint/blog-2026-10-23`  
 Archive paper PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/papers/padic-homology-manifolds/main.pdf  
-Invariants slides: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/index.html  
+Invariants slides: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/invariants-quinn-witt-dabrowski.pdf  
 OpenAI audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/docs/Hilbert_Smith_Audit.pdf  
 Dabrowski audit PDF: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/dabrowski/docs/Dabrowski_HS_Audit.pdf  
 Outreach / collaborators: [`OUTREACH_COLLABORATORS.md`](OUTREACH_COLLABORATORS.md)  
-Blog (Substack / Medium paste): [`BLOG_HILBERT_SMITH_DEV_STORY.md`](BLOG_HILBERT_SMITH_DEV_STORY.md)
+Blog (Substack / Medium paste): [`BLOG_HILBERT_SMITH_DEV_STORY.md`](BLOG_HILBERT_SMITH_DEV_STORY.md)  
+Blog lab notes (internal): [`BLOG_HILBERT_SMITH_LAB_NOTES.md`](BLOG_HILBERT_SMITH_LAB_NOTES.md)  
+Ajjax–Alan voice samples: [`AJJAX_VOICE_SAMPLES.md`](AJJAX_VOICE_SAMPLES.md), [`ajjax-samples/`](ajjax-samples/)
 
-Closed MO question to edit/reopen: https://mathoverflow.net/questions/515824
+Closed MO questions: [515824](https://mathoverflow.net/questions/515824), [515876](https://mathoverflow.net/questions/515876). Do not reopen as AI-verification. Use Sample A.
 
 **Do not** ask whether a proof is correct or to finish a verification. The body below is a research question about Euclidean structure; the two preprints are motivation.
 
@@ -127,7 +129,7 @@ The slide decks try to make the algebra geometric. Quinn’s index is a local si
 https://github.com/ajjcoppola/hilberts-5th-oai
 
 Optional second paragraph with one extra link (skip if it feels busy):
-Invariants explainer (open the HTML in a browser): https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/index.html
+Invariants explainer: https://github.com/ajjcoppola/hilberts-5th-oai/blob/main/presentations/invariants-quinn-witt-dabrowski/invariants-quinn-witt-dabrowski.pdf
 
 ### X thread (recommended; complete sentences)
 

@@ -1,0 +1,7 @@
+I wrote a dissertation at Binghamton in 1980 on p-adic transfer, with L. F. McAuley. The picture I still carry is Yang’s: if A_p acts on a compact n-manifold, then dim_Z(M/A_p)=n+2, and the extra dimension is p-torsion. Finite cyclic groups of p-power order act freely (lens spaces). The infinite descending chain is the problem.
+
+Two writeups from this autumn — OpenAI (23 September) and Dabrowski (8 October) — do not use that jump. Both seem to make a unit in a Euclidean neighborhood, a degree-one map or a signature-one class, and then split the unit by covering degree until integrality gives out. I am not asking whether either writeup is correct. I want to know which local properties of R^n the splitting actually uses.
+
+Newman’s theorem, a chart, some form of duality that produces an integral lattice or an L-theory tail, and arbitrarily small open subgroups of Homeo: if I drop the chart and keep only a compact integer-cohomology n-manifold of infinite covering dimension, does the same splitting still make sense? I have been trying to construct such a space. I do not have one.
+
+Notes, not the question: https://github.com/ajjcoppola/hilberts-5th-oai

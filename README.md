@@ -31,8 +31,8 @@ Both 2026 arguments sit in the same family — **integrality versus $p$-divisibi
 | Deliverable | Path |
 |-------------|------|
 | Paper PDF / TeX | [`papers/padic-homology-manifolds/`](papers/padic-homology-manifolds/) |
-| Main slides | [`presentations/padic-homology-2026/index.html`](presentations/padic-homology-2026/index.html) |
-| Invariants deck (Quinn / Witt / Dabrowski + geometric germ) | [`presentations/invariants-quinn-witt-dabrowski/index.html`](presentations/invariants-quinn-witt-dabrowski/index.html) |
+| Main slides | [`presentations/padic-homology-2026/padic-homology-2026.pdf`](presentations/padic-homology-2026/padic-homology-2026.pdf) ([HTML](presentations/padic-homology-2026/index.html)) |
+| Invariants deck (Quinn / Witt / Dabrowski + geometric germ) | [`presentations/invariants-quinn-witt-dabrowski/invariants-quinn-witt-dabrowski.pdf`](presentations/invariants-quinn-witt-dabrowski/invariants-quinn-witt-dabrowski.pdf) ([HTML](presentations/invariants-quinn-witt-dabrowski/index.html)) |
 | Reviewer checklist / pack | [`presentations/padic-homology-2026/`](presentations/padic-homology-2026/) |
 | Campaign + ledger + HM notes | [`counterexamples/hilbert-smith/`](counterexamples/hilbert-smith/) ([`HOMOLOGY_MANIFOLDS.md`](counterexamples/hilbert-smith/HOMOLOGY_MANIFOLDS.md), [`CAMPAIGN.md`](counterexamples/hilbert-smith/CAMPAIGN.md)) |
 | Model catalog (incl. E4 = HM-6) | [`counterexamples/models/CATALOG.md`](counterexamples/models/CATALOG.md) |
@@ -43,6 +43,10 @@ Both 2026 arguments sit in the same family — **integrality versus $p$-divisibi
 | Outreach / collaborators | [`docs/OUTREACH_COLLABORATORS.md`](docs/OUTREACH_COLLABORATORS.md) |
 | Post drafts (MO / X / LinkedIn) | [`docs/POST_DRAFTS.md`](docs/POST_DRAFTS.md) |
 | Development-story blog (Substack / Medium paste) | [`docs/BLOG_HILBERT_SMITH_DEV_STORY.md`](docs/BLOG_HILBERT_SMITH_DEV_STORY.md) |
+| Blog PDF | [`docs/BLOG_HILBERT_SMITH_DEV_STORY.pdf`](docs/BLOG_HILBERT_SMITH_DEV_STORY.pdf) |
+| Blog figures (p-adic solenoid) | [`docs/figures/`](docs/figures/) |
+| Blog lab notes (internal, longer) | [`docs/BLOG_HILBERT_SMITH_LAB_NOTES.md`](docs/BLOG_HILBERT_SMITH_LAB_NOTES.md) |
+| Ajjax–Alan voice samples | [`docs/AJJAX_VOICE_SAMPLES.md`](docs/AJJAX_VOICE_SAMPLES.md) |
 
 ### Checkpoints (git tags)
 
@@ -50,8 +54,9 @@ Both 2026 arguments sit in the same family — **integrality versus $p$-divisibi
 |-----|----------|
 | [`checkpoint/hm6-2026-10-18`](https://github.com/ajjcoppola/hilberts-5th-oai/releases/tag/checkpoint/hm6-2026-10-18) | Archive paper, CoppolaHS Lean, HM-6 harness/loop, counterexample campaign |
 | [`checkpoint/invariants-deck-2026-10-19`](https://github.com/ajjcoppola/hilberts-5th-oai/releases/tag/checkpoint/invariants-deck-2026-10-19) | Quinn / Witt / Dabrowski invariants slides (KaTeX + geometric germ narrative) |
+| [`checkpoint/blog-2026-10-23`](https://github.com/ajjcoppola/hilberts-5th-oai/releases/tag/checkpoint/blog-2026-10-23) | Public essay, solenoid figures, essay PDF, GitHub-viewable slide PDFs |
 
-Notes: [`docs/CHECKPOINT_HM6_2026-10-18.md`](docs/CHECKPOINT_HM6_2026-10-18.md).
+Notes: [`docs/CHECKPOINT_HM6_2026-10-18.md`](docs/CHECKPOINT_HM6_2026-10-18.md), [`docs/CHECKPOINT_BLOG_2026-10-23.md`](docs/CHECKPOINT_BLOG_2026-10-23.md).
 
 ### HM-6 construction sketch
 

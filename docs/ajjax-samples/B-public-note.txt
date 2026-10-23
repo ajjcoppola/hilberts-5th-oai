@@ -1,0 +1,7 @@
+I spent 1979 and 1980 at Binghamton writing a thesis on p-adic transfer. McAuley was my advisor. The question was already old: can the p-adic integers move a manifold continuously and faithfully? Finite cyclic groups can. The infinite chain is another matter.
+
+This month two arguments appeared that try to settle the manifold case by splitting a signature. I read them. I put the reading, and the old transfer machine, in a GitHub repository. I am not announcing a proof of Hilbert–Smith.
+
+What I cannot finish is an example: an effective p-adic action on a compact integer-cohomology manifold that looks n-dimensional over the integers and has infinite covering dimension. If you work on cohomological dimension, I would like to talk.
+
+https://github.com/ajjcoppola/hilberts-5th-oai

@@ -1,0 +1,3 @@
+This draft is for reading and for possible co-authorship. It does not prove the classical Hilbert–Smith conjecture by itself. Where a statement leans on the 2026 manifold arguments of OpenAI or of Dabrowski, I mark it relative. What I can stand behind without that lean is the transfer over the rationals, the diagnosis of McAuley’s 2001 cover U^m, and the observation that a bounded-dimension inverse limit with free C_p fibers is already in trouble.
+
+The remaining construction is the one I have not glued: local integer Poincaré duality on blocks of infinite covering dimension. Until that glue is written, there is no existence theorem.
